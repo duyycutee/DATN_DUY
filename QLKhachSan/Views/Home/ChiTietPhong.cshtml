@@ -1,0 +1,1305 @@
+﻿@model QLKhachSan.ViewModels.ChiTietPhongVM
+@{
+    ViewData["Title"] = "ChiTietPhong";
+    Layout = "_LayoutDetail";
+}
+<aside class="sidebar col-lg-3">
+    <div class="sidebar__content js-sticky-top">
+        <div class="sidebar__finder card bg-primary text-white">
+            <h4 class="m-0 mb-lg-4">Booking for hotels</h4>
+            <form class="collapse show d-lg-block mt-3" asp-controller="Room" asp-action="Booking" method="post" data-toggle="validator" id="bookingForm">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-lg-12 form-group">
+                                <input type="hidden" name="maphong" value="@Model.MaPhong" />
+                                <input type="hidden" name="tenphong" value="@Model.TenPhong" />
+                                <label class="label-text">Check in date</label>
+                                <div class="input-group date">
+                                    <input class="form-control js-input-date" id="hotelInDate" type="date" name="ngayden" required="required" />
+                                    <div class="input-group-append">
+                                        <i class="icon icon-calendar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-12 form-group">
+                                <label class="label-text">Check out date</label>
+                                <div class="input-group date">
+                                    <input class="form-control js-input-date" id="hotelOutDate" type="date" name="ngaydi" required="required" />
+                                    <div class="input-group-append">
+                                        <i class="icon icon-calendar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="label">Guest</label>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 form-group col-lg-12">
+                                <span class="form-select">
+                                    <select class="form-control select2 js-form-select" id="hotelAdults" name="songuoitoida">
+                                        @for (var i = 1; i <= ViewBag.songuoitoida; i++)
+                                        {
+                                            <option value="@i">@i Guest</option>
+                                        }
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-secondary btn--round mx-auto mt-2 w-100" onclick="submitForm()" type="submit">
+                    Booking
+                </button>
+            </form>
+        </div>
+        <button class="btn-toggle btn btn-primary-light border-0 w-100 py-3 d-lg-none" data-target="#hotelFinder" data-toggle="collapse" aria-expanded="true" type="button"><span class="icon-bar"></span></button>
+    </div>
+</aside>
+<div class="col-lg-9" id="barba-wrapper">
+    <div class="barba-container">
+        <nav class="hotel-nav">
+            <ul class="hotel-nav__menu nav nav-tabs" role="tablist">
+                <li class="nav-item d-flex col-12 col-sm p-0">
+                    <a class="nav-link active" data-toggle="tab" href="#hotel" role="tab" aria-controls="hotel" aria-selected="false"><span>Hotel information and room rates</span></a>
+                </li>
+                @*                 <li class="nav-item d-flex col-12 col-sm p-0">
+                <a class="nav-link" data-toggle="tab" href="#hotelServices" role="tab" aria-controls="hotelServices" aria-selected="true"><span>Facilities &amp; Services</span></a>
+                </li> *@
+                <li class="nav-item d-flex col-12 col-sm p-0">
+                    <a class="nav-link" data-toggle="tab" href="#hotelAccommodation" role="tab" aria-controls="hotelAccommodation" aria-selected="true"><span>Accommodation conditions</span></a>
+                </li>
+                <li class="nav-item d-flex col-12 col-sm p-0">
+                    <a class="nav-link" data-toggle="tab" href="#hotelReviews" role="tab" aria-controls="hotelReviews" aria-selected="true"><span>Guest reviews</span></a>
+                </li>
+            </ul>
+        </nav>
+        <div class="tab-content">
+            <div class="tab-pane active show" id="hotel" role="tabpanel">
+                <section>
+                    <h3 name="tenphong" class="fw-md mb-1">@Model.TenPhong</h3>
+                    <ul class="hotel-title mb-3">
+                        <li class="d-flex">
+                            <div class="media-object"><i class="icon icon-label mr-2 text-primary"></i></div>
+                            <div class="local"><span>@Model.DiaChi,Việt Nam</span><i class="bullet mx-2"></i><a href="#modalMap" data-toggle="modal" data-title="Ravena Best Hotel">Show on map</a></div>
+                        </li>
+                    </ul>
+                    <div class="hotel-gallery">
+                        <div class="hotel-gallery__carousel swiper-container js-hotel-carousel">
+                            <div class="swiper-wrapper">
+                                @foreach (var i in ViewBag.anhphong)
+                                {
+                                    <div class="swiper-slide"><img class="img-fluid img-cover" src="@Url.Content($"~/img/Images/{i.TenAnh}")" alt="#" /></div>
+                                }
+                            </div>
+                            <div class="hotel-gallery__controls"><a class="hotel-gallery__arrow shadow-sm js-prev" role="button"><i class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 44 44"><path d="M22.119 44.237C9.922 44.237 0 34.315 0 22.119S9.922.001 22.119.001s22.119 9.922 22.119 22.118-9.924 22.118-22.119 22.118zm0-42.736C10.75 1.501 1.5 10.75 1.5 22.119c0 11.368 9.25 20.618 20.619 20.618s20.619-9.25 20.619-20.618c0-11.369-9.25-20.618-20.619-20.618z" /><path d="M24.667 29.884a.74.74 0 0 1-.53-.22l-7.328-7.334a.752.752 0 0 1 0-1.061l7.328-7.333a.75.75 0 1 1 1.061 1.061L18.4 21.8l6.798 6.805a.752.752 0 0 1 0 1.061.75.75 0 0 1-.531.218z" /></svg></i></a><a class="hotel-gallery__arrow shadow-sm js-next" role="button"><i class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 44 44"><path d="M22.118 44.236C9.922 44.236 0 34.314 0 22.118S9.922 0 22.118 0s22.118 9.922 22.118 22.118-9.922 22.118-22.118 22.118zm0-42.736C10.75 1.5 1.5 10.749 1.5 22.118c0 11.368 9.25 20.618 20.618 20.618 11.37 0 20.618-9.25 20.618-20.618 0-11.369-9.248-20.618-20.618-20.618z" /><path d="M19.341 29.884a.75.75 0 0 1-.53-1.281l6.796-6.804-6.796-6.803a.75.75 0 1 1 1.061-1.061l7.325 7.333a.75.75 0 0 1 0 1.061l-7.325 7.333a.742.742 0 0 1-.531.222z" /></svg></i></a></div>
+                        </div>
+                        <div class="hotel-gallery__thumbs swiper-container js-hotel-carousel-thumbs">
+                            <div class="swiper-wrapper">
+                                @foreach (var i in ViewBag.anhphong)
+                                {
+                                    <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="@Url.Content($"~/img/Images/{i.TenAnh}")" data-description="Joshua Tree Homesteader Cabin"><img class="img-cover" src="@Url.Content($"~/img/Images/{i.TenAnh}")" alt="#" /></a></div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12 col-md-8 d-flex">
+                            <div class="hotel__intro hotel-card w-100">
+                                <section class="pb-4">
+                                    <h5 class="d-flex align-items-center text-primary mb-3"><i class="icon icon-badge mr-2"></i>One of the best hotels in Milan by customer recall</h5>
+                                    <p>Hotel Ravena is located in a park of 8,000 square meters. meters. There is a restaurant and private parking. The hotel is located on the outskirts of Milan, 150 meters from Bruzzzo Train Station with direct connection to the city center.</p>
+                                    <p>The modern, 4-star Ravena Hotel offers spacious and elegant rooms with free Wi-Fi, air conditioning, a minibar and a flat-screen TV with international channels, as well as a spacious bathroom decorated with mosaic tiles.</p>
+                                    <p>The Ravena has a bar and several meeting rooms for up to 1000 people.</p>
+                                    <p>Hotel Ravena is located near the large Nord park, about 9 km from the historic center of Milan. The exhibition center "Ro Fiera Milano" can be reached in about 10 minutes. Comasina Metro Station is 700 meters away.</p>
+                                    <p>Here the best value for money in Milan! Compared with other options in this city, guests receive more for the same money.</p>
+                                </section>
+                                <section>
+                                    <h5>Popular services in the hotel</h5>
+                                    <ul class="hotel-facilities d-flex flex-wrap flex-column flex-md-row">
+                                        @foreach (var i in ViewBag.thietbi)
+                                        {
+                                            <li class="mr-2"><span class="align-middle mr-2">@i</span><i class="bullet d-none d-md-inline-block"></i></li>
+                                        }
+                                    </ul>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 d-flex">
+                            <div class="hotel-stats hotel-card w-100">
+                                <div class="row">
+                                    <div class="col-12 col-sm-auto col-md-12">
+                                        <h3 class="mb-3">Guests like:</h3>
+                                        <ul class="hotel-stats__view mb-4">
+                                            <li class="item d-flex align-items-center">
+                                                <div class="media-object"><i class="icon icon-check-button mr-2"></i></div>
+                                                <div class="desc">
+                                                    <div class="fw-bold mb-1">Convenient location</div>
+                                                    <div class="amount">123 reviews</div>
+                                                </div>
+                                            </li>
+                                            <li class="item d-flex align-items-center">
+                                                <div class="media-object"><i class="icon icon-check-button mr-2"></i></div>
+                                                <div class="desc">
+                                                    <div class="fw-bold mb-1">View from window</div>
+                                                    <div class="amount">95 reviews</div>
+                                                </div>
+                                            </li>
+                                            <li class="item d-flex align-items-center">
+                                                <div class="media-object"><i class="icon icon-check-button mr-2"></i></div>
+                                                <div class="desc">
+                                                    <div class="fw-bold mb-1">Cleanliness of the room</div>
+                                                    <div class="amount">1325 reviews</div>
+                                                </div>
+                                            </li>
+                                            <li class="item d-flex align-items-center">
+                                                <div class="media-object"><i class="icon icon-check-button mr-2"></i></div>
+                                                <div class="desc">
+                                                    <div class="fw-bold mb-1">Buffet breakfast</div>
+                                                    <div class="amount">1890 reviews</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-12 col-sm col-md-12">
+                                        <div class="hotel-stats__like d-flex flex-wrap justify-content-between align-items-center mb-3">
+                                            <div class="title mr-3 fw-bold">Guest ratings</div>
+                                            <div class="likes"><i class="icon icon-thumbs-up mr-2"></i><span class="amount">8,2 / 10</span></div>
+                                        </div>
+                                        <ul class="hotel-stats__progress js-point-progress">
+                                            <li class="item mb-1">
+                                                <div class="title">Comfort</div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="progress progress--sm">
+                                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div><span>8.2</span>
+                                                </div>
+                                            </li>
+                                            <li class="item mb-1">
+                                                <div class="title">Facilities</div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="progress progress--sm">
+                                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div><span>9.3</span>
+                                                </div>
+                                            </li>
+                                            <li class="item mb-1">
+                                                <div class="title">Staff</div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="progress progress--sm">
+                                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div><span>7.6</span>
+                                                </div>
+                                            </li>
+                                            <li class="item mb-1">
+                                                <div class="title">Food</div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="progress progress--sm">
+                                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div><span>8.5</span>
+                                                </div>
+                                            </li>
+                                            <li class="item mb-1">
+                                                <div class="title">Price-quality ratio</div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="progress progress--sm">
+                                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div><span>8.2</span>
+                                                </div>
+                                            </li>
+                                        </ul><a class="btn btn-secondary btn--round btn-block ml-sm-0" href="booking-traveler.html" role="button">book now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @* <form class="hotel-card hotel-status" action="#" method="POST" data-toggle="validator">
+                    <h4>Seat availability</h4>
+                    <div class="row">
+                    <div class="col-12 text-center text-xl-left col-xl">
+                    <div class="row">
+                    <div class="form-group col-12 col-sm-4">
+                    <label class="label-text">Check in date</label>
+                    <div class="input-date-group position-relative">
+                    <i class="mr-2 icon icon-calendar text-secondary"></i>
+                    <input class="form-control js-input-date hidden " id="statusDateFrom" type="text" name="date_from" required="required" />
+                    <label class="form-control date" for="statusDateFrom"></label>
+                    </div><span>from 14:00</span>
+                    </div>
+                    <div class="form-group col-12 col-sm-4">
+                    <label class="label-text">Check out date</label>
+                    <div class="input-date-group position-relative">
+                    <i class="mr-2 icon icon-calendar text-secondary"></i>
+                    <input class="form-control js-input-date hidden " id="statusDateTo" type="text" name="date_to" required="required" />
+                    <label class="form-control date" for="statusDateTo"></label>
+                    </div><span>13 Nights</span>
+                    </div>
+                    <div class="form-group col-12 col-sm-4">
+                    <label class="text-label">Guests:</label><span class="position-relative">
+                    <input class="form-control" type="hidden" name="persons" value="2 Adults, 1 child"><span class="form-control d-inline pointer">2 Adults, 1 child</span>
+                    </span>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="col-auto mx-auto">
+                    <button class="btn btn-light btn--round" type="submit">
+                    change search parameters
+                    </button>
+                    </div>
+                    </div>
+                    </form> *@
+                </section>
+            </div>
+            @* <div class="tab-pane" id="hotelServices" role="tabpanel">
+            <section>
+            <h3 class="fw-md">Facilities & Services</h3>
+            <hr class="mb-4">
+            <div class="hotel-card">
+            <h5>Most popular facilities</h5>
+            <ul class="hotel-facilities d-flex flex-wrap flex-column flex-md-row mb-3">
+            @foreach(var i in ViewBag.thietbi)
+            {
+            <li class="mr-2"><i class="align-middle icon text-secondary icon-wifi mr-2"></i><span class="align-middle mr-2">@i</span><i class="bullet d-none d-md-inline-block"></i></li>
+            }
+            </ul>
+            <div class="row">
+            <div class="col-12 col-sm-6">
+            <div class="hotel-service mb-4">
+            <div class="hotel-service__title d-flex mb-3">
+            <i class="icon icon-dinner mr-2"></i>
+            <h4 class="h4">Food and Beverages</h4>
+            </div>
+            <ul class="hotel-service__list">
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Wine / Champagne</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Special diet menus</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Snack bar</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Breakfast in the room</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Restaurant</span>
+            </div>
+            </li>
+            </ul>
+            </div>
+            <div class="hotel-service mb-4">
+            <div class="hotel-service__title d-flex mb-3">
+            <i class="icon icon-cleaning mr-2"></i>
+            <h4 class="h4">Cleaning services</h4>
+            </div>
+            <ul class="hotel-service__list">
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Daily cleaning</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Ironing Service</span>
+            <div class="w-100"></div><span class="available">(Paid separately)</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Dry Cleaning</span>
+            <div class="w-100"></div><span class="available">(Paid separately)</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Laundry</span>
+            <div class="w-100"></div><span class="available">(Paid separately)</span>
+            </div>
+            </li>
+            </ul>
+            </div>
+            <div class="hotel-service mb-4">
+            <div class="hotel-service__title d-flex mb-3">
+            <i class="icon icon-parking mr-2"></i>
+            <h4 class="h4">Parking</h4>
+            </div>
+            <ul class="hotel-service__list">
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Is free! Free private parking is possible on site (reservation is not needed).</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Parking spaces for people with disabilities</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Secured parking</span>
+            </div>
+            </li>
+            </ul>
+            </div>
+            <div class="hotel-service mb-4">
+            <div class="hotel-service__title d-flex mb-3">
+            <i class="icon icon-info mr-2"></i>
+            <h4 class="h4">General services</h4>
+            </div>
+            <ul class="hotel-service__list">
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Common lounge / lounge with TV</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Air conditioning</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Smoking is prohibited throughout the property.</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Soundproofed rooms</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Elevator</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Family rooms</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Facilities for disabled guests</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Food and beverage delivery to the room</span>
+            </div>
+            </li>
+            </ul>
+            </div>
+            </div>
+            <div class="col-12 col-sm-6">
+            <div class="hotel-service mb-4">
+            <div class="hotel-service__title d-flex mb-3">
+            <i class="icon icon-disabled mr-2"></i>
+            <h4 class="h4">Availability</h4>
+            </div>
+            <ul class="hotel-service__list">
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Cord / button call help in the bathroom</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Suitable for wheelchair users</span>
+            </div>
+            </li>
+            </ul>
+            </div>
+            <div class="hotel-service mb-4">
+            <div class="hotel-service__title d-flex mb-3">
+            <i class="icon icon-pets mr-2"></i>
+            <h4 class="h4">Pets</h4>
+            </div>
+            <ul class="hotel-service__list">
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Pets are allowed on request. This service can be paid.</span>
+            </div>
+            </li>
+            </ul>
+            </div>
+            <div class="hotel-service mb-4">
+            <div class="hotel-service__title d-flex mb-3">
+            <i class="icon icon-family mr-2"></i>
+            <h4 class="h4">Entertainment and Family Services</h4>
+            </div>
+            <ul class="hotel-service__list">
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Children's TV channels</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Babysitting service</span>
+            <div class="w-100"></div><span class="available">(Paid separately)</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Children's room</span>
+            </div>
+            </li>
+            </ul>
+            </div>
+            <div class="hotel-service mb-4">
+            <div class="hotel-service__title d-flex mb-3">
+            <i class="icon icon-credits mr-2"></i>
+            <h4 class="h4">Business center services</h4>
+            </div>
+            <ul class="hotel-service__list">
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Fax / Photocopying</span>
+            <div class="w-100"></div><span class="available">(Paid separately)</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Conference hall / banquet hall</span>
+            <div class="w-100"></div><span class="available">(Paid separately)</span>
+            </div>
+            </li>
+            </ul>
+            </div>
+            <div class="hotel-service mb-4">
+            <div class="hotel-service__title d-flex mb-3">
+            <i class="icon icon-receptionist mr-2"></i>
+            <h4 class="h4">Reseption</h4>
+            </div>
+            <ul class="hotel-service__list">
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Concierge Service</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Luggage office</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>24-hour front desk</span>
+            </div>
+            </li>
+            </ul>
+            </div>
+            <div class="hotel-service mb-4">
+            <div class="hotel-service__title d-flex mb-3">
+            <i class="icon icon-bellboy mr-2"></i>
+            <h4 class="h4">Staff speaks</h4>
+            </div>
+            <ul class="hotel-service__list">
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>English</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>French</span>
+            </div>
+            </li>
+            <li class="d-flex">
+            <i class="icon icon-check-button text-primary"></i>
+            <div class="d-block">
+            <span>Italian</span>
+            </div>
+            </li>
+            </ul>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="hotel-card">
+            <h4 class="mb-4">Several reasons to choose accommodation option Hotel Ravena</h4>
+            <ul class="hotel-options row">
+            <li class="col-12 col-sm-6 d-flex mb-3"><i class="icon icon-check-button"></i><span>Reasonable prices</span></li>
+            <li class="col-12 col-sm-6 d-flex mb-3"><i class="icon icon-check-button"></i><span>Staff speaks 3 languages</span></li>
+            <li class="col-12 col-sm-6 d-flex mb-3"><i class="icon icon-check-button"></i><span>One of the best options chosen by guests in the city of Milan</span></li>
+            <li class="col-12 col-sm-6 d-flex mb-3"><i class="icon icon-check-button"></i><span>Manage reservations online</span></li>
+            <li class="col-12 col-sm-6 d-flex mb-3"><i class="icon icon-check-button"></i><span>Free parking</span></li>
+            </ul>
+            </div>
+            </section>
+            </div> *@
+            <div class="tab-pane" id="hotelAccommodation" role="tabpanel">
+                <section>
+                    <h3 class="fw-md">Accommodation conditions</h3>
+                    <hr class="mb-4">
+                    <div class="hotel-checklist hotel-card">
+                        <div class="row">
+                            <div class="col-12 col-sm-4">
+                                <h5 class="title d-flex"><i class="icon icon-calendar mr-2"></i>Check-in:</h5>
+                            </div>
+                            <div class="col-12 col-sm-8">
+                                <p>From 15:00 hours</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-4">
+                                <h5 class="title d-flex"><i class="icon icon-calendar mr-2"></i>Check-out:</h5>
+                            </div>
+                            <div class="col-12 col-sm-8">
+                                <p>15:00 hours</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-4">
+                                <h5 class="title d-flex"><i class="icon icon-info mr-2"></i>Cancellation / prepayment</h5>
+                            </div>
+                            <div class="col-12 col-sm-8">
+                                <p>Cancellation and prepayment policies vary by room category. <a href="#">Please enter the dates of your stay </a>and read the booking conditions for the requested room.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-4">
+                                <h5 class="title d-flex"><i class="icon icon-family mr-2"></i>Accommodation of children</h5>
+                            </div>
+                            <div class="col-12 col-sm-8">
+                                <p>All children are welcome.</p>
+                                <p><span class="mark bg-primary-light"><span class="bold">strong Is free!  </span>One child under 2 years stays free of charge in a baby cot.</span></p>
+                                <p>Maximum capacity of extra beds / babycots in a room is 1.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-4">
+                                <h5 class="title d-flex"><i class="icon icon-pets mr-2"></i>Pets</h5>
+                            </div>
+                            <div class="col-12 col-sm-8">
+                                <p>Pets are allowed on request. This service can be paid.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-4">
+                                <h5 class="title d-flex"><i class="icon icon-credits mr-2"></i>Accepted for payment</h5>
+                            </div>
+                            <div class="col-12 col-sm-8">
+                                <ul class="hotel-checklist__payment">
+                                    <li class="d-inline-block mr-2 mb-2"><img src="~/img/american-express.jpg" alt="american-express"></li>
+                                    <li class="d-inline-block mr-2 mb-2"><img src="~/img/visa.jpg" alt="visa"></li>
+                                    <li class="d-inline-block mr-2 mb-2"><img src="~/img/master-card.jpg" alt="master-card"></li>
+                                    <li class="d-inline-block mr-2 mb-2"><img src="~/img/maestro.jpg" alt="maestro"></li>
+                                    <li class="d-inline-block mr-2 mb-2"><img src="~/img/discover.jpg" alt="discover"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="tab-pane" id="hotelReviews" role="tabpanel">
+                <section>
+                    <h3 class="fw-md">Guest reviews</h3>
+                    <hr class="mb-4">
+                    <div class="hotel-card hotel-review">
+                        <div class="row">
+                            <div class="hotel-review__total col-12 col-sm-4">
+                                <ul class="total d-flex mb-1">
+                                    <li class="total__item">8,2</li>
+                                    <li class="total__item">10</li>
+                                </ul>
+                                <p class="review">
+                                    Based on  <span class="reviews">9803</span>
+                                    reviews
+                                </p>
+                                <hr>
+                                <p>Guest reviews are written by our customers after their stay at Hotel Ravena</p>
+                            </div>
+                            <div class="hotel-review__progress col-12 col-sm-8 js-point-progress">
+                                <div class="item pr-3">
+                                    <div class="mb-1">Comfort</div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="progress progress--lg">
+                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
+                                            </div>
+                                        </div><span class="fw-bold">8.2</span>
+                                    </div>
+                                </div>
+                                <div class="item pr-3">
+                                    <div class="mb-1">Facilities</div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="progress progress--lg">
+                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100">
+                                            </div>
+                                        </div><span class="fw-bold">9.3</span>
+                                    </div>
+                                </div>
+                                <div class="item pr-3">
+                                    <div class="mb-1">Staff</div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="progress progress--lg">
+                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100">
+                                            </div>
+                                        </div><span class="fw-bold">7.6</span>
+                                    </div>
+                                </div>
+                                <div class="item pr-3">
+                                    <div class="mb-1">Food</div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="progress progress--lg">
+                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                            </div>
+                                        </div><span class="fw-bold">8.5</span>
+                                    </div>
+                                </div>
+                                <div class="item pr-3">
+                                    <div class="mb-1">Price-quality ratio</div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="progress progress--lg">
+                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100">
+                                            </div>
+                                        </div><span class="fw-bold">8.2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hotel-card hotel-guests">
+                        <ul class="hotel-guests__list">
+                            <li class="comment">
+                                <div class="row flex-sm-nowrap">
+                                    <div class="comment__left col-12 col-sm-5 col-md-4 mb-4">
+                                        <div class="d-flex align-items-center w-100">
+                                            <div class="comment__avatar rounded-circle">
+                                                <img class="img-fluid rounded-circle" src="~/img/avatar-2.jpg" alt="#" />
+                                            </div>
+                                            <div class="comment__right">
+                                                <div class="comment__name mb-0">Jessica</div>
+                                                <ul class="d-flex align-items-center">
+                                                    <li class="comment__flag mr-2">
+                                                        <img src="~/img/en.png" alt="#" />
+                                                    </li>
+                                                    <li class="comment__country fz-xs">USA</li>
+                                                </ul>
+                                                <ul class="comment__like d-flex align-items-baseline fz-xs">
+                                                    <li><i class="icon icon-like-up"></i><span>17</span></li>
+                                                    <li><i class="icon icon-like-down"></i><span>2</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment__content col-12 col-sm-7 col-md-8">
+                                        <div class="pr-3">
+                                            <div class="comment__meta mb-3">
+                                                <ul class="row justify-content-sm-between align-items-baseline">
+                                                    <li class="comment__level d-flex align-items-center mb-2">
+                                                        <div class="badge bg-primary">9.0</div>
+                                                        <h4 class="level m-0">Excellent</h4>
+                                                    </li>
+                                                    <li class="comment__date mb-2">
+                                                        <span>Review Date:</span>
+                                                        <time datetime="2017-07-18">July 18, 2017</time>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="comment__desc">
+                                                <div class="d-flex">
+                                                    <div class="media-object"><i class="icon icon-plus-inside text-success"></i></div>
+                                                    <div class="content">
+                                                        <p>Excellent breakfast, freshly brewed coffee - specially prepared by the waiter at you. A good big hotel, beautiful design, clean, comfortable parking free at the bottom, spacious rooms.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <div class="media-object"><i class="icon icon-minus-inside text-danger"></i></div>
+                                                    <div class="content">
+                                                        <p>Far from the center, there is no dressing gown or taprock, or shampoo.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment__alert alert d-flex bg-primary-light">
+                                            <div class="media-object pr-3"><i class="icon icon-comments"></i></div>
+                                            <div class="alert__content">
+                                                <h4 class="mb-1">Ravena Hotel responded to this review</h4>
+                                                <p>Dear Jessica, thank you for taking the time to leave a feedback about your stay at the Raven Hotel. Glad you liked it. We will certainly take into account your comments to make arrivals at the hotel even more comfortable.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="comment">
+                                <div class="row flex-sm-nowrap">
+                                    <div class="comment__left col-12 col-sm-5 col-md-4 mb-4">
+                                        <div class="d-flex align-items-center w-100">
+                                            <div class="comment__avatar rounded-circle">
+                                                <img class="img-fluid rounded-circle" src="~/img/avatar-1.jpg" alt="#" />
+                                            </div>
+                                            <div class="comment__right">
+                                                <div class="comment__name mb-0">Roman</div>
+                                                <ul class="d-flex align-items-center">
+                                                    <li class="comment__flag mr-2">
+                                                        <img src="~/img/ru.png" alt="#" />
+                                                    </li>
+                                                    <li class="comment__country fz-xs">Russia</li>
+                                                </ul>
+                                                <ul class="comment__like d-flex align-items-baseline fz-xs">
+                                                    <li><i class="icon icon-like-up"></i><span>17</span></li>
+                                                    <li><i class="icon icon-like-down"></i><span>2</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment__content col-12 col-sm-7 col-md-8">
+                                        <div class="pr-3">
+                                            <div class="comment__meta mb-3">
+                                                <ul class="row justify-content-sm-between align-items-baseline">
+                                                    <li class="comment__level d-flex align-items-center mb-2">
+                                                        <div class="badge bg-primary">9.2</div>
+                                                        <h4 class="level m-0">Excellent</h4>
+                                                    </li>
+                                                    <li class="comment__date mb-2">
+                                                        <span>Review Date:</span>
+                                                        <time datetime="2017-05-15">May 15, 2017</time>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="comment__desc">
+                                                <div class="d-flex">
+                                                    <div class="media-object"><i class="icon icon-plus-inside text-success"></i></div>
+                                                    <div class="content">
+                                                        <p>For breakfast buffet, a comfortable place for breakfast, with a large load, the staff does not have time to clean from the tables, but this will make you wait literally minutes 2. The rooms are nice, the staff is polite. And the price-quality really fit.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <div class="media-object"><i class="icon icon-minus-inside text-danger"></i></div>
+                                                    <div class="content">
+                                                        <p>Cold in the rooms, when the heating was switched on, but the room was heated only in the middle of the night.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="comment">
+                                <div class="row flex-sm-nowrap">
+                                    <div class="comment__left col-12 col-sm-5 col-md-4 mb-4">
+                                        <div class="d-flex align-items-center w-100">
+                                            <div class="comment__avatar rounded-circle">
+                                                <img class="img-fluid rounded-circle" src="~/img/avatar-face.jpg" alt="#" />
+                                            </div>
+                                            <div class="comment__right">
+                                                <div class="comment__name mb-0">Andrew</div>
+                                                <ul class="d-flex align-items-center">
+                                                    <li class="comment__flag mr-2">
+                                                        <img src="~/img/au.png" alt="#" />
+                                                    </li>
+                                                    <li class="comment__country fz-xs">Australia</li>
+                                                </ul>
+                                                <ul class="comment__like d-flex align-items-baseline fz-xs">
+                                                    <li><i class="icon icon-like-up"></i><span>5</span></li>
+                                                    <li><i class="icon icon-like-down"></i><span>0</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment__content col-12 col-sm-7 col-md-8">
+                                        <div class="pr-3">
+                                            <div class="comment__meta mb-3">
+                                                <ul class="row justify-content-sm-between align-items-baseline">
+                                                    <li class="comment__level d-flex align-items-center mb-2">
+                                                        <div class="badge bg-primary">7.3</div>
+                                                        <h4 class="level m-0">Good</h4>
+                                                    </li>
+                                                    <li class="comment__date mb-2">
+                                                        <span>Review Date:</span>
+                                                        <time datetime="2017-05-10">May 10, 2017</time>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="comment__desc">
+                                                <div class="d-flex">
+                                                    <div class="media-object"><i class="icon icon-plus-inside text-success"></i></div>
+                                                    <div class="content">
+                                                        <p>The hotel is located far from the city center, but the metro is close, about 7 minutes on foot, is a yellow branch that will take you directly to Duomo Square. Very well equipped large room, which has everything for a comfortable stay.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <div class="media-object"><i class="icon icon-minus-inside text-danger"></i></div>
+                                                    <div class="content">
+                                                        <p>At breakfast a lot of people, crush, however, the waiters were attentive and managed to somehow arrange all.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="comment">
+                                <div class="row flex-sm-nowrap">
+                                    <div class="comment__left col-12 col-sm-5 col-md-4 mb-4">
+                                        <div class="d-flex align-items-center w-100">
+                                            <div class="comment__avatar rounded-circle">
+                                                <img class="img-fluid rounded-circle" src="~/img/avatar-3.jpg" alt="#" />
+                                            </div>
+                                            <div class="comment__right">
+                                                <div class="comment__name mb-0">Chris</div>
+                                                <ul class="d-flex align-items-center">
+                                                    <li class="comment__flag mr-2">
+                                                        <img src="~/img/au.png" alt="#" />
+                                                    </li>
+                                                    <li class="comment__country fz-xs">Australia</li>
+                                                </ul>
+                                                <ul class="comment__like d-flex align-items-baseline fz-xs">
+                                                    <li><i class="icon icon-like-up"></i><span>19</span></li>
+                                                    <li><i class="icon icon-like-down"></i><span>2</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment__content col-12 col-sm-7 col-md-8">
+                                        <div class="pr-3">
+                                            <div class="comment__meta mb-3">
+                                                <ul class="row justify-content-sm-between align-items-baseline">
+                                                    <li class="comment__level d-flex align-items-center mb-2">
+                                                        <div class="badge bg-primary">9.4</div>
+                                                        <h4 class="level m-0">Excellent</h4>
+                                                    </li>
+                                                    <li class="comment__date mb-2">
+                                                        <span>Review Date:</span>
+                                                        <time datetime="2017-05-10">May 10, 2017</time>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="comment__desc">
+                                                <div class="d-flex">
+                                                    <div class="media-object"><i class="icon icon-plus-inside text-success"></i></div>
+                                                    <div class="content">
+                                                        <p>The hotel is located far from the city center, but the metro is close, about 7 minutes on foot, is a yellow branch that will take you directly to Duomo Square. Very well equipped large room, which has everything for a comfortable stay.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <div class="media-object"><i class="icon icon-minus-inside text-danger"></i></div>
+                                                    <div class="content">
+                                                        <p>At breakfast a lot of people, crush, however, the waiters were attentive and managed to somehow arrange all.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="comment">
+                                <div class="row flex-sm-nowrap">
+                                    <div class="comment__left col-12 col-sm-5 col-md-4 mb-4">
+                                        <div class="d-flex align-items-center w-100">
+                                            <div class="comment__avatar rounded-circle">
+                                                <img class="img-fluid rounded-circle" src="~/img/avatar-1.jpg" alt="#" />
+                                            </div>
+                                            <div class="comment__right">
+                                                <div class="comment__name mb-0">Roman</div>
+                                                <ul class="d-flex align-items-center">
+                                                    <li class="comment__flag mr-2">
+                                                        <img src="~/img/ru.png" alt="#" />
+                                                    </li>
+                                                    <li class="comment__country fz-xs">Russia</li>
+                                                </ul>
+                                                <ul class="comment__like d-flex align-items-baseline fz-xs">
+                                                    <li><i class="icon icon-like-up"></i><span>17</span></li>
+                                                    <li><i class="icon icon-like-down"></i><span>2</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment__content col-12 col-sm-7 col-md-8">
+                                        <div class="pr-3">
+                                            <div class="comment__meta mb-3">
+                                                <ul class="row justify-content-sm-between align-items-baseline">
+                                                    <li class="comment__level d-flex align-items-center mb-2">
+                                                        <div class="badge bg-primary">9.2</div>
+                                                        <h4 class="level m-0">Excellent</h4>
+                                                    </li>
+                                                    <li class="comment__date mb-2">
+                                                        <span>Review Date:</span>
+                                                        <time datetime="2017-05-05">May 05, 2017</time>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="comment__desc">
+                                                <div class="d-flex">
+                                                    <div class="media-object"><i class="icon icon-plus-inside text-success"></i></div>
+                                                    <div class="content">
+                                                        <p>For breakfast buffet, a comfortable place for breakfast, with a large load, the staff does not have time to clean from the tables, but this will make you wait literally minutes 2. The rooms are nice, the staff is polite. And the price-quality really fit.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <div class="media-object"><i class="icon icon-minus-inside text-danger"></i></div>
+                                                    <div class="content">
+                                                        <p>Cold in the rooms, when the heating was switched on, but the room was heated only in the middle of the night.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="comment">
+                                <div class="row flex-sm-nowrap">
+                                    <div class="comment__left col-12 col-sm-5 col-md-4 mb-4">
+                                        <div class="d-flex align-items-center w-100">
+                                            <div class="comment__avatar rounded-circle">
+                                                <img class="img-fluid rounded-circle" src="~/img/avatar-3.jpg" alt="#" />
+                                            </div>
+                                            <div class="comment__right">
+                                                <div class="comment__name mb-0">Chris</div>
+                                                <ul class="d-flex align-items-center">
+                                                    <li class="comment__flag mr-2">
+                                                        <img src="~/img/au.png" alt="#" />
+                                                    </li>
+                                                    <li class="comment__country fz-xs">Australia</li>
+                                                </ul>
+                                                <ul class="comment__like d-flex align-items-baseline fz-xs">
+                                                    <li><i class="icon icon-like-up"></i><span>19</span></li>
+                                                    <li><i class="icon icon-like-down"></i><span>2</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment__content col-12 col-sm-7 col-md-8">
+                                        <div class="pr-3">
+                                            <div class="comment__meta mb-3">
+                                                <ul class="row justify-content-sm-between align-items-baseline">
+                                                    <li class="comment__level d-flex align-items-center mb-2">
+                                                        <div class="badge bg-primary">9.4</div>
+                                                        <h4 class="level m-0">Excellent</h4>
+                                                    </li>
+                                                    <li class="comment__date mb-2">
+                                                        <span>Review Date:</span>
+                                                        <time datetime="2017-05-05">May 05, 2017</time>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="comment__desc">
+                                                <div class="d-flex">
+                                                    <div class="media-object"><i class="icon icon-plus-inside text-success"></i></div>
+                                                    <div class="content">
+                                                        <p>The hotel is located far from the city center, but the metro is close, about 7 minutes on foot, is a yellow branch that will take you directly to Duomo Square. Very well equipped large room, which has everything for a comfortable stay.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <div class="media-object"><i class="icon icon-minus-inside text-danger"></i></div>
+                                                    <div class="content">
+                                                        <p>At breakfast a lot of people, crush, however, the waiters were attentive and managed to somehow arrange all.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="comment">
+                                <div class="row flex-sm-nowrap">
+                                    <div class="comment__left col-12 col-sm-5 col-md-4 mb-4">
+                                        <div class="d-flex align-items-center w-100">
+                                            <div class="comment__avatar rounded-circle">
+                                                <img class="img-fluid rounded-circle" src="~/img/avatar-2.jpg" alt="#" />
+                                            </div>
+                                            <div class="comment__right">
+                                                <div class="comment__name mb-0">Jessica</div>
+                                                <ul class="d-flex align-items-center">
+                                                    <li class="comment__flag mr-2">
+                                                        <img src="~/img/en.png" alt="#" />
+                                                    </li>
+                                                    <li class="comment__country fz-xs">USA</li>
+                                                </ul>
+                                                <ul class="comment__like d-flex align-items-baseline fz-xs">
+                                                    <li><i class="icon icon-like-up"></i><span>17</span></li>
+                                                    <li><i class="icon icon-like-down"></i><span>2</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment__content col-12 col-sm-7 col-md-8">
+                                        <div class="pr-3">
+                                            <div class="comment__meta mb-3">
+                                                <ul class="row justify-content-sm-between align-items-baseline">
+                                                    <li class="comment__level d-flex align-items-center mb-2">
+                                                        <div class="badge bg-primary">9.0</div>
+                                                        <h4 class="level m-0">Excellent</h4>
+                                                    </li>
+                                                    <li class="comment__date mb-2">
+                                                        <span>Review Date:</span>
+                                                        <time datetime="2017-05-29">April 29, 2017</time>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="comment__desc">
+                                                <div class="d-flex">
+                                                    <div class="media-object"><i class="icon icon-plus-inside text-success"></i></div>
+                                                    <div class="content">
+                                                        <p>Excellent breakfast, freshly brewed coffee - specially prepared by the waiter at you. A good big hotel, beautiful design, clean, comfortable parking free at the bottom, spacious rooms.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <div class="media-object"><i class="icon icon-minus-inside text-danger"></i></div>
+                                                    <div class="content">
+                                                        <p>Far from the center, there is no dressing gown or taprock, or shampoo.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="comment">
+                                <div class="row flex-sm-nowrap">
+                                    <div class="comment__left col-12 col-sm-5 col-md-4 mb-4">
+                                        <div class="d-flex align-items-center w-100">
+                                            <div class="comment__avatar rounded-circle">
+                                                <img class="img-fluid rounded-circle" src="~/img/avatar-4.jpg" alt="#" />
+                                            </div>
+                                            <div class="comment__right">
+                                                <div class="comment__name mb-0">Maddalena</div>
+                                                <ul class="d-flex align-items-center">
+                                                    <li class="comment__flag mr-2">
+                                                        <img src="~/img/it.png" alt="#" />
+                                                    </li>
+                                                    <li class="comment__country fz-xs">Italy</li>
+                                                </ul>
+                                                <ul class="comment__like d-flex align-items-baseline fz-xs">
+                                                    <li><i class="icon icon-like-up"></i><span>15</span></li>
+                                                    <li><i class="icon icon-like-down"></i><span>1</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment__content col-12 col-sm-7 col-md-8">
+                                        <div class="pr-3">
+                                            <div class="comment__meta mb-3">
+                                                <ul class="row justify-content-sm-between align-items-baseline">
+                                                    <li class="comment__level d-flex align-items-center mb-2">
+                                                        <div class="badge bg-primary">9.5</div>
+                                                        <h4 class="level m-0">Excellent</h4>
+                                                    </li>
+                                                    <li class="comment__date mb-2">
+                                                        <span>Review Date:</span>
+                                                        <time datetime="2017-05-25">April 25, 2017</time>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="comment__desc">
+                                                <div class="d-flex">
+                                                    <div class="media-object"><i class="icon icon-plus-inside text-success"></i></div>
+                                                    <div class="content">
+                                                        <p>&quot;Very clean, nice, stylish. From the metro 10 min walk Similar hotels usually cost many times more expensive. Huge bed, towels, everything you need. Cleaning once a day. The breakfast is excellent, the coffee is prepared by the barista - the first time I meet this at the hotel.&quot;</p>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <div class="media-object"><i class="icon icon-minus-inside text-danger"></i></div>
+                                                    <div class="content">
+                                                        <p>Far from the center, there is no dressing gown or taprock, or shampoo.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <nav class="pagination-nav" aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-double-left"></i></a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">1</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">2</a>
+                                </li>
+                                <li class="page-item align-self-end d-sm-none">
+                                    <a class="dotted" href="#">......</a>
+                                </li>
+                                <li class="page-item d-none d-sm-block">
+                                    <a class="page-link" href="#">4</a>
+                                </li>
+                                <li class="page-item d-none d-sm-block">
+                                    <a class="page-link" href="#">5</a>
+                                </li>
+                                <li class="page-item d-none d-sm-block">
+                                    <a class="page-link" href="#">6</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">7</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">8</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+<style>
+    .booked-date a {
+        background-color: red !important;
+        color: white !important;
+        cursor: no-drop;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        // Danh sách các ngày bạn muốn thay đổi màu
+        var specialDates = [
+    @foreach (var ngay in ViewBag.result1)
+    {
+        <text>new Date('@ngay'), </text>
+    }
+                ];
+        var today = new Date();
+
+        $("#hotelInDate").datepicker({
+            dateFormat: "yy-mm-dd",
+            minDate: today,
+            beforeShowDay: function (date) {
+                // Chuyển định dạng ngày để so sánh
+                var dateString = date.toDateString();
+                // Kiểm tra xem ngày hiện tại có trong danh sách không
+                if (specialDates.some(function (specialDate) {
+                    return specialDate.toDateString() === dateString;
+                })) {
+                    return [true, 'booked-date', 'Ngày đã được đặt'];
+                }
+
+                // Nếu không phải là ngày đặc biệt, trả về mặc định
+                return [true, '', ''];
+            },
+            onSelect: function (selectedDate) {
+                var selected = new Date(selectedDate);
+                if (specialDates.some(function (specialDate) {
+                    return specialDate.toDateString() === selected.toDateString();
+                })) {
+                    alert('Ngày này đã có người đặt phòng, vui lòng chọn ngày khác.');
+                    $("#hotelInDate, #hotelOutDate").val("");
+                }
+                // Thiết lập ngày checkout để không thể nhỏ hơn ngày checkin
+                $("#hotelOutDate").datepicker("option", "minDate", selectedDate);
+            }
+        });
+
+        $("#hotelOutDate").datepicker({
+            dateFormat: "yy-mm-dd",
+            minDate: today,
+            beforeShowDay: function (date) {
+                var dateString = date.toDateString();
+                if (specialDates.some(function (specialDate) {
+                    return specialDate.toDateString() === dateString;
+                })) {
+                    return [true, 'booked-date', 'Ngày đã được đặt'];
+                }
+                return [true, '', ''];
+            },
+            onSelect: function (selectedDate) {
+                var selected = new Date(selectedDate);
+                if (specialDates.some(function (specialDate) {
+                    return specialDate.toDateString() === selected.toDateString();
+                })) {
+                    alert('Ngày này đã có người đặt phòng, vui lòng chọn ngày khác.');
+                    $("#hotelInDate, #hotelOutDate").val("");
+                }
+            },
+            beforeShow: function (input, inst) {
+                var checkInDate = $("#hotelInDate").datepicker("getDate");
+                if (checkInDate) {
+                    // Lọc các ngày đã đặt phòng sau ngày check-in
+                    var bookedDatesAfterCheckIn = specialDates.filter(function (specialDate) {
+                        return specialDate > checkInDate;
+                    });
+                    // Nếu có ngày đã đặt phòng sau ngày check-in, cập nhật maxDate
+                    if (bookedDatesAfterCheckIn.length > 0) {
+                        $("#hotelOutDate").datepicker("option", "maxDate", new Date(bookedDatesAfterCheckIn[0].getTime() - 86400000));
+                    } else {
+                        // Nếu không có ngày đã đặt phòng sau ngày check-in, cho phép chọn bất kỳ ngày
+                        $("#hotelOutDate").datepicker("option", "maxDate", null);
+                    }
+                } else {
+                    // Nếu chưa có ngày check-in, cho phép chọn bất kỳ ngày
+                    $("#hotelOutDate").datepicker("option", "maxDate", null);
+                }
+            }
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var mySwiper = new Swiper('.js-hotel-carousel', {
+            navigation: {
+                nextEl: '.js-next',
+                prevEl: '.js-prev',
+            },
+            loop: false, // Đảm bảo loop là false
+        });
+    });
+</script>
+<script>
+    function submitForm() {
+        var ngayden = document.getElementById("hotelInDate").value;
+        var ngaydi = document.getElementById("hotelOutDate").value;
+
+        document.getElementById("bookingForm").action = "/Room/Booking?maphong=@Model.MaPhong&ngayden=" + ngayden + "&ngaydi=" + ngaydi;
+        document.getElementById("bookingForm").submit();
+    }
+</script>

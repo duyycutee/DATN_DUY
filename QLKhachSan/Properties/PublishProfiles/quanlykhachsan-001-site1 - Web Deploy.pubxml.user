@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <History>True|2024-06-13T15:01:37.0166487Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="KhachSan">
+      <Value>Data Source=VIET\SQLEXPRESS01%3bInitial Catalog=QLKhachSanTTTN%3bIntegrated Security=True%3bTrustServerCertificate=True%3bConnection Timeout=60%3bPooling=true%3bMax Pool Size=100%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

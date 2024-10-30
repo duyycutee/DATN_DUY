@@ -1,0 +1,24 @@
+﻿/* Phần tử <a> */
+a.user-profile {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: white; /* Màu nền trắng */
+    color: #333; /* Màu chữ */
+    font-size: 16px;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+    /* Icon */
+    a.user-profile i {
+        margin-right: 10px;
+    }
+
+    /* Hover */
+    a.user-profile:hover {
+        background-color: #f1f1f1; /* Màu nền hover */
+        color: #333; /* Màu chữ hover */
+        border-color: #ddd; /* Biên viền hover */
+    }

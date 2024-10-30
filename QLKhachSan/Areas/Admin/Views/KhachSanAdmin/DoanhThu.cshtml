@@ -1,0 +1,80 @@
+﻿@model IEnumerable<QLKhachSan.ViewModels.Admin.DoanhThuVM>
+@using System.Globalization
+
+@{
+    ViewData["Title"] = "DoanhThu";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div>
+    <select id="selectYear">
+        @for (int i = DateTime.Now.Year; i >= DateTime.Now.Year - 10; i--)
+        {
+            <option value="@i" @(i == ViewBag.nam ? "selected" : "")>@i</option>
+        }
+    </select>
+</div>
+<div>
+    <canvas id="revenueChart" width="800" height="400"></canvas>
+</div>
+
+@section scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#selectYear').change(function () {
+                var selectedYear = $(this).val();
+                var newUrl = '@Url.Action("DoanhThu", "KhachSanAdmin")' + '?nam=' + selectedYear;
+                window.location.href = newUrl;
+            });
+
+            function loadData(year, url) {
+                $.ajax({
+                    url: url,
+                    method: 'GET',
+                    data: { nam: year },
+                    success: function (data) {
+                        // Xử lý dữ liệu và vẽ biểu đồ
+                    }
+                });
+            }
+
+            // Mặc định load dữ liệu cho năm hiện tại
+            var months = ["Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6", "Month 7", "Month 8", "Month 9", "Month 10", "Month 11", "Month 12"];
+            var revenues = Array.from({ length: 12 }, () => 0); // Mảng các giá trị 0, tượng trưng cho doanh thu mặc định của mỗi tháng
+
+        @foreach (var item in Model)
+        {
+            var monthIndex = item.Thang - 1; // Chỉ mục của tháng trong mảng (0-11)
+            <text>
+                    revenues[@monthIndex] = @item.TongTien; // Cập nhật doanh thu thực tế cho tháng tương ứng
+            </text>
+        }
+
+                                    var ctx = document.getElementById('revenueChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: 'Revenue',
+                        data: revenues,
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+
+    </script>
+}
+
+

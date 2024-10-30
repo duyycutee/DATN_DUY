@@ -1,0 +1,91 @@
+﻿@using QLKhachSan.ViewModels;
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<BlogVM>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Blog";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+	<div class="col-xl-12">
+		<div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
+			<div class="card-tabs mt-3 mt-sm-0 mb-xxl-0 mb-4">
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" data-bs-toggle="tab" href="#All" role="tab"> Blog </a>
+					</li>
+				</ul>
+			</div>
+			<a style="display:flex;" asp-action="ThemBlog" class="btn btn-primary mb-xxl-0 mb-4 radius-btn"><i class="material-icons me-2">add</i>Thêm mới</a>
+		</div>
+		<div class="tab-content">
+			<div class="tab-pane active show" id="All">
+				<div class="text-danger">@TempData["Message"]</div>
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped check-data  display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg " id="guestTable-all">
+						<thead>
+							<tr style="text-align:center;">
+								<th>IDBlog</th>
+								<th>Ảnh</th>
+								<th>Tiêu đề</th>
+								<th>Thông tin</th>
+								<th>Ngày đăng</th>
+								<th>Chức năng</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var item in Model)
+							{
+								<tr>
+									<td>
+										<div>
+											<span class="fs-16">@item.IDBlog</span>
+										</div>
+									</td>
+									<td>
+										<div class="guest-bx">
+											<img class="me-3 guest-img" src="@Url.Content("~/img/Images/blog/"+@item.Anh)" alt="">
+										</div>
+									</td>
+									<td>
+										<div>
+											<span class="fs-16">@item.TieuDe</span>
+										</div>
+									</td>
+									<td>
+										<div>
+											<span class="fs-16">@item.ThongTin</span>
+										</div>
+									</td>
+									<td>
+										<div>
+											<span class="fs-16">@item.NgayDang</span>
+										</div>
+									</td>
+									<td class="text-center">
+										<a class="btn btn-sm btn-warning mx-1" asp-controller="BlogAdmin" asp-action="SuaBlog" asp-route-id="@item.IDBlog">
+											<i class="far fa-edit"></i> Edit
+										</a>
+										<a class="btn btn-sm btn-danger mx-1" onclick="return confirm('Bạn có chắc chắn muốn xóa phòng này không?')" asp-controller="BlogAdmin" asp-action="XoaBlog" asp-route-id="@item.IDBlog">
+											<i class="far fa-trash-alt"></i> Delete
+										</a>
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="margin: 0 auto">
+	@Html.PagedListPager(Model, page => Url.Action("Blog", new { page = page }), new X.PagedList.Web.Common.PagedListRenderOptions()
+{
+	LiElementClasses = new List<String> { "page-item" },
+	PageClasses = new List<String> { "page-link" }
+})
+</div>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="~/LayoutAdmin/public/assets/css/style-admin.css">

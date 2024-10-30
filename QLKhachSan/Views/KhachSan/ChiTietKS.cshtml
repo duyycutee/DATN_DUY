@@ -1,0 +1,588 @@
+﻿@inject IHttpContextAccessor HttpContextAccessor
+@model QLKhachSan.ViewModels.ChiTietDanhGia
+@using X.PagedList.Mvc.Core;
+@{
+    ViewData["Title"] = "ChiTietKS";
+    Layout = "_LayoutKhachSan";
+}
+<nav class="breadcrumb-nav d-flex align-items-center" aria-label="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="under" href="/">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><span>Chi tiết khách sạn</span></li>
+        </ol>
+    </div>
+</nav>
+<div class="row">
+    <aside class="sidebar col-lg-3 order-1 order-lg-0">
+        <div class="sidebar__content js-sticky-top">
+            <div class="sidebar-filter modal card fade" id="sidebarFilter" tabindex="-1" role="dialog">
+                <input hidden id="maks" name="maks" value="@ViewBag.maks" />
+                <button class="btn-toggle btn btn-light" type="button" data-dismiss="modal"><span class="icon-bar"></span></button>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <ul class="sidebar-filter__list">
+                                <li class="sidebar-filter__item">
+                                    <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#price" data-toggle="collapse" role="button"><span>Giá</span><i class="fa fa-angle-down"></i></a></h5>
+                                    <div class="collapse show" id="price">
+                                        <div class="sidebar-filter__content">
+                                            <label class="custom-control custom-checkbox">
+                                                <input class="custom-control-input price-checkbox" data-gia="300.000-500.000" type="checkbox" />
+                                                <span class="custom-control-label pointer">300.000 - 500.000 VND</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox">
+                                                <input class="custom-control-input price-checkbox" data-gia="500.000-1.000.000" type="checkbox" />
+                                                <span class="custom-control-label pointer">500.000 - 1.000.000 VND</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox">
+                                                <input class="custom-control-input price-checkbox" data-gia="1000000-2000000" type="checkbox" />
+                                                <span class="custom-control-label pointer">1.000.000 - 2.000.000 VND</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox">
+                                                <input class="custom-control-input price-checkbox" data-gia="2.000.000-1.000.0000" type="checkbox" />
+                                                <span class="custom-control-label pointer">2.000.000VND +</span>
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="sidebar-filter__item">
+                                    <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#accommodation" data-toggle="collapse" role="button"><span>Loại phòng</span><i class="fa fa-angle-down"></i></a></h5>
+                                    <div class="collapse show" id="accommodation">
+                                        <div class="sidebar-filter__content">
+                                            @foreach (var i in ViewBag.LoaiPhong)
+                                            {
+                                                <label class="custom-control custom-checkbox">
+                                                    <input class="custom-control-input room-checkbox" id="chk_@i" data-loaiphong="@i" type="checkbox" />
+                                                    <span class="custom-control-label pointer">@i</span>
+                                                </label>
+                                            }
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="sidebar-filter__item">
+                                    <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#HotelAttrs" data-toggle="collapse" role="button"><span>Trang thiết bị</span><i class="fa fa-angle-down"></i></a></h5>
+                                    <div class="collapse show" id="HotelAttrs">
+                                        <div class="sidebar-filter__content">
+                                            @foreach (var tb in ViewBag.thietbi)
+                                            {
+                                                <label class="custom-control custom-checkbox">
+                                                    <input class="custom-control-input tb-checkbox" type="checkbox" data-tb="@tb" /><span class="custom-control-label pointer">@tb</span>
+                                                </label>
+                                            }
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <div class="col-lg-9 category-content" id="result-container">
+        <div class="category-content__items row pad-lg-20" >
+            @foreach (var item in Model.ChiTietPhong)
+            {
+                <div class="col-12 col-sm-6 col-xl-4 d-flex">
+                    <div class="product bg-white js-grid-item">
+                        <a class="product__img-top d-block" asp-controller="Phong" asp-action="ChiTietPhong" asp-route-id="@item.MaPhong">
+                            <img class="img-fluid" src="@Url.Content($"~/img/Images/phong/{item.AnhPhong}")" alt="#" />
+                        </a>
+                        <div class="product__body">
+                            <h4 class="product__title"><a asp-controller="Phong" asp-action="ChiTietPhong" asp-route-id="@item.MaPhong">@item.TenPhong</a></h4>
+                            <ul class="product__price d-flex justify-content-between align-items-center">
+                                <li class="mr-2"><span>Giá phòng</span></li>
+                                <li>
+                                    <span class="cost">@((item.Gia ?? 0).ToString("N0")) VND</span>
+                                </li>
+                            </ul>
+                            <hr />
+                            <div class="product__desc">
+                                <p>Các phòng máy lạnh có ban công nhìn ra biển hoặc khu vườn. Mỗi phòng rộng rãi đều có TV với các kênh truyền hình vệ tinh. Phòng tắm riêng tại... </p>
+                            </div>
+                        </div>
+                        <hr class="d-none d-sm-block" />
+                        <div class="product__footer">
+                            <ul class="product__price d-flex justify-content-between align-items-center">
+                                <li class="mr-2"><span>Giá phòng</span></li>
+                                <li>
+                                    <span class="cost">@((item.Gia ?? 0).ToString("N0")) VND</span>
+                                </li>
+                            </ul><a class="product__btn-book btn btn-secondary btn--round" asp-controller="Phong" asp-action="ChiTietPhong" asp-route-id="@item.MaPhong">đặt phòng</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div style="margin: 0 auto">
+            @Html.PagedListPager(Model.ChiTietPhong, page => Url.Action("ChiTietKS", new { pagePhong = page, MaKS = ViewBag.maks }), new X.PagedList.Web.Common.PagedListRenderOptions()
+       {
+           LiElementClasses = new List<String> { "page-item" },
+           PageClasses = new List<String> { "page-link" }
+       })
+        </div>
+
+    </div>
+    <div class="tab-pane" id="hotelReviews" role="tabpanel">
+        <section style="width:1100px;">
+            <h3 class="fw-md">Đánh giá</h3>
+            <hr class="mb-4">
+            @if (ViewBag.dtbNhanVien != null && ViewBag.dtbThucAn != null && ViewBag.dtbSachSe != null && ViewBag.dtbThoaiMai != null && ViewBag.dtbDichVu != null)
+            {
+                <div class="hotel-card hotel-review">
+                    <div class="row">
+                        <div class="hotel-review__total col-12 col-sm-4">
+                            <ul class="total d-flex mb-1">
+                                @{
+                                    double diem1 = (double)(@ViewBag.dtbNhanVien + @ViewBag.dtbThucAn + @ViewBag.dtbSachSe + @ViewBag.dtbThoaiMai + @ViewBag.dtbDichVu) / 5;
+                                    double diemdg = Math.Round(diem1, 1);
+                                }
+                                <li class="total__item">@diemdg</li>
+                                <li class="total__item">10</li>
+                            </ul>
+                            <p class="review">
+                                Tất cả  <span class="reviews">@ViewBag.soVote</span>
+                                bình luận
+                            </p>
+                            <hr>
+                        </div>
+                        <div class="hotel-review__progress col-12 col-sm-8 js-point-progress">
+                            <div class="item pr-3">
+                                <div class="mb-1">Nhân viên phục vụ</div>
+                                <div class="d-flex align-items-center">
+                                    <div class="progress progress--lg">
+                                        @{
+                                            // Chuyển đổi kiểu dữ liệu từ decimal sang double
+                                            decimal dtbNhanVien = ViewBag.dtbNhanVien;
+                                            double diemnhanvien = (double)(dtbNhanVien / 10) * 100;
+                                        }
+                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: @diemnhanvien%;" aria-valuenow="@diemnhanvien" aria-valuemin="0" aria-valuemax="10">
+                                        </div>
+                                    </div><span class="fw-bold">@ViewBag.dtbNhanVien</span>
+                                </div>
+                            </div>
+                            <div class="item pr-3">
+                                <div class="mb-1">Đồ ăn</div>
+                                <div class="d-flex align-items-center">
+                                    <div class="progress progress--lg">
+                                        @{
+                                            // Chuyển đổi kiểu dữ liệu từ decimal sang double
+                                            decimal dtbthucan = ViewBag.dtbthucan;
+                                            double diemthucan = (double)(dtbthucan / 10) * 100;
+                                        }
+                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: @diemthucan%;" aria-valuenow="@diemthucan" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
+                                    </div><span class="fw-bold">@ViewBag.dtbthucan</span>
+                                </div>
+                            </div>
+                            <div class="item pr-3">
+                                <div class="mb-1">Sạch sẽ</div>
+                                <div class="d-flex align-items-center">
+                                    <div class="progress progress--lg">
+                                        @{
+                                            // Chuyển đổi kiểu dữ liệu từ decimal sang double
+                                            decimal dtbSachSe = ViewBag.dtbSachSe;
+                                            double diemsachse = (double)(dtbSachSe / 10) * 100;
+                                        }
+                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: @diemsachse%" aria-valuenow="@diemsachse" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
+                                    </div><span class="fw-bold">@ViewBag.dtbSachSe</span>
+                                </div>
+                            </div>
+                            <div class="item pr-3">
+                                <div class="mb-1">Thoải mái</div>
+                                <div class="d-flex align-items-center">
+                                    <div class="progress progress--lg">
+                                        @{
+                                            // Chuyển đổi kiểu dữ liệu từ decimal sang double
+                                            decimal dtbThoaiMai = ViewBag.dtbThoaiMai;
+                                            double diemthoaimai = (double)(dtbThoaiMai / 10) * 100;
+                                        }
+                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: @diemthoaimai%" aria-valuenow="@diemthoaimai" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
+                                    </div><span class="fw-bold">@ViewBag.dtbThoaiMai</span>
+                                </div>
+                            </div>
+                            <div class="item pr-3">
+                                <div class="mb-1">Dịch vụ</div>
+                                <div class="d-flex align-items-center">
+                                    <div class="progress progress--lg">
+                                        @{
+                                            decimal dtbDichVu = ViewBag.dtbDichVu;
+                                            double diemdichvu = (double)(dtbDichVu / 10) * 100;
+                                        }
+                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: @diemdichvu%" aria-valuenow="@diemdichvu" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
+                                    </div><span class="fw-bold">@ViewBag.dtbDichVu</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hotel-card hotel-guests">
+                    <ul class="hotel-guests__list" id="reviewList">
+                        @foreach (var i in Model.DanhGia)
+                        {
+                            <li class="comment">
+                                <div class="row flex-sm-nowrap">
+                                    <div class="comment__left col-12 col-sm-5 col-md-4 mb-4">
+                                        <div class="d-flex align-items-center w-100">
+                                            <div class="comment__avatar rounded-circle" style="background-color: rgba(242, 243, 243, 1.00); border: 1px solid #ffffff; color: rgba(104, 113, 118, 1.00); display: flex; justify-content: center; align-items: center; font-size:22px;">
+                                                @{
+                                                    string initials = "";
+                                                    if (!string.IsNullOrEmpty(@i.TenKh))
+                                                    {
+                                                        initials = new string(@i.TenKh.Split(' ').Select(w => w[0]).Take(2).ToArray()).ToUpper();
+                                                    }
+                                                    else
+                                                    {
+                                                        initials = "NN"; // Mặc định là "NN" nếu tên không có giá trị
+                                                    }
+                                                }
+                                                <span>@initials</span>
+                                            </div>
+
+
+                                            <div class="comment__right">
+                                                <div class="comment__name mb-0">@i.TenKh</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment__content col-12 col-sm-7 col-md-8">
+                                        <div class="pr-3">
+                                            <div class="comment__meta mb-3">
+                                                <ul class="row justify-content-sm-between align-items-baseline">
+                                                    <li class="comment__level d-flex align-items-center mb-2">
+                                                        @{
+                                                            double diem = (double)(@i.DiemNhanVien + @i.DiemThucAn + @i.DiemThoaiMai + @i.DiemSachSe + @i.DiemDichVu) / 5;
+                                                            double diemtb = Math.Round(diem, 1);
+                                                        }
+                                                        <div class="badge bg-primary">@diemtb</div>
+                                                        @if (diemtb < 5)
+                                                        {
+                                                            <h4 class="level m-0">Tệ</h4>
+                                                        }
+                                                        else if (diemtb >= 5 && diemtb < 6.5)
+                                                        {
+                                                            <h4 class="level m-0">Bình thường</h4>
+                                                        }
+                                                        else if (diemtb >= 6.5 && diemtb < 8)
+                                                        {
+                                                            <h4 class="level m-0">Khá tốt</h4>
+                                                        }
+                                                        else if (diemtb >= 8 && diemtb < 9)
+                                                        {
+                                                            <h4 class="level m-0">Tốt</h4>
+                                                        }
+                                                        else
+                                                        {
+                                                            <h4 class="level m-0">Xuất sắc</h4>
+                                                        }
+
+                                                    </li>
+                                                    <li class="comment__date mb-2">
+                                                        <span>Review Date:</span>
+                                                        <time datetime="2017-07-18">@i.NgayComment</time>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="comment__alert alert d-flex bg-primary-light">
+                                            <div class="media-object pr-3"><i class="icon icon-comments"></i></div>
+                                            <div class="alert__content">
+                                                <p>@i.Comment</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                    <div style="margin: 0 auto">
+                        @Html.PagedListPager(Model.DanhGia, page => Url.Action("ChiTietKS", new { pageDanhGia = page, MaKS = ViewBag.maks }), new X.PagedList.Web.Common.PagedListRenderOptions()
+               {
+                   LiElementClasses = new List<String> { "page-item" },
+                   PageClasses = new List<String> { "page-link" }
+               })
+                    </div>
+                </div>
+            }
+            @{
+                var check = HttpContextAccessor.HttpContext.Session.GetString("check");
+            }
+            @if(check == "1")
+            {
+
+                <div class="hotel-card hotel-guests">
+                    <form id="reviewForm" method="post" onsubmit="return validateForm()">
+                        <input hidden name="Maks" value="@ViewBag.Maks" id="maks" />
+                        <div class="item pr-3">
+                            <div class="item pr-3">
+                                <h2 style="margin-top:15px;">Viết đánh giá</h2>
+                                <div class="mb-1">Nhân viên phục vụ</div>
+                                <div class="d-flex align-items-center">
+                                    <input type="range" min="0" max="10" step="0.1" value="8.2" name="DiemNhanVien" class="form-range" style="width:85%;" id="staffRating">
+                                    <span class="fw-bold" id="staffValue">8.2</span>
+                                </div>
+                            </div>
+                            <div class="item pr-3">
+                                <div class="mb-1">Đồ ăn</div>
+                                <div class="d-flex align-items-center">
+                                    <input type="range" min="0" max="10" step="0.1" value="8.2" name="DiemThucAn" class="form-range" style="width:85%;" id="foodRating">
+                                    <span class="fw-bold" id="foodValue">8.2</span>
+                                </div>
+                            </div>
+                            <div class="item pr-3">
+                                <div class="mb-1">Sạch sẽ</div>
+                                <div class="d-flex align-items-center">
+                                    <input type="range" min="0" max="10" step="0.1" value="8.2" name="DiemSachSe" class="form-range" style="width:85%;" id="cleanlinessRating">
+                                    <span class="fw-bold" id="cleanlinessValue">8.2</span>
+                                </div>
+                            </div>
+                            <div class="item pr-3">
+                                <div class="mb-1">Thoải mái</div>
+                                <div class="d-flex align-items-center">
+                                    <input type="range" min="0" max="10" step="0.1" value="8.2" name="DiemThoaiMai" class="form-range" style="width:85%;" id="comfortRating">
+                                    <span class="fw-bold" id="comfortValue">8.2</span>
+                                </div>
+                            </div>
+                            <div class="item pr-3">
+                                <div class="mb-1">Dịch vụ</div>
+                                <div class="d-flex align-items-center">
+                                    <input type="range" min="0" max="10" step="0.1" value="8.2" name="DiemDichVu" class="form-range" style="width:85%;" id="serviceRating">
+                                    <span class="fw-bold" id="serviceValue">8.2</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="comment">Đánh giá của bạn :</label>
+                                <textarea class="form-control" id="comment" name="Comment" rows="4"></textarea>
+                            </div>
+                            <button type="submit" id="submitBtn" class="btn btn-primary">Đánh giá</button>
+                    </form>
+                </div>
+            }
+            else
+            {
+                
+            }
+
+
+        </section>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="~/lib/microsoft-signalr/signalr.js"></script>
+<script>
+    "use strict";
+
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/stock-hub")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+
+    connection.start().then(function () {
+        console.log("SignalR Connected!");
+    }).catch(function (err) {
+        return console.error(err.toString());
+    });
+
+    connection.on("ReceiveReview", function (danhgia) {
+        var diemTrungBinh = (danhgia.diemNhanVien + danhgia.diemThucAn + danhgia.diemThoaiMai + danhgia.diemSachSe + danhgia.diemDichVu) / 5;
+        var diemTron = diemTrungBinh.toFixed(1);
+        var ten = danhgia.tenKh;
+        var tenkhach = "";
+        if (!ten || ten.trim() !== '') {
+            tenkhach = ten.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
+        }
+        else {
+            tenkhach = "NN"; // Mặc định là "NN" nếu tên không có giá trị
+        }
+        // Hiển thị điểm trung bình và mô tả điểm
+        var level = "";
+        if (diemTron < 5) {
+            level = "Tệ";
+        } else if (diemTron >= 5 && diemTron < 6.5) {
+            level = "Bình thường";
+        } else if (diemTron >= 6.5 && diemTron < 8) {
+            level = "Khá tốt";
+        } else if (diemTron >= 8 && diemTron < 9) {
+            level = "Tốt";
+        } else {
+            level = "Xuất sắc";
+        }
+
+        const reviewHtml = `
+            <li class="comment">
+                <div class="row flex-sm-nowrap">
+                    <div class="comment__left col-12 col-sm-5 col-md-4 mb-4">
+                        <div class="d-flex align-items-center w-100">
+
+                            <div class="comment__avatar rounded-circle" style="background-color: rgba(242, 243, 243, 1.00); border: 1px solid #ffffff; color: rgba(104, 113, 118, 1.00); display: flex; justify-content: center; align-items: center; font-size:22px;">
+
+                               <span>${tenkhach}</span>
+                            </div>
+                            <div class="comment__right">
+                                  <div class="comment__name mb-0">${danhgia.tenKh}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment__content col-12 col-sm-7 col-md-8">
+                        <div class="pr-3">
+                            <div class="comment__meta mb-3">
+                                <ul class="row justify-content-sm-between align-items-baseline">
+                                    <li class="comment__level d-flex align-items-center mb-2">
+                                          <div class="badge bg-primary">${diemTron}</div>
+                                          <h4 class="level m-0">${level}</h4>
+                                    </li>
+                                    <li class="comment__date mb-2">
+                                        <span>Review Date:</span>
+                                        <time datetime="${danhgia.ngayComment}">${danhgia.ngayComment}</time>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comment__alert alert d-flex bg-primary-light">
+                            <div class="media-object pr-3"><i class="icon icon-comments"></i></div>
+                            <div class="alert__content">
+                                <p>${danhgia.comment}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        `;
+
+        // Thêm đánh giá mới vào danh sách hiển thị
+        const reviewList = document.getElementById("reviewList");
+        reviewList.insertAdjacentHTML("beforeend", reviewHtml);
+    });
+</script>
+<script>
+    var staffSlider = document.getElementById("staffRating");
+    var staffOutput = document.getElementById("staffValue");
+    staffOutput.innerHTML = staffSlider.value;
+    staffSlider.oninput = function () {
+        staffOutput.innerHTML = this.value;
+    };
+
+    var facilitySlider = document.getElementById("foodRating");
+    var facilityOutput = document.getElementById("foodValue");
+    facilityOutput.innerHTML = facilitySlider.value;
+    facilitySlider.oninput = function () {
+        facilityOutput.innerHTML = this.value;
+    };
+
+    var cleanlinessSlider = document.getElementById("cleanlinessRating");
+    var cleanlinessOutput = document.getElementById("cleanlinessValue");
+    cleanlinessOutput.innerHTML = cleanlinessSlider.value;
+    cleanlinessSlider.oninput = function () {
+        cleanlinessOutput.innerHTML = this.value;
+    };
+
+    var comfortSlider = document.getElementById("comfortRating");
+    var comfortOutput = document.getElementById("comfortValue");
+    comfortOutput.innerHTML = comfortSlider.value;
+    comfortSlider.oninput = function () {
+        comfortOutput.innerHTML = this.value;
+    };
+    var serviceSlider = document.getElementById("serviceRating");
+    var serviceOutput = document.getElementById("serviceValue");
+    serviceOutput.innerHTML = serviceSlider.value;
+    serviceSlider.oninput = function () {
+        serviceOutput.innerHTML = this.value;
+    };
+
+    $(document).ready(function () {
+        $('#reviewForm').submit(function (e) {
+            e.preventDefault();
+            var comment = document.getElementById("comment").value;
+
+            if (comment.trim() === "") {
+                alert("Vui lòng nhập đánh giá của bạn.");
+                return false;
+            }
+            $.ajax({
+                type: 'POST',
+                url: '/KhachHang/IsAuthenticated', // Đường dẫn đến endpoint kiểm tra đăng nhập
+                success: function (data) {
+                    if (data.isAuthenticated) {
+                        // Người dùng đã đăng nhập, tiếp tục với việc gửi đánh giá
+                        var formData = {
+                            Comment: $('#comment').val(),
+                            MaKs: $('#maks').val(),
+                            DiemNhanVien: $('#staffRating').val(),
+                            DiemThucAn: $('#foodRating').val(),
+                            DiemSachSe: $('#cleanlinessRating').val(),
+                            DiemThoaiMai: $('#comfortRating').val(),
+                            DiemDichVu: $('#serviceRating').val()
+                        };
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '/KhachSan/DanhGia',
+                            data: formData,
+                            success: function (data) {
+                                alert("Bạn đã đánh giá thành công .");
+                                window.location.href = data.redirectTo + '?maks=' + $('#maks').val();
+                            },
+                            error: function (error) {
+                                console.log('Lỗi khi cập nhật lựa chọn.');
+                            }
+                        });
+                    } else {
+                        // Người dùng chưa đăng nhập, chuyển hướng đến trang đăng nhập
+                        window.location.href = '/KhachHang/DangNhap'; // Đường dẫn đến trang đăng nhập
+                    }
+                },
+                error: function (error) {
+                    console.log('Lỗi khi kiểm tra trạng thái đăng nhập.');
+                }
+                });
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.room-checkbox, .price-checkbox,.tb-checkbox').change(function () {
+            updateRoomSelection();
+        });
+
+        function updateRoomSelection() {
+            var selectedRooms = [];
+            $('.room-checkbox:checked').each(function () {
+                selectedRooms.push($(this).data('loaiphong'));
+            });
+
+            var selectedPrices = [];
+            $('.price-checkbox:checked').each(function () {
+                selectedPrices.push($(this).data('gia'));
+            });
+
+            var selectedThietBi = [];
+            $('.tb-checkbox:checked').each(function () {
+                selectedThietBi.push($(this).data('tb'));
+            });
+            var maks = $('#maks').val();
+
+            $.ajax({
+                url: '/Phong/UpdateSelection',
+                type: 'POST',
+                data: {
+                    selectedRooms: selectedRooms,
+                    selectedPrices: selectedPrices,
+                    selectedThietBi: selectedThietBi,
+                    maks: maks
+                },
+                success: function (result) {
+                    $('#result-container').html(result);
+                },
+                error: function () {
+                    console.log('Lỗi khi cập nhật lựa chọn.');
+                }
+            });
+        }
+    });
+</script>

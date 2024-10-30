@@ -1,0 +1,74 @@
+﻿@using QLKhachSan.ViewModels;
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<LSDatPhongVM>
+@{
+    ViewData["Title"] = "LichSuDatPhong";
+    Layout = "_LayoutProfile";
+}
+
+
+<div class="personal__account-security container">
+    <h2 style="color: dimgray;" class="text-center mb-4">Lịch sử đặt phòng</h2>
+    <div class="table-responsive">
+        <table class="table table-striped" style="border-color: black;">
+            <thead>
+                <tr class="header-row" style="color: black;">
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên phòng</th>
+                    <th scope="col">Tên khách sạn</th>
+                    <th scope="col">Tên khách hàng</th>
+                    <th scope="col">Số người</th>
+                    <th scope="col">Ngày đến</th>
+                    <th scope="col">Ngày đi</th>
+                    <th scope="col">Ngày thanh toán</th>
+                    <th scope="col">Hủy phòng</th> <!-- Thêm cột mới -->
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var count = 1;
+                    var currentDate = DateTime.Now.Date; // Ngày hiện tại
+                }
+                @foreach (var item in Model)
+                {
+                    var isPastBooking = item.ngayden > currentDate; // Kiểm tra xem ngày đặt phòng đã qua chưa
+                    <tr style="color: black;">
+                        <td>@count</td>
+                        <td>@item.tenphong</td>
+                        <td>@item.tenks</td>
+                        <td>@item.tenkh</td>
+                        <td>@item.songuoi</td>
+                        <td>@item.ngayden</td>
+                        <td>@item.ngaydi</td>
+                        <td>@item.ngaythanhtoan</td>
+                        <td>
+                            @if (isPastBooking)
+                            {
+                                @if (item.tinhtrang == "Đã hủy")
+                                {
+                                    <span class="text-danger">Đã hủy</span>
+                                }
+                                else
+                                {
+                                    <a asp-controller="KhachHang" asp-action="HuyPhong" asp-route-id="@item.sohd" type="button" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn hủy phòng @item.tenphong không?');">Hủy</a>
+                                }
+                            }
+                            else
+                            {
+                                
+                            }
+                        </td>
+                    </tr>
+                    count++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div style="margin: 0 auto">
+    @Html.PagedListPager(Model, page => Url.Action("LichSuDatPhong", new { maks = ViewBag.MaKS, page = page }), new X.PagedList.Web.Common.PagedListRenderOptions()
+{
+    LiElementClasses = new List<String> { "page-item" },
+    PageClasses = new List<String> { "page-link" }
+})
+</div>

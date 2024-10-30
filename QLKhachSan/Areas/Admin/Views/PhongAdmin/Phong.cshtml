@@ -1,0 +1,150 @@
+﻿@using QLKhachSan.ViewModels.Admin;
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<PhongVM>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+	ViewData["Title"] = "Phong";
+	Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="row">
+	<div class="col-xl-12">
+		<div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
+			<div class="card-tabs mt-3 mt-sm-0 mb-xxl-0 mb-4">
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" data-bs-toggle="tab" href="#All" role="tab">Phòng</a>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<select class="form-control" id="selectedHotel">
+					<option value="" selected>Chọn khách sạn</option>
+					@foreach (var khachsan in ViewBag.ks)
+					{
+						<option value="@khachsan.MaKs">@khachsan.TenKhachSan</option>
+					}
+				</select>
+			</div>
+			<div class="table-search">
+				<div style="border-bottom-left-radius: 1.375rem;" class="input-group search-area mb-xxl-0 mb-4">
+					<form asp-action="TimKiemPhong" method="get" class="d-flex">
+						<input style="height:auto" type="text" name="searchTerm" class="form-control" placeholder="Nhập thông tin .." value="@ViewBag.SearchTerm">
+						<button type="submit" class="input-group-text btn btn-primary"><i class="flaticon-381-search-2"></i></button>
+					</form>
+				</div>
+			</div>
+			<a style="display:flex;" asp-action="ThemPhong" class="btn btn-primary mb-xxl-0 mb-4 radius-btn"><i class="material-icons me-2">add</i>Thêm mới</a>
+		</div>
+		<div class="tab-content">
+			<div class="text-danger">@TempData["Message"]</div>
+			<div class="tab-pane active show" id="All">
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped check-data  display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg " id="guestTable-all">
+						<thead>
+							<tr style="text-align:center;">
+								<th>Tên phòng</th>
+								<th>Loại phòng</th>
+								<th>Tên khách sạn</th>
+								<th>Tình trạng</th>
+								<th style="text-align:center;">Chức năng</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var item in Model)
+							{
+								<tr>
+									<td>
+										<div class="guest-bx">
+											<img class="me-3" src="@Url.Content("~/img/Images/phong/"+@item.Anh)" alt="">
+											<div>
+												<span class="text-primary">#@item.MaPhong</span>
+												<h4 class="mb-0 mt-1"><a class="text-black" href="guest_detail.html">@item.TenPhong</a></h4>
+											</div>
+										</div>
+									</td>
+									<td>
+										<div>
+											<span class="fs-16">@item.TenLP</span>
+										</div>
+									</td>
+									<td>
+										<div>
+											<span class="fs-16">@item.TenKS</span>
+										</div>
+									</td>
+
+									<td>
+										<div>
+											@if (ViewBag.DatPhongDictionary.ContainsKey(item.MaPhong) && ViewBag.DatPhongDictionary[item.MaPhong].Contains(DateTime.Now.Date))
+											{
+												<span class="d-block text-danger">Đã được đặt</span>
+											}
+											else
+											{
+												<span class="d-block text-success">Đang trống</span>
+											}
+										</div>
+									</td>
+									<td class="text-center">
+										<a class="btn btn-sm btn-warning mx-1" asp-controller="PhongAdmin" asp-action="SuaPhong" asp-route-id="@item.MaPhong">
+											<i class="far fa-edit"></i> Edit
+										</a>
+										<a class="btn btn-sm btn-danger mx-1" onclick="return confirm('Bạn có chắc chắn muốn xóa phòng này không?')" asp-controller="PhongAdmin" asp-action="XoaPhong" asp-route-id="@item.MaPhong">
+											<i class="far fa-trash-alt"></i> Delete
+										</a>
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="margin: 0 auto">
+	@Html.PagedListPager(Model, page => Url.Action("Phong", new { maks = ViewBag.MaKS, page = page, searchTerm = ViewBag.SearchTerm }), new X.PagedList.Web.Common.PagedListRenderOptions()
+{
+	LiElementClasses = new List<String> {"page-item"},
+	PageClasses = new List<String> {"page-link"}
+	})
+</div>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="~/LayoutAdmin/public/assets/css/style-admin.css">
+<script>
+	$(document).ready(function () {
+		// Kiểm tra nếu có giá trị đã lưu trong local storage
+		var selectedHotelId = localStorage.getItem('HotelId');
+		if (selectedHotelId) {
+			// Đặt giá trị đã lưu vào dropdown
+			$('#selectedHotel').val(selectedHotelId);
+			// Clear the local storage after setting the dropdown value
+			localStorage.removeItem('HotelId');
+		}
+	});
+</script>
+<script>
+	$(document).ready(function () {
+		// Kiểm tra nếu có giá trị đã lưu trong local storage
+		var selectedHotelId = localStorage.getItem('HotelId');
+		if (selectedHotelId) {
+			// Đặt giá trị đã lưu vào dropdown
+			$('#selectedHotel').val(selectedHotelId);
+		}
+
+		// Sự kiện khi giá trị của dropdown thay đổi
+		$('#selectedHotel').change(function () {
+			var selectedHotelId = $(this).val();
+			if (selectedHotelId) {
+				// Lưu giá trị mới vào local storage
+				localStorage.setItem('HotelId', selectedHotelId);
+				// Tạo URL mới với giá trị maks và chuyển hướng trang đến URL đó
+				var newUrl = '@Url.Action("Phong", "PhongAdmin")?maks=' + selectedHotelId;
+				window.location.href = newUrl;
+			}
+		});
+	});
+</script>

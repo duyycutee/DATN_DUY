@@ -1,0 +1,101 @@
+﻿@model QLKhachSan.ViewModels.Admin.LoaiPhongVM
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "SuaLP";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 style="color: dimgray;" class="text-center mb-4">Cập nhật loại phòng</h2>
+<div class="card-body">
+    <div class="basic-form">
+        <form id="editRoomTypeForm" method="post" asp-action="SuaLP" enctype="multipart/form-data">
+            <div class="text-danger">@TempData["Message"]</div>
+            <div class="mb-3">
+                <input hidden type="text" class="form-control" name="malp" value="@Model.malp" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Tên loại phòng<span class="text-danger">(*)</span></label>
+                <input asp-for="tenlp" type="text" class="form-control" required placeholder="Tên loại phòng ..">
+                <span class="text-danger" id="tenlpValidation"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="songuoitoida" class="form-label">Số người tối đa<span class="text-danger">(*)</span></label>
+                <select asp-for="songuoitoida" name="songuoitoida" class="default-select form-control wide mb-3">
+                    <option value="">Chọn số người tối đa</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <span class="text-danger" id="songuoitoidaValidation"></span>
+            </div>
+            <div class="mb-3">
+                <label for="formFileSm" class="form-label">Ảnh đại diện</label>
+                <input class="form-control form-control-sm" name="Anh" id="formFileSm" type="file">
+                <span class="text-danger" id="AnhValidation"></span>
+            </div>
+            <div class="mb-3">
+                <label for="formFile1" class="form-label">Giá<span class="text-danger">(*)</span></label>
+                <input asp-for="gia" class="form-control form-control-sm" required name="gia" type="text">
+                <span class="text-danger" id="giaValidation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Kích thước<span class="text-danger">(*)</span></label>
+                <input asp-for="kichthuoc" class="form-control form-control-sm" required type="text" />
+                <span class="text-danger" id="kichthuocValidation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Thông tin<span class="text-danger">(*)</span></label>
+                <textarea class="form-control" rows="8" asp-for="thongtin" required></textarea>
+                <span class="text-danger" id="thongtinValidation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Thiết bị<span class="text-danger">(*)</span></label>
+                <div class="row">
+                    @foreach (var i in ViewBag.thietbi)
+                    {
+                        <div class="col-xl-6 col-xxl-6 col-6">
+                            <div class="form-check custom-checkbox mb-3 checkbox-info">
+                                <input value="@i" type="checkbox" class="form-check-input" id="@("checkbox-" + i)" name="thietbi" @(ViewBag.tenthietbi.Contains(i) ? "checked" : "")>
+                                <label class="form-check-label" for="@("checkbox-" + i)">@i</label>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <span class="text-danger" id="thietbiValidation"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Lưu</button>
+        </form>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#editRoomTypeForm').on('submit', function (e) {
+            var isValid = true;
+
+            if ($('select[name="songuoitoida"]').val() === '') {
+                $('#songuoitoidaValidation').text('Số người tối đa là bắt buộc.');
+                isValid = false;
+            } else {
+                $('#songuoitoidaValidation').text('');
+            }
+
+            var selectedDevices = $('input[name="thietbi"]:checked').length;
+            if (selectedDevices < 3) {
+                $('#thietbiValidation').text('Bạn phải chọn ít nhất 3 thiết bị.');
+                isValid = false;
+            } else {
+                $('#thietbiValidation').text('');
+            }
+            if (!isValid) {
+                e.preventDefault(); // Use 'e' instead of 'event'
+            }
+        });
+    });
+</script>

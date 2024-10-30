@@ -1,0 +1,176 @@
+﻿@inject IHttpContextAccessor HttpContextAccessor
+@model List<QLKhachSan.ViewModels.BookingVM>
+
+@{
+    ViewData["Title"] = "Booking";
+    Layout = "_LayoutCheckOut";
+}
+<div class="container">
+    <nav class="breadcrumb-nav d-flex align-items-center" aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="under" href="index.html">Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><span>Thông tin đặt phòng</span></li>
+            </ol>
+        </div>
+    </nav>
+    <div class="row">
+    <aside class="sidebar col-lg-3 order-1 order-lg-0">
+        <div class="sidebar__content js-sticky-top">
+            <section class="sidebar__card card">
+                <ul class="sidebar__payment">
+                    @if (Model != null && Model.Count() > 0 )
+                    {
+                        foreach (var room in Model)
+                        {
+                            <li class="d-inline-block align-top mr-5 mb-2">
+                                <div class="fw-bold">Tên phòng</div>
+                                <ul>
+                                    <li>- @room.tenphong</li>
+                                </ul>
+                            </li>
+                            <li class="d-inline-block align-top mr-5 mb-2">
+                                <div class="fw-bold">Ngày đến</div>
+                                <ul>
+                                    <li>- @room.ngayden.ToString("dd/MM/yyyy")</li>
+                                </ul>
+                            </li>
+                            <li class="d-inline-block align-top mr-5 mb-2">
+                                <div class="fw-bold">Ngày đi</div>
+                                <ul>
+                                    <li>- @room.ngaydi.ToString("dd/MM/yyyy")</li>
+                                </ul>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li>Không có phòng nào được chọn.</li>
+                    }
+                </ul>
+                <hr class="mt-2">
+                <ul class="sidebar__payment-total">
+                    <li class="h4 fw-bold f-primary mb-0">Tổng tiền: @ViewBag.TotalAmount €</li>
+                </ul>
+            </section>
+            <section class="sidebar__card card">
+                <div class="sidebar__card-title">
+                    <h4 class="card-title mb-1">Cần trợ giúp đặt chỗ?</h4>
+                    <hr class="my-3 mt-2" />
+                </div>
+                <p>Hãy gọi cho nhóm dịch vụ khách hàng của chúng tôi theo số bên dưới để nói chuyện với một trong những cố vấn của chúng tôi, người sẽ giúp bạn đáp ứng mọi nhu cầu trong kỳ nghỉ của bạn.</p>
+                <ul class="sidebar__contacts">
+                    <li class="d-flex align-items-center"><i class="icon icon-phone mr-2"></i><a class="fw-bold" href="tel:#">0903888888</a></li>
+                </ul>
+            </section>
+        </div>
+    </aside>
+
+        <div class="col-lg-9 d-flex" id="barba-wrapper">
+    <div class="barba-container">
+        <div class="booking-card card">
+            <div class="card-body">
+                <div class="booking-card__title">
+                    <h2>Thông tin khách hàng</h2>
+                    <hr class="mb-4">
+                </div>
+                <form style="width:820px;" class="booking-card__form" asp-controller="Room" asp-action="ConfirmBooking" method="post" id="bookingForm">
+                    <div class="row pad-lg-20">
+                        <input type="hidden" name="totalAmount" value="@ViewBag.TotalAmount" />
+                        @foreach (var room in Model) // Lặp qua từng phòng trong danh sách
+                        {
+                           <input type="hidden" name="maphong" value="@string.Join(",", room.maphong)" />
+                            <input type="hidden" name="ngayden" value="@room.ngayden" />
+                            <input type="hidden" name="ngaydi" value="@room.ngaydi" />
+                            <input type="hidden" name="songuoitoida" value="@room.songuoitoida" />
+                            <input type="hidden" name="tenphong" value="@room.tenphong" />
+                            <input type="hidden" name="thanhtien" value="@room.thanhtien" />
+                           
+                        };
+                        @{
+                         var email = HttpContextAccessor.HttpContext.Session.GetString("email");
+                        }
+                            @if (email != null)
+                            {
+                                if (ViewBag.email != null || ViewBag.diachi != null || ViewBag.sdt != null)
+                                {
+                                    <div style="margin-left:20px;" class="form-group col-12">
+                                        <input class="form-check-input" name="GiongKhachHang" type="checkbox" id="GiongKhachHang" value="false">
+                                        <label class="form-check-label" for="GiongKhachHang">Giống thông tin khách hàng?</label>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <input class="form-control info" type="text" name="HoTen" placeholder="Họ tên" value="@ViewBag.hoTen" required />
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <input class="form-control info" id="email" type="email" name="Email" placeholder="Email" value="@ViewBag.email" required />
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <input class="form-control info" type="text" name="DienThoai" placeholder="Số điện thoại" value="@ViewBag.sdt" required />
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="form-group col-12">
+                                    <input class="form-control info" type="text" name="HoTen" required placeholder="Họ tên" />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group col-12">
+                                    <input class="form-control info" id="email" type="email" name="Email" required placeholder="Email" />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group col-12">
+                                    <input class="form-control info" type="text" name="DienThoai" required placeholder="Số điện thoại" />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            }
+                    </div>
+                    <div class="d-flex">
+                        <input class="btn btn-secondary btn--round mx-auto ml-sm-0" type="submit" name="payment" value="Đặt cọc phòng(40%)" />
+                        <input class="btn btn-secondary btn--round mx-auto ml-sm-0" type="submit" name="payment" value="Thanh toán VNPay" />
+                    </div>
+                </form>
+            </div>
+        </div
+
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#GiongKhachHang").change(function () {
+                if ($(this).prop("checked")) {
+                    $(this).val(true);
+                    $(".info").addClass("d-none");
+                } else {
+                    $(this).val(false);
+                    $(".info").removeClass("d-none");
+                }
+            });
+
+            $("#bookingForm").submit(function (event) {
+                var hoTen = $('input[name="HoTen"]').val().trim();
+                var email = $('input[name="Email"]').val().trim();
+                var dienThoai = $('input[name="DienThoai"]').val().trim();
+                var giongKhachHang = $('input[name="GiongKhachHang"]').prop('checked');
+
+                // Nếu checkbox "Giống thông tin khách hàng" được chọn, không cần kiểm tra các trường dữ liệu khách hàng
+                if (giongKhachHang) {
+                    return true;  // cho phép submit form
+                }
+
+                var phonePattern = /^0\d{9}$/;
+                if (!phonePattern.test(dienThoai)) {
+                    alert("Vui lòng nhập số điện thoại hợp lệ (bắt đầu bằng số 0 và có tổng cộng 10 số).");
+                    event.preventDefault(); // Ngăn không cho submit form
+                    return false;
+                }
+                return true; // cho phép submit form nếu tất cả kiểm tra đều hợp lệ
+            });
+        });
+    </script>
+}

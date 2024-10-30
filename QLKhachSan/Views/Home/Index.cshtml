@@ -1,0 +1,75 @@
+﻿@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<QLKhachSan.ViewModels.TinhThanhVM>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_LayoutHome";
+}
+<link rel="stylesheet" href="~/css/style.css">
+@if (TempData["Message"] != null)
+{
+    <div class="notification">@TempData["Message"]</div>
+}
+<div class="row">
+    @foreach(var item in Model)
+    {
+        <div class="col-12 col-sm-6 col-lg-4 d-flex mb-4">
+            <div class="card card-hotel w-100 mb-2">
+                <div class="card-hotel__img">
+                    <img class="img-cover" src="@Url.Content($"~/img/Images/khuvuc/{item.Anh}")" alt="#" />
+                </div>
+                <div class="card-hotel__bottom">
+                    <h4 class="h4 mb-1">@item.TenTinh</h4>
+                    <div class="card-hotel__local d-flex align-items-center">
+                        <i class="icon icon-label text-secondary mr-1"></i>
+                        <ul class="d-inline-flex flex-wrap">
+                            <li class="mr-4">Việt Nam</li>
+                            <li class="amout">
+                                @item.SoLuongKhachSans
+                                Khách sạn
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-hover">
+                    <h3 class="h3 text-uppercase">@item.TenTinh</h3>
+                    <a class="btn btn-light btn--round card-hover__view" asp-controller="KhachSan" asp-action="KhachSanTheoTinh" asp-route-matinh="@item.MaTinh">xem</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div id="paginationContainer" style="margin: 0 auto">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }), new X.PagedList.Web.Common.PagedListRenderOptions()
+{
+    LiElementClasses = new List<String> { "page-item" },
+    PageClasses = new List<String> { "page-link" }
+})
+</div>
+<script>
+    $(document).ready(function () {
+        $(".notification").fadeIn().delay(5000).fadeOut();
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $(document).on("click", ".pagination a", function (e) {
+            e.preventDefault();
+            var url = $(this).attr("href");
+            $.ajax({
+                url: url,
+                type: "GET",
+                success: function (result) {
+                    $("#paginationContainer").html(result);
+                },
+                error: function () {
+                    alert("Failed to load data.");
+                }
+            });
+        });
+    });
+</script>
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', (event) => {
+        localStorage.clear(); // Xóa tất cả các mục trong Local Storage
+    });
+</script>

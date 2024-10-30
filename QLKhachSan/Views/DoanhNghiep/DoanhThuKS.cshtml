@@ -1,0 +1,118 @@
+﻿@model IEnumerable<QLKhachSan.ViewModels.Admin.DoanhThuVM>
+@using System.Globalization
+@{
+    ViewData["Title"] = "DoanhThuKS";
+    Layout = "_LayoutProfile";
+}
+<h2 style="color: dimgray; mb-3" class="text-center mb-4">Doanh thu</h2>
+<div style="display:flex;">
+    <select class="form-control w-25" id="selectedYear">
+        <option value="" selected>Chọn năm</option>
+        @for (int i = DateTime.Now.Year; i >= DateTime.Now.Year - 10; i--)
+        {
+            var selected = i == ViewBag.nam ? "selected" : "";
+            @*             <option value="@i" selected="@selected">@i</option> *@
+            <option value="@i">@i</option>
+        }
+    </select>
+
+    <select class="form-control w-25" id="selectedHotel">
+        <option value="" selected>Chọn khách sạn</option>
+        @foreach (var khachsan in ViewBag.ks)
+        {
+            var selected = khachsan.MaKs == ViewBag.selectedHotelId ? "selected" : "";
+            @*             <option value="@khachsan.MaKs" selected="@selected">@khachsan.TenKhachSan</option> *@
+            <option value="@khachsan.MaKs">@khachsan.TenKhachSan</option>
+        }
+    </select>
+</div>
+<div>
+    <canvas id="revenueChart" width="800" height="400"></canvas>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Kiểm tra nếu có giá trị đã lưu trong local storage
+        var selectedHotelId = localStorage.getItem('selectedHotelId');
+        if (selectedHotelId) {
+            // Đặt giá trị đã lưu vào dropdown
+            $('#selectedHotel').val(selectedHotelId);
+            // Clear the local storage after setting the dropdown value
+            localStorage.removeItem('selectedHotelId');
+        }
+
+        var selectedYear = localStorage.getItem('selectedYear');
+        if (selectedYear) {
+            // Đặt giá trị đã lưu vào dropdown
+            $('#selectedYear').val(selectedYear);
+            // Clear the local storage after setting the dropdown value
+            localStorage.removeItem('selectedYear');
+        }
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        // Lấy giá trị đã lưu từ Local Storage (nếu có)
+        var selectedHotelId = localStorage.getItem('selectedHotelId');
+        var selectedYear = localStorage.getItem('selectedYear');
+
+        // Thiết lập lại giá trị cho dropdowns
+        if (selectedHotelId) {
+            $('#selectedHotel').val(selectedHotelId);
+        }
+        if (selectedYear) {
+            $('#selectedYear').val(selectedYear);
+        }
+
+        $('#selectedHotel, #selectedYear').change(function () {
+            selectedHotelId = $('#selectedHotel').val();
+            selectedYear = $('#selectedYear').val();
+            localStorage.setItem('selectedHotelId', selectedHotelId);
+            localStorage.setItem('selectedYear', selectedYear);
+
+            // Kiểm tra xem cả hai dropdown đều đã được chọn
+            if (selectedHotelId && selectedYear) {
+                // Nếu đã chọn cả hai, tải dữ liệu
+                var newUrl = '@Url.Action("DoanhThuKS", "DoanhNghiep")' + '?nam=' + selectedYear + '&maKhachSan=' + selectedHotelId;
+                window.location.href = newUrl;
+            }
+        });
+
+        // Load dữ liệu cho biểu đồ
+        var months = ["Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6", "Month 7", "Month 8", "Month 9", "Month 10", "Month 11", "Month 12"];
+        var revenues = Array.from({ length: 12 }, () => 0);
+
+    @foreach (var item in Model)
+    {
+        var monthIndex = item.Thang - 1;
+        <text>
+                revenues[@monthIndex] = @item.TongTien;
+        </text>
+    }
+
+            var ctx = document.getElementById('revenueChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: months,
+                datasets: [{
+                    label: 'Revenue',
+                    data: revenues,
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
+
+
+</script>

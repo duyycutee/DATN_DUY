@@ -1,0 +1,91 @@
+﻿@using QLKhachSan.ViewModels;
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<KhachSanVM>
+@{
+    ViewData["Title"] = "KhachSan";
+    Layout = "_LayoutProfile";
+}
+<link rel="stylesheet" href="~/css/style-doanhnghiep.css">
+<div class="personal__account-security container">
+    <h2 style="color:dimgray" class="text-center mb-4">Khách sạn</h2>
+    <a asp-action="ThemKS" asp-controller="DoanhNghiep" class="btn btn-primary mb-xxl-0 mb-4 radius-btn">Thêm mới</a>
+    <div class="table-responsive">
+        <div class="text-danger">@TempData["Message"]</div>
+        <table class="table card-table check-data display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg" id="guestTable-all">
+            <colgroup>
+                <col style="width: 25%;">
+                <col style="width: 15%;">
+                <col style="width: 20%;">
+                <col style="width: 30%;">
+                <col style="width: 10%;">
+            </colgroup>
+            <thead>
+                <tr style="font-size:16px;">
+                    <th class="col-3">Tên khách sạn</th>
+                    <th class="col-2">Địa chỉ</th>
+                    <th class="col-4">Mô tả</th>
+                    <th class="col-1">Tình trạng</th>
+                    <th class="col-1">Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr style="font-size:13px;">
+                        <td>
+                            <div class="guest-bx d-flex align-items-center">
+                                <img class="me-3" src="@Url.Content("~/img/Images/khachsan/" + @item.Anh)" alt="">
+                                <div>
+                                    <h4 class="mb-0 mt-1"><a class="text-black" href="guest_detail.html">@item.TenKS</a></h4>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <span class="fs-16">@item.DiaChi</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <span class="fs-16">
+                                    @((!string.IsNullOrEmpty(item.Mota) && item.Mota.Length > 200) ? item.Mota.Substring(0, 200) + "..." : item.Mota)
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            @if(@item.Duyet == 1){
+                            <div>
+                                <span class="fs-16">Đang hoạt động</span>
+                            </div>
+                            }
+                            else{
+                            <div>
+                                <span class="fs-16">Chưa hoạt dộng</span>
+                            </div>
+                            }
+                        </td>
+                        <td>
+                            <div class="action-links">
+                                <a class="edit" asp-controller="DoanhNghiep" asp-action="SuaKS" asp-route-id="@item.MaKS">
+                                    <i class="fas fa-edit"></i>Edit
+                                </a>
+                                <a class="delete" asp-controller="DoanhNghiep" asp-action="XoaKS" asp-route-id="@item.MaKS" onclick="return confirm('Bạn có chắc chắn muốn xóa phòng này không?')">
+                                    <i class="fas fa-trash-alt"></i>Delete
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div style="margin: 0 auto">
+    @Html.PagedListPager(Model, page => Url.Action("KhachSan", new { maks = ViewBag.MaKS, page = page }), new X.PagedList.Web.Common.PagedListRenderOptions()
+{
+    LiElementClasses = new List<String> { "page-item" },
+    PageClasses = new List<String> { "page-link" }
+})
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">

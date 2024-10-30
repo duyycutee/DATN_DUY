@@ -1,0 +1,60 @@
+﻿/* Tăng kích thước của ảnh */
+.guest-bx img {
+    max-width: 70px;
+    height: auto;
+    display: block;
+    margin-right: 10px;
+}
+
+/* Màu chữ cho văn bản trong bảng */
+.table th, .table td {
+    color: #000000; /* Màu chữ đen */
+}
+
+/* Tùy chỉnh nút hành động */
+.action-links {
+    display: flex; /* Hiển thị các nút trên cùng một dòng */
+    gap: 10px; /* Khoảng cách giữa các nút */
+}
+
+    .action-links a {
+        display: flex; /* Hiển thị icon và text trên cùng một dòng */
+        align-items: center; /* Căn giữa theo chiều dọc */
+        padding: 5px 10px; /* Khoảng cách bên trong nút */
+        border: 1px solid; /* Viền của nút */
+        border-radius: 5px; /* Bo tròn góc */
+        color: #fff; /* Màu chữ */
+        text-decoration: none; /* Bỏ gạch chân */
+        transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển đổi màu */
+    }
+
+        .action-links a.edit {
+            background-color: #007bff; /* Màu nền của nút Edit */
+            border-color: #007bff;
+        }
+
+            .action-links a.edit:hover {
+                background-color: #0056b3; /* Màu nền khi hover cho nút Edit */
+                border-color: #0056b3;
+            }
+
+        .action-links a.delete {
+            background-color: #dc3545; /* Màu nền của nút Delete */
+            border-color: #dc3545;
+        }
+
+            .action-links a.delete:hover {
+                background-color: #c82333; /* Màu nền khi hover cho nút Delete */
+                border-color: #c82333;
+            }
+
+        .action-links a i {
+            margin-right: 5px; /* Khoảng cách giữa icon và text */
+        }
+        .mota {
+            display: inline-block;
+            max-width: 200px; /* Chiều rộng tối đa của đoạn mô tả */
+            white-space: nowrap; /* Ngăn không cho văn bản xuống dòng */
+            overflow: hidden; /* Ẩn phần văn bản vượt quá */
+            text-overflow: ellipsis; /* Hiển thị dấu "..." ở cuối nếu văn bản bị cắt */
+        }

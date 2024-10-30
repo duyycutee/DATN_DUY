@@ -1,0 +1,731 @@
+﻿@model QLKhachSan.ViewModels.ChiTietDanhGia
+@{
+    ViewData["Title"] = "ChiTietKS";
+    Layout = "_LayoutKhachSan";
+}
+<div class="row">
+    <aside class="sidebar col-lg-3 order-1 order-lg-0">
+        <div class="sidebar__content js-sticky-top">
+            <div class="sidebar-filter modal card fade" id="sidebarFilter" tabindex="-1" role="dialog">
+                <input hidden id="maks" name="maks" value="@ViewBag.maks" />
+                <button class="btn-toggle btn btn-light" type="button" data-dismiss="modal"><span class="icon-bar"></span></button>
+                <div class="modal-header bg-white">
+                    <h4 class="modal-title">Refine search result</h4>
+                </div>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <ul class="sidebar-filter__list">
+                                <li class="sidebar-filter__item">
+                                    <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#price" data-toggle="collapse" role="button"><span>Price (per night)</span><i class="fa fa-angle-down"></i></a></h5>
+                                    <div class="collapse show" id="price">
+                                        <div class="sidebar-filter__content">
+                                            <label class="custom-control custom-checkbox">
+                                                <input class="custom-control-input price-checkbox" data-gia="300000-500000" type="checkbox" />
+                                                <span class="custom-control-label pointer">300000 - 500000 VND</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox">
+                                                <input class="custom-control-input price-checkbox" data-gia="500000-1000000" type="checkbox" />
+                                                <span class="custom-control-label pointer">500000 - 1000000 VND</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox">
+                                                <input class="custom-control-input price-checkbox" data-gia="1000000-2000000" type="checkbox" />
+                                                <span class="custom-control-label pointer">1000000 - 2000000 VND</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox">
+                                                <input class="custom-control-input price-checkbox" data-gia="2000000-10000000" type="checkbox" />
+                                                <span class="custom-control-label pointer">2000000VND +</span>
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="sidebar-filter__item">
+                                    <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#accommodation" data-toggle="collapse" role="button"><span>Room type</span><i class="fa fa-angle-down"></i></a></h5>
+                                    <div class="collapse show" id="accommodation">
+                                        <div class="sidebar-filter__content">
+                                            @foreach (var i in ViewBag.LoaiPhong)
+                                            {
+                                                <label class="custom-control custom-checkbox">
+                                                    <input class="custom-control-input room-checkbox" id="chk_@i" data-loaiphong="@i" type="checkbox" />
+                                                    <span class="custom-control-label pointer">@i</span>
+                                                </label>
+                                            }
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="sidebar-filter__item">
+                                    <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#HotelAttrs" data-toggle="collapse" role="button"><span>Room facilites</span><i class="fa fa-angle-down"></i></a></h5>
+                                    <div class="collapse show" id="HotelAttrs">
+                                        <div class="sidebar-filter__content">
+                                            @foreach (var tb in ViewBag.thietbi)
+                                            {
+                                                <label class="custom-control custom-checkbox">
+                                                    <input class="custom-control-input tb-checkbox" type="checkbox" data-tb="@tb" /><span class="custom-control-label pointer">@tb</span>
+                                                </label>
+                                            }
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="sidebar-filter__item">
+                                    <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#" data-toggle="collapse" role="button"><span>Star rating</span><i class="fa fa-angle-down"></i></a></h5>
+                                    <div class="collapse show d-block" id="starRating">
+                                        <div class="sidebar-filter__content">
+                                            <div class="sidebar-filter__stars rating d-flex justify-content-between align-items-center">
+                                                <select class="js-rating-filter" data-current-rating="3 of more">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                                <div class="amount ml-3"><span class="val"></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="sidebar-filter__item">
+                                    <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#" data-toggle="collapse" role="button"><span>User rating</span><i class="fa fa-angle-down"></i></a></h5>
+                                    <div class="collapse show d-block" id="userRating">
+                                        <div class="sidebar-filter__content">
+                                            <div class="sidebar-filter__rating">
+                                                <div class="mb-2" id="userRatingChange"></div>
+                                                <div class="d-flex justify-content-between"><span class="amount" id="userRatingMin"></span><span class="amount" id="userRatingMax">10</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                @*                                 <li class="sidebar-filter__item">
+                                <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#roomAttrs" data-toggle="collapse" role="button"><span>Rooms facilites</span><i class="fa fa-angle-down"></i></a></h5>
+                                <div class="collapse show" id="roomAttrs">
+                                <div class="sidebar-filter__content">
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Wi-Fi</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Room safe</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Desck</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Pay TV</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Mini bar</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Air condition</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Bathroom</span>
+                                </label>
+                                </div>
+                                </div>
+                                </li>
+                                <li class="sidebar-filter__item">
+                                <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#mealBoard" data-toggle="collapse" role="button"><span>Meal Board</span><i class="fa fa-angle-down"></i></a></h5>
+                                <div class="collapse show" id="mealBoard">
+                                <div class="sidebar-filter__content">
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">No meal</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Bed &amp; Breackfast</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Half board</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Full board</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">All-inclusive</span>
+                                </label>
+                                </div>
+                                </div>
+                                </li>
+                                <li class="sidebar-filter__item">
+                                <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#accessibility" data-toggle="collapse" role="button"><span>Accessibility option</span><i class="fa fa-angle-down"></i></a></h5>
+                                <div class="collapse show" id="accessibility">
+                                <div class="sidebar-filter__content">
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">No meal</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Bed &amp; Breackfast</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Half board</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Full board</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">All-inclusive</span>
+                                </label>
+                                </div>
+                                </div>
+                                </li>
+                                <li class="sidebar-filter__item">
+                                <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#location" data-toggle="collapse" role="button"><span>Location area</span><i class="fa fa-angle-down"></i></a></h5>
+                                <div class="collapse show" id="location">
+                                <div class="sidebar-filter__content">
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">University of Denver</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Denver Zoo</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Denver Art Museum</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Denver Museum of Nature and Science</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Red Rocks Amphitheater</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Pepsi Center</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Coors Field</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Dick's Sporting Goods Park</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Coors Brewery</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">United States Mint</span>
+                                </label>
+                                <div class="collapse">
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Sports Authority Field at Mile High</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Elitch Gardens Theme Park</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Molly Brown House Museum</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Colorado State Capitol Building</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Denver's Downtown Aquarium</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Denver Botanic Gardens</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Denver Public Library</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Union Station</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">University of Colorado-Denver</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Paramount Theater</span>
+                                </label>
+                                </div><a class="d-block js-show-more mt-2" href="#">Show more</a>
+                                </div>
+                                </div>
+                                </li> *@
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <div class="col-lg-9 category-content">
+        <nav class="sortbar navbar shadow-sm d-flex align-items-stretch">
+            <div class="sortbar__title d-flex align-items-stretch">
+                <button class="navbar-brand d-flex align-items-center pointer js-toggle-sidebar" data-target="#sidebarFilter" data-toggle="modal" type="button"><i class="d-lg-none icon icon-filter"></i><span class="ml-2 d-none d-lg-inline">Sort by:</span></button>
+            </div>
+            <div class="sortbar__sort js-sorting d-flex align-items-stretch"><a class="nav-link" href="#">Popularity</a><a class="nav-link" href="#">Price</a><a class="nav-link" href="#">Stars</a><a class="nav-link" href="#">Rating</a><a class="nav-link d-flex d-md-none align-items-center" href="#"><span class="mr-2">Sort by</span><i class="icon icon-sort-duble"></i></a></div>
+            <div class="sortbar__grid d-flex align-items-stretch ml-md-auto"><a class="nav-link active js-toggle-grid" href="#" data-grid="grid" data-cols="col-12 col-sm-6 col-xl-4 d-flex"><i class="icon icon-grid"></i></a><a class="nav-link js-toggle-grid" href="#" data-grid="list" data-cols="col-12 d-flex"><i class="icon icon-list-mb"></i></a></div>
+        </nav>
+        <div class="category-content__items row pad-lg-20" id="result-container">
+            @foreach (var item in Model.ChiTietPhong)
+            {
+                <div class="col-12 col-sm-6 col-xl-4 d-flex">
+                    <div class="product bg-white js-grid-item">
+                        <div class="product__special bg-primary text-white">
+                            special price
+                        </div>
+                        <a class="product__img-top d-block" asp-controller="Home" asp-action="ChiTietPhong" asp-route-id="@item.MaPhong">
+                            <img class="img-fluid" src="@Url.Content($"~/img/Images/{item.AnhPhong}")" alt="#" />
+                        </a>
+                        <div class="product__body">
+                            <h4 class="product__title"><a asp-controller="Home" asp-action="ChiTietPhong" asp-route-id="@item.MaPhong">@item.TenPhong</a></h4>
+@*                             <div class="product__rating mb-2">
+                                <div class="rating">
+                                    <select class="js-rating-stat" data-current-rating="5">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5" selected="selected">5</option>
+                                    </select>
+                                </div>
+                            </div> *@
+                            <ul class="product__stat d-flex flex-wrap justify-content-between align-items-center">
+                                <li class="mr-3"><span>Egypt</span><i class="bullet"></i><a href="#modalMap" data-toggle="modal" data-title="@item.TenPhong">Show on map</a></li>
+                                <li class="d-inline-flex align-items-center"><i class="icon icon-thumbs-up mr-1"></i><span>8/10</span></li>
+                            </ul>
+                            <hr />
+                            <ul class="product__price d-flex justify-content-between align-items-center">
+                                <li class="mr-2"><span>Price per night from</span></li>
+                                <li>
+                                    <span class="cost">@item.Gia VND</span>
+                                </li>
+                            </ul>
+                            <hr />
+                            <div class="product__desc">
+                                <p>The air-conditioned rooms have a balcony with views of the sea or the garden. Each spacious room has a TV with satellite channels. The private bathrooms at the... </p><a class="product__link-more" href="hotel.html">Read more</a>
+                            </div>
+                        </div>
+                        <hr class="d-none d-sm-block" />
+                        <div class="product__footer">
+                            <ul class="product__price d-flex justify-content-between align-items-center">
+                                <li class="mr-2"><span>Price per night from</span></li>
+                                <li>
+                                    <span class="cost">@item.Gia VND</span>
+                                </li>
+                            </ul><a class="product__btn-book btn btn-secondary btn--round" asp-controller="Home" asp-action="ChiTietPhong" asp-route-id="@item.MaPhong">book now</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <nav class="pagination-nav" aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-double-left"></i></a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item align-self-end d-sm-none">
+                    <a class="dotted" href="#">......</a>
+                </li>
+                <li class="page-item d-none d-sm-block">
+                    <a class="page-link" href="#">4</a>
+                </li>
+                <li class="page-item d-none d-sm-block">
+                    <a class="page-link" href="#">5</a>
+                </li>
+                <li class="page-item d-none d-sm-block">
+                    <a class="page-link" href="#">6</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">7</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">8</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-double-right"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="tab-pane" id="hotelReviews" role="tabpanel">
+        <section style="width:1100px;">
+            <h3 class="fw-md">Guest reviews</h3>
+            <hr class="mb-4">
+            @if (ViewBag.dtbNhanVien != null && ViewBag.dtbThucAn != null && ViewBag.dtbSachSe != null && ViewBag.dtbThoaiMai != null && ViewBag.dtbDichVu != null)
+            {
+                <div class="hotel-card hotel-review">
+                    <div class="row">
+                        <div class="hotel-review__total col-12 col-sm-4">
+                            <ul class="total d-flex mb-1">
+                                @{
+                                    double diem1 = (double)(@ViewBag.dtbNhanVien + @ViewBag.dtbThucAn + @ViewBag.dtbSachSe + @ViewBag.dtbThoaiMai + @ViewBag.dtbDichVu) / 5;
+                                    double diemdg = Math.Round(diem1, 1);
+                                }
+                                <li class="total__item">@diemdg</li>
+                                <li class="total__item">10</li>
+                            </ul>
+                            <p class="review">
+                                Based on  <span class="reviews">@ViewBag.soVote</span>
+                                reviews
+                            </p>
+                            <hr>
+                            <p>Guest reviews are written by our customers after their stay at Hotel Ravena</p>
+                        </div>
+                        <div class="hotel-review__progress col-12 col-sm-8 js-point-progress">
+                            <div class="item pr-3">
+                                <div class="mb-1">Nhân viên phục vụ</div>
+                                <div class="d-flex align-items-center">
+                                    <div class="progress progress--lg">
+                                        @{
+                                            // Chuyển đổi kiểu dữ liệu từ decimal sang double
+                                            decimal dtbNhanVien = ViewBag.dtbNhanVien;
+                                            double diemnhanvien = (double)(dtbNhanVien / 10) * 100;
+                                        }
+                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: @diemnhanvien%;" aria-valuenow="@diemnhanvien" aria-valuemin="0" aria-valuemax="10">
+                                        </div>
+                                    </div><span class="fw-bold">@ViewBag.dtbNhanVien</span>
+                                </div>
+                            </div>
+                            <div class="item pr-3">
+                                <div class="mb-1">Đồ ăn</div>
+                                <div class="d-flex align-items-center">
+                                    <div class="progress progress--lg">
+                                        @{
+                                            // Chuyển đổi kiểu dữ liệu từ decimal sang double
+                                            decimal dtbthucan = ViewBag.dtbthucan;
+                                            double diemthucan = (double)(dtbthucan / 10) * 100;
+                                        }
+                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: @diemthucan%;" aria-valuenow="@diemthucan" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
+                                    </div><span class="fw-bold">@ViewBag.dtbthucan</span>
+                                </div>
+                            </div>
+                            <div class="item pr-3">
+                                <div class="mb-1">Sạch sẽ</div>
+                                <div class="d-flex align-items-center">
+                                    <div class="progress progress--lg">
+                                        @{
+                                            // Chuyển đổi kiểu dữ liệu từ decimal sang double
+                                            decimal dtbSachSe = ViewBag.dtbSachSe;
+                                            double diemsachse = (double)(dtbSachSe / 10) * 100;
+                                        }
+                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: @diemsachse%" aria-valuenow="@diemsachse" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
+                                    </div><span class="fw-bold">@ViewBag.dtbSachSe</span>
+                                </div>
+                            </div>
+                            <div class="item pr-3">
+                                <div class="mb-1">Thoải mái</div>
+                                <div class="d-flex align-items-center">
+                                    <div class="progress progress--lg">
+                                        @{
+                                            // Chuyển đổi kiểu dữ liệu từ decimal sang double
+                                            decimal dtbThoaiMai = ViewBag.dtbThoaiMai;
+                                            double diemthoaimai = (double)(dtbThoaiMai / 10) * 100;
+                                        }
+                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: @diemthoaimai%" aria-valuenow="@diemthoaimai" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
+                                    </div><span class="fw-bold">@ViewBag.dtbThoaiMai</span>
+                                </div>
+                            </div>
+                            <div class="item pr-3">
+                                <div class="mb-1">Dịch vụ</div>
+                                <div class="d-flex align-items-center">
+                                    <div class="progress progress--lg">
+                                        @{
+                                            // Chuyển đổi kiểu dữ liệu từ decimal sang double
+                                            decimal dtbDichVu = ViewBag.dtbDichVu;
+                                            double diemdichvu = (double)(dtbDichVu / 10) * 100;
+                                        }
+                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: @diemdichvu%" aria-valuenow="@diemdichvu" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
+                                    </div><span class="fw-bold">@ViewBag.dtbDichVu</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hotel-card hotel-guests">
+                    <ul class="hotel-guests__list">
+                        @foreach (var i in Model.DanhGia)
+                        {
+                            <li class="comment">
+                                <div class="row flex-sm-nowrap">
+                                    <div class="comment__left col-12 col-sm-5 col-md-4 mb-4">
+                                        <div class="d-flex align-items-center w-100">
+                                            <div class="comment__avatar rounded-circle" style="background-color: rgba(242, 243, 243, 1.00); border: 1px solid #ffffff; color: rgba(104, 113, 118, 1.00); display: flex; justify-content: center; align-items: center; font-size:22px;">
+                                                @{
+                                                    string initials = "";
+                                                    if (!string.IsNullOrEmpty(@i.TenKh))
+                                                    {
+                                                        initials = new string(@i.TenKh.Split(' ').Select(w => w[0]).Take(2).ToArray()).ToUpper();
+                                                    }
+                                                    else
+                                                    {
+                                                        initials = "NN"; // Mặc định là "NN" nếu tên không có giá trị
+                                                    }
+                                                }
+                                                <span>@initials</span>
+                                            </div>
+
+
+                                            <div class="comment__right">
+                                                <div class="comment__name mb-0">@i.TenKh</div>
+@*                                                 <ul class="d-flex align-items-center">
+                                                    <li class="comment__flag mr-2">
+                                                        <img src="~/img/en.png" alt="#" />
+                                                    </li>
+                                                    <li class="comment__country fz-xs">USA</li>
+                                                </ul>
+                                                <ul class="comment__like d-flex align-items-baseline fz-xs">
+                                                    <li><i class="icon icon-like-up"></i><span>17</span></li>
+                                                    <li><i class="icon icon-like-down"></i><span>2</span></li>
+                                                </ul> *@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment__content col-12 col-sm-7 col-md-8">
+                                        <div class="pr-3">
+                                            <div class="comment__meta mb-3">
+                                                <ul class="row justify-content-sm-between align-items-baseline">
+                                                    <li class="comment__level d-flex align-items-center mb-2">
+                                                        @{
+                                                            double diem = (double)(@i.DiemNhanVien + @i.DiemThucAn + @i.DiemThoaiMai + @i.DiemSachSe + @i.DiemDichVu) / 5;
+                                                            double diemtb = Math.Round(diem, 1);
+                                                        }
+                                                        <div class="badge bg-primary">@diemtb</div>
+                                                        @if (diemtb < 5)
+                                                        {
+                                                            <h4 class="level m-0">Tệ</h4>
+                                                        }
+                                                        else if (diemtb >= 5 && diemtb < 6.5)
+                                                        {
+                                                            <h4 class="level m-0">Bình thường</h4>
+                                                        }
+                                                        else if (diemtb >= 6.5 && diemtb < 8)
+                                                        {
+                                                            <h4 class="level m-0">Khá tốt</h4>
+                                                        }
+                                                        else if (diemtb >= 8 && diemtb < 9)
+                                                        {
+                                                            <h4 class="level m-0">Tốt</h4>
+                                                        }
+                                                        else
+                                                        {
+                                                            <h4 class="level m-0">Xuất sắc</h4>
+                                                        }
+
+                                                    </li>
+                                                    <li class="comment__date mb-2">
+                                                        <span>Review Date:</span>
+                                                        <time datetime="2017-07-18">@i.NgayComment</time>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="comment__alert alert d-flex bg-primary-light">
+                                            <div class="media-object pr-3"><i class="icon icon-comments"></i></div>
+                                            <div class="alert__content">
+@*                                                 <h4 class="mb-1">Ravena Hotel responded to this review</h4> *@
+                                                <p>@i.Comment</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                    <nav class="pagination-nav" aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-double-left"></i></a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item align-self-end d-sm-none">
+                                <a class="dotted" href="#">......</a>
+                            </li>
+                            <li class="page-item d-none d-sm-block">
+                                <a class="page-link" href="#">4</a>
+                            </li>
+                            <li class="page-item d-none d-sm-block">
+                                <a class="page-link" href="#">5</a>
+                            </li>
+                            <li class="page-item d-none d-sm-block">
+                                <a class="page-link" href="#">6</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">7</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">8</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            }
+            <div class="hotel-card hotel-guests">
+                <form id="reviewForm" method="post">
+                    <input hidden name="Maks" value="@ViewBag.Maks" id="maks" />
+                    <div class="item pr-3">
+                        <div class="item pr-3">
+                            <h2 style="margin-top:15px;">Viết đánh giá</h2>
+                            <div class="mb-1">Nhân viên phục vụ</div>
+                            <div class="d-flex align-items-center">
+                                <input type="range" min="0" max="10" step="0.1" value="8.2" name="DiemNhanVien" class="form-range" style="width:85%;" id="staffRating">
+                                <span class="fw-bold" id="staffValue">8.2</span>
+                            </div>
+                        </div>
+                        <div class="item pr-3">
+                            <div class="mb-1">Đồ ăn</div>
+                            <div class="d-flex align-items-center">
+                                <input type="range" min="0" max="10" step="0.1" value="8.2" name="DiemThucAn" class="form-range" style="width:85%;" id="foodRating">
+                                <span class="fw-bold" id="foodValue">8.2</span>
+                            </div>
+                        </div>
+                        <div class="item pr-3">
+                            <div class="mb-1">Sạch sẽ</div>
+                            <div class="d-flex align-items-center">
+                                <input type="range" min="0" max="10" step="0.1" value="8.2" name="DiemSachSe" class="form-range" style="width:85%;" id="cleanlinessRating">
+                                <span class="fw-bold" id="cleanlinessValue">8.2</span>
+                            </div>
+                        </div>
+                        <div class="item pr-3">
+                            <div class="mb-1">Thoải mái</div>
+                            <div class="d-flex align-items-center">
+                                <input type="range" min="0" max="10" step="0.1" value="8.2" name="DiemThoaiMai" class="form-range" style="width:85%;" id="comfortRating">
+                                <span class="fw-bold" id="comfortValue">8.2</span>
+                            </div>
+                        </div>
+                        <div class="item pr-3">
+                            <div class="mb-1">Dịch vụ</div>
+                            <div class="d-flex align-items-center">
+                                <input type="range" min="0" max="10" step="0.1" value="8.2" name="DiemDichVu" class="form-range" style="width:85%;" id="serviceRating">
+                                <span class="fw-bold" id="serviceValue">8.2</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Đánh giá của bạn :</label>
+                            <textarea class="form-control" id="comment" name="Comment" rows="4"></textarea>
+                        </div>
+                        <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+        </section>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    var staffSlider = document.getElementById("staffRating");
+    var staffOutput = document.getElementById("staffValue");
+    staffOutput.innerHTML = staffSlider.value;
+    staffSlider.oninput = function () {
+        staffOutput.innerHTML = this.value;
+    };
+
+    var facilitySlider = document.getElementById("foodRating");
+    var facilityOutput = document.getElementById("foodValue");
+    facilityOutput.innerHTML = facilitySlider.value;
+    facilitySlider.oninput = function () {
+        facilityOutput.innerHTML = this.value;
+    };
+
+    var cleanlinessSlider = document.getElementById("cleanlinessRating");
+    var cleanlinessOutput = document.getElementById("cleanlinessValue");
+    cleanlinessOutput.innerHTML = cleanlinessSlider.value;
+    cleanlinessSlider.oninput = function () {
+        cleanlinessOutput.innerHTML = this.value;
+    };
+
+    var comfortSlider = document.getElementById("comfortRating");
+    var comfortOutput = document.getElementById("comfortValue");
+    comfortOutput.innerHTML = comfortSlider.value;
+    comfortSlider.oninput = function () {
+        comfortOutput.innerHTML = this.value;
+    };
+    var serviceSlider = document.getElementById("serviceRating");
+    var serviceOutput = document.getElementById("serviceValue");
+    serviceOutput.innerHTML = serviceSlider.value;
+    serviceSlider.oninput = function () {
+        serviceOutput.innerHTML = this.value;
+    };
+
+    $(document).ready(function () {
+        $('#reviewForm').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '/KhachHang/IsAuthenticated', // Đường dẫn đến endpoint kiểm tra đăng nhập
+                success: function (data) {
+                    if (data.isAuthenticated) {
+                        // Người dùng đã đăng nhập, tiếp tục với việc gửi đánh giá
+                        var formData = {
+                            Comment: $('#comment').val(),
+                            MaKs: $('#maks').val(),
+                            DiemNhanVien: $('#staffRating').val(),
+                            DiemThucAn: $('#foodRating').val(),
+                            DiemSachSe: $('#cleanlinessRating').val(),
+                            DiemThoaiMai: $('#comfortRating').val(),
+                            DiemDichVu: $('#serviceRating').val()
+                        };
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '/Home/DanhGia',
+                            data: formData,
+                            success: function (data) {
+                                alert("Bạn đã đánh giá thành công .");
+                                window.location.href = data.redirectTo + '?maks=' + $('#maks').val();
+                            },
+                            error: function (error) {
+                                console.log('Lỗi khi cập nhật lựa chọn.');
+                            }
+                        });
+                    } else {
+                        // Người dùng chưa đăng nhập, chuyển hướng đến trang đăng nhập
+                        window.location.href = '/KhachHang/DangNhap'; // Đường dẫn đến trang đăng nhập
+                    }
+                },
+                error: function (error) {
+                    console.log('Lỗi khi kiểm tra trạng thái đăng nhập.');
+                }
+                });
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.room-checkbox, .price-checkbox,.tb-checkbox').change(function () {
+            updateRoomSelection();
+        });
+
+        function updateRoomSelection() {
+            var selectedRooms = [];
+            $('.room-checkbox:checked').each(function () {
+                selectedRooms.push($(this).data('loaiphong'));
+            });
+
+            var selectedPrices = [];
+            $('.price-checkbox:checked').each(function () {
+                selectedPrices.push($(this).data('gia'));
+            });
+
+            var selectedThietBi = [];
+            $('.tb-checkbox:checked').each(function () {
+                selectedThietBi.push($(this).data('tb'));
+            });
+            var maks = $('#maks').val();
+
+            $.ajax({
+                url: '/Home/UpdateSelection',
+                type: 'POST',
+                data: {
+                    selectedRooms: selectedRooms,
+                    selectedPrices: selectedPrices,
+                    selectedThietBi: selectedThietBi,
+                    maks: maks
+                },
+                success: function (result) {
+                    $('#result-container').html(result);
+                },
+                error: function () {
+                    console.log('Lỗi khi cập nhật lựa chọn.');
+                }
+            });
+        }
+    });
+</script>

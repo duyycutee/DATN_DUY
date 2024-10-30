@@ -1,0 +1,86 @@
+﻿@model IEnumerable<QLKhachSan.ViewModels.Admin.DoanhThuVM>
+@using System.Globalization
+
+@{
+    ViewData["Title"] = "DoanhThu";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div>
+    <select id="selectYear">
+        @for (int i = DateTime.Now.Year; i >= DateTime.Now.Year - 10; i--)
+        {
+            <option value="@i">@i</option>
+        }
+    </select>
+</div>
+<div>
+    <canvas id="revenueChart" width="800" height="400"></canvas>
+</div>
+
+@section scripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#selectYear').change(function () {
+                var selectedYear = $(this).val();
+                loadData(selectedYear);
+            });
+
+            function loadData(year) {
+                $.ajax({
+                    url: '@Url.Action("DoanhThu", "HomeAdmin")',
+                    method: 'GET',
+                    data: { nam: year },
+                    success: function (data) {
+                        // Xử lý dữ liệu và vẽ biểu đồ
+                    }
+                });
+            }
+
+            // Mặc định load dữ liệu cho năm hiện tại
+            loadData(new Date().getFullYear());
+            var months = [];
+            var revenues = [];
+
+        @foreach (var item in Model)
+        {
+            var monthName = "";
+            if (item.Thang >= 1 && item.Thang <= 12)
+            {
+                monthName = "Month " + item.Thang;
+            }
+            else
+            {
+                monthName = "Unknown";
+            }
+            <text>
+                    months.push("@monthName" + " " + @item.Nam);
+                revenues.push(@item.TongTien);
+            </text>
+        }
+
+            var ctx = document.getElementById('revenueChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: 'Revenue',
+                        data: revenues,
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)', 
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+}

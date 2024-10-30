@@ -1,0 +1,134 @@
+﻿@{
+    ViewData["Title"] = "QuenMatKhau";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+
+<!-- Mirrored from innap.dexignzone.com/codeigniter/demo/page_login by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Jan 2024 14:32:26 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="DexignZone">
+    <meta name="robots" content="">
+    <meta name="keywords" content="accommodation, admin dashboard, admin template, apartment, booking, codeigniter, bootstrap 5, dinning, hostel, hotel booking, hotel template, motel, resort, restaurant, room">
+    <meta name="description" content="Innap is a clean-coded, responsive CodeIgniter template that can be easily customised to fit the needs of various hotel booking and hotel template, booking, dinning, hostel, and other businesses">
+    <meta property="og:title" content="Innap - CodeIgniter Hotel Admin Dashboard Templates">
+    <meta property="og:description" content="Innap is a clean-coded, responsive CodeIgniter template that can be easily customised to fit the needs of various hotel booking and hotel template, booking, dinning, hostel, and other businesses">
+    <meta property="og:image" content="../social-image.html">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Mobile Specific -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- PAGE TITLE HERE -->
+    <title> Hotel </title>
+
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="~/LayoutAdmin/public/assets/images/favicon.png">
+    <link href="~/LayoutAdmin/public/assets/vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+    <link href="~/LayoutAdmin/public/assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+
+    <style>
+        /* CSS cho nút "Back to Home" */
+        .back-to-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #17a2b8;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+            .back-to-home:hover {
+                background-color: #17a2b8;
+            }
+
+        /* CSS cho nút đăng nhập bằng Google và Facebook */
+        .btn-google {
+            margin-top: 10px;
+            background-color: #dd4b39;
+            color: #fff;
+        }
+
+        .btn-facebook {
+            background-color: #3b5998;
+            color: #fff;
+        }
+
+        .btn-google, .btn-facebook {
+            margin-bottom: 10px;
+        }
+
+            .btn-google:hover, .btn-facebook:hover {
+                opacity: 0.9;
+            }
+
+        /* CSS cho biểu tượng */
+        .fab {
+            margin-right: 5px;
+        }
+
+    </style>
+
+</head>
+
+<body class="vh-100">
+    <div class="authincation h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100 align-items-center">
+                <div class="col-md-6">
+                    <div class="authincation-content">
+                        <div class="row no-gutters">
+                            <div class="col-xl-12">
+                                <div class="auth-form">
+                                    <div class="text-center mb-3">
+                                        <a href="index.html"><img class="light-login" src="~/LayoutAdmin/public/assets/images/logo-white.png" alt=""></a>
+                                        <img style="width: 40%;" class="dark-login" src="~/img/logo6.png" alt="">
+                                    </div>
+                                    <h4 class="text-center mb-4">Quên mật khẩu</h4>
+                                    <form asp-controller="KhachHang" asp-action="QuenMatKhau"  method="post">
+                                        <div class="text-danger">@TempData["Message"]</div>
+                                        <div class="mb-3">
+                                            <label class="mb-1"><strong>Email</strong></label>
+                                            <input type="email" name="email" class="form-control" placeholder="Nhập email của bạn ..">
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" id="" class="btn btn-primary btn-block">Lấy mật khẩu</button>
+
+                                        </div>
+                                    </form>
+                                    <div class="new-account mt-3">
+                                        <p>Bạn chưa có tài khoản? <a class="text-primary" asp-controller="KhachHang" asp-action="DangNhap">Đăng nhập</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a asp-controller="Home" asp-action="Index" class="back-to-home">Quay lại trang chủ</a>
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="~/LayoutAdmin/public/assets/vendor/global/global.min.js"></script>
+    <script src="~/LayoutAdmin/public/assets/vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="~/LayoutAdmin/public/assets/js/custom.min.js"></script>
+    <script src="~/LayoutAdmin/public/assets/js/deznav-init.js"></script>
+    <script src="~/LayoutAdmin/public/assets/js/demo.js"></script>
+    <script src="~/LayoutAdmin/public/assets/js/styleSwitcher.js"></script>
+</body>
+
+<!-- Mirrored from innap.dexignzone.com/codeigniter/demo/page_login by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Jan 2024 14:32:27 GMT -->
+</html>

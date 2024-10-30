@@ -1,0 +1,156 @@
+﻿@model QLKhachSan.ViewModels.Admin.PhongVM
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "ThemPhong";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 style="color:dimgray" class="text-center mb-4">Thêm Phòng</h2>
+<div class="personal__account-security container">
+    <div class="basic-form">
+        <form id="formThemPhong" method="post" asp-action="ThemPhong" enctype="multipart/form-data">
+            <div class="mb-3">
+                <input hidden type="text" class="form-control" name="MaPhong" value="@ViewBag.NextMaPhong" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-dark">Tên phòng <span class="text-danger">(*)</span></label>
+                <input type="text" class="form-control" asp-for="TenPhong" required placeholder="Tên phòng ..">
+                <span class="text-danger" asp-validation-for="TenPhong"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="MaKS" class="form-label text-dark">Tên KS <span class="text-danger">(*)</span></label>
+                <select id="MaKS" asp-for="MaKS" name="MaKS" class="default-select form-control wide mb-3" asp-items="ViewBag.MaKs">
+                    <option value="">Chọn Tên KS</option>
+                </select>
+                <span class="text-danger" id="maKSError"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="MaLP" class="form-label text-dark">Tên LP <span class="text-danger">(*)</span></label>
+                <select id="MaLP" asp-for="MaLP" name="MaLP"  class="default-select form-control wide mb-3">
+                    <option value="">Chọn Tên LP</option>
+                </select>
+                <span class="text-danger" id="maLPError"></span>
+            </div>
+            <div class="mb-3">
+                <label for="formFileSm" class="form-label text-dark">Ảnh đại diện<span class="text-danger">(*)</label>
+                <input class="form-control form-control-sm" name="Anh" id="formFileSm" type="file">
+                <span class="text-danger" id="anhError"></span>
+            </div>
+            <div class="mb-3">
+                <label for="formFile1" class="form-label text-dark">Ảnh chi tiết phòng<span class="text-danger">(*)</label>
+                <input class="form-control form-control-sm" name="AnhDetail" id="formFile1" type="file" multiple>
+                <span class="text-danger" id="anhDetailError"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-dark">Mô tả <span class="text-danger">(*)</span></label>
+                <textarea class="form-control" rows="8" name="MoTa" required id="comment"></textarea>
+                <span class="text-danger" asp-validation-for="MoTa"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Thêm</button>
+        </form>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#MaKS').change(function () {
+            var selectedValue = $(this).val();
+            var newUrl = '@Url.Action("GetLoaiPhongByKhachSan", "PhongAdmin")';
+            if (selectedValue) {
+                $.ajax({
+                    url: newUrl,
+                    type: 'GET',
+                    data: { maks: selectedValue },
+                    success: function (data) {
+                        var $maLP = $('#MaLP');
+                        $maLP.empty(); // Clear the existing options
+                        $maLP.append('<option value="">Chọn Tên LP</option>');
+                        $.each(data, function (index, item) {
+                            var tenLp = $('<div>').text(item.tenLp).html(); // Escape HTML
+                            $maLP.append('<option value="' + item.maLp + '">' + tenLp + '</option>');
+                        });
+                        $maLP.niceSelect('update');
+                    },
+                    error: function () {
+                        alert('Đã xảy ra lỗi khi gửi yêu cầu.');
+                    }
+                });
+            } else {
+                $('#MaLP').empty().append('<option value="">Chọn Tên LP</option>');
+            }
+        });
+
+        $('#formThemPhong').submit(function (event) {
+            // Kiểm tra hợp lệ của các trường
+            var isValid = true;
+
+
+            // Kiểm tra Tên KS
+            var maKS = $('#MaKS').val();
+            if (maKS === '') {
+                $('#maKSError').text('Vui lòng chọn Tên KS.');
+                isValid = false;
+            } else {
+                $('#maKSError').text('');
+            }
+
+            // Kiểm tra Tên LP
+            var maLP = $('#MaLP').val();
+            if (maLP === '') {
+                $('#maLPError').text('Vui lòng chọn Tên LP.');
+                isValid = false;
+            } else {
+                $('#maLPError').text('');
+            }
+
+            // Kiểm tra Ảnh đại diện
+            var anh = $('#formFileSm').prop('files');
+            if (anh.length === 0) {
+                $('#anhError').text('Vui lòng chọn Ảnh đại diện.');
+                isValid = false;
+            } else {
+                var file = anh[0];
+                var fileType = file.type.split('/')[0];
+                var fileSize = file.size / 1024 / 1024; // size in MB
+
+                if (fileType !== 'image') {
+                    $('#anhError').text('Vui lòng chọn tệp tin là hình ảnh.');
+                    isValid = false;
+                } else if (fileSize > 5) { // 5MB limit
+                    $('#anhError').text('Kích thước ảnh không được vượt quá 5MB.');
+                    isValid = false;
+                } else {
+                    $('#anhError').text('');
+                }
+            }
+
+            // Kiểm tra Ảnh chi tiết phòng
+            var anhDetail = $('#formFile1').prop('files');
+            if (anhDetail.length === 0) {
+                $('#anhDetailError').text('Vui lòng chọn ít nhất một Ảnh chi tiết phòng.');
+                isValid = false;
+            } else {
+                var validFiles = true;
+                $.each(anhDetail, function (index, file) {
+                    var fileType = file.type.split('/')[0];
+                    var fileSize = file.size / 1024 / 1024; // size in MB
+
+                    if (fileType !== 'image' || fileSize > 5) { // 5MB limit
+                        validFiles = false;
+                        return false; // Exit the loop
+                    }
+                });
+
+                if (!validFiles) {
+                    $('#anhDetailError').text('Vui lòng chọn tệp tin hình ảnh và không vượt quá 5MB.');
+                    isValid = false;
+                } else {
+                    $('#anhDetailError').text('');
+                }
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    });
+</script>

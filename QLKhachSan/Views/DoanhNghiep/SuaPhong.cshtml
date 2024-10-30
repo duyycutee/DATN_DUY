@@ -1,0 +1,43 @@
+﻿@model QLKhachSan.ViewModels.Admin.PhongVM
+@{
+    ViewData["Title"] = "SuaPhong";
+    Layout = "_LayoutProfile";
+}
+<h2 style="color:dimgray" class="text-center mb-4">Cập Nhật Phòng</h2>
+<div class="card-body">
+    <div class="basic-form">
+        <form method="post" asp-action="SuaPhong" enctype="multipart/form-data">
+            <div class="mb-3">
+                <input type="text" hidden class="form-control" asp-for="MaPhong" value="@Model.MaPhong" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Tên phòng</label>
+                <input asp-for="TenPhong" type="text" class="form-control" required placeholder="Tên phòng ..">
+                <span class="text-danger" asp-validation-for="TenPhong"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="MaLP" class="form-label">Tên LP</label>
+                <select asp-for="MaLP" name="MaLP" class="default-select form-control wide mb-3" asp-items="ViewBag.MaLp"></select>
+                <span class="text-danger" asp-validation-for="MaLP"></span>
+            </div>
+            <div class="mb-3">
+                <label for="formFileSm" class="form-label">Ảnh đại diện</label>
+                <input name="Anh" class="form-control form-control-sm" id="formFileSm" type="file" accept="image/*">
+@*                 @if (!string.IsNullOrEmpty(Model.Anh))
+                {
+                    <img src="@Url.Content("~/img/Images/phong/" + Model.Anh)" alt="Ảnh đại diện" class="mt-2" style="max-width: 200px;" />
+                } *@
+            </div>
+            <div class="mb-3">
+                <label for="formFile1" class="form-label">Ảnh chi tiết phòng</label>
+                <input name="AnhDetail" class="form-control form-control-sm" id="formFile1" type="file" multiple>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mô tả</label>
+                <textarea asp-for="MoTa" class="form-control" rows="8" required id="comment"></textarea>
+                <span class="text-danger" asp-validation-for="MoTa"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Lưu</button>
+        </form>
+    </div>
+</div>

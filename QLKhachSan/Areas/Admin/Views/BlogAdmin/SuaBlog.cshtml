@@ -1,0 +1,30 @@
+﻿@model QLKhachSan.ViewModels.BlogVM
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "SuaBlog";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 style="color:dimgray" class="text-center mb-4">Cập Nhật Blog</h2>
+<div class="card-body">
+    <div class="basic-form">
+        <form method="post" asp-action="SuaBlog" enctype="multipart/form-data">
+            <div class="mb-3">
+                <input type="text" hidden class="form-control" asp-for="IDBlog" value="@Model.IDBlog" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Tiêu đề<span class="text-danger">(*)</span></label>
+                <input type="text" class="form-control" asp-for="TieuDe" name="TieuDe" required placeholder="Tiêu đề ..">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Thông tin<span class="text-danger">(*)</span></label>
+                <textarea class="form-control form-control" name="ThongTin" asp-for="ThongTin" rows="4" required type="text" placeholder="Thông tin .."></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="formFileSm" class="form-label">Ảnh</label>
+                <input class="form-control form-control-sm" name="Anh" id="formFileSm" type="file" accept="image/*">
+                <div class="text-danger" id="AnhError"></div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Lưu</button>
+        </form>
+    </div>
+</div>

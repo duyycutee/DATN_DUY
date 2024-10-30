@@ -1,0 +1,130 @@
+﻿@model QLKhachSan.Models.KhachHang
+@{
+    ViewData["Title"] = "ProFile";
+    Layout = "_LayoutProfile";
+}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="~/css/style.css">
+<style>
+    .item {
+        position: relative;
+        margin-bottom: 15px;
+    }
+
+    .label {
+        display: inline-block;
+        width: 120px;
+        font-weight: bold;
+    }
+
+    label {
+        color: black;
+    }
+
+    .info {
+        display: inline-block;
+        min-width: 100px;
+        width: 80%;
+        padding: 5px 10px;
+        border: none;
+        background: transparent;
+        color: black;
+    }
+
+        .info:focus {
+            outline: none;
+            background-color: #e8e5df; /* Màu nền cho input khi chỉnh sửa */
+        }
+
+    .edit-icon {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        color: #007bff;
+        cursor: pointer;
+    }
+
+        .edit-icon:hover {
+            color: #0056b3;
+        }
+
+    .save-icon {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        color: #28a745;
+        cursor: pointer;
+        display: none; /* Khởi đầu ẩn nút lưu */
+    }
+
+        .save-icon:hover {
+            color: #218838;
+        }
+</style>
+@if (TempData["Message"] != null)
+{
+    <div class="notification">@TempData["Message"]</div>
+}
+@{
+    var khachHang = ViewBag.KhachHang as QLKhachSan.Models.KhachHang;
+}
+<h2 style="color: dimgray;" class="text-center mb-4">Thông tin người dùng</h2>
+<form method="post" asp-controller="KhachHang" asp-action="SaveProfile">
+    <div class="personal__account-security container">
+        <div class="row">
+            <div class="col-12">
+                <div class="item">
+                    <label>Email </label>
+                    <span class="info">@khachHang.Email</span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="item">
+                    <label>Mật khẩu</label>
+                    <span class="info">********</span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="item">
+                    <label>Họ tên</label>
+                    <input type="text" name="TenKh" asp-for="TenKh" class="info" value="@khachHang.TenKh" readonly />
+                    <button type="submit" class="save-icon" title="Lưu"><i class="fas fa-save"></i></button>
+                    <a href="#" class="edit-icon" title="Chỉnh sửa"><i class="fas fa-pencil-alt"></i></a>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="item">
+                    <label>Địa chỉ</label>
+                    <input type="text" name="DiaChi" asp-for="DiaChi" class="info" value="@khachHang.DiaChi" readonly />
+                    <button type="submit" class="save-icon" title="Lưu"><i class="fas fa-save"></i></button>
+                    <a href="#" class="edit-icon" title="Chỉnh sửa"><i class="fas fa-pencil-alt"></i></a>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="item">
+                    <label>Số điện thoại</label>
+                    <input type="text" name="Sdt" asp-for="Sdt" class="info" value="@khachHang.Sdt" readonly />
+                    <button type="submit" class="save-icon" title="Lưu"><i class="fas fa-save"></i></button>
+                    <a href="#" class="edit-icon" title="Chỉnh sửa"><i class="fas fa-pencil-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    document.querySelectorAll('.edit-icon').forEach(icon => {
+        icon.addEventListener('click', function (event) {
+            event.preventDefault();
+            var item = this.parentElement;
+            var input = item.querySelector('input.info');
+            input.readOnly = false;
+            input.focus();
+
+            var saveButton = item.querySelector('.save-icon');
+            this.style.display = 'none';
+            saveButton.style.display = 'inline';
+        });
+    });
+</script>

@@ -1,0 +1,137 @@
+﻿@using QLKhachSan.ViewModels;
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<ThietBiVM>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+	ViewData["Title"] = "ThietBi";
+	Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+	int pageNumber = Model.PageNumber; // Số trang hiện tại
+	int pageSize = ViewBag.pageSize; // Kích thước trang, mỗi trang có 8 bản ghi
+	int count = (pageNumber - 1) * pageSize + 1;
+}
+
+
+<div class="row">
+	<div class="col-xl-12">
+		<div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
+			<div class="card-tabs mt-3 mt-sm-0 mb-xxl-0 mb-4">
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" data-bs-toggle="tab" href="#All" role="tab">Thiết bị</a>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<select class="form-control" id="selectedHotel">
+					<option value="" selected>Chọn khách sạn</option>
+					@foreach (var khachsan in ViewBag.ks)
+					{
+						<option value="@khachsan.MaKs">@khachsan.TenKhachSan</option>
+					}
+				</select>
+			</div>
+			<div class="table-search">
+				<div style="border-bottom-left-radius: 1.375rem;" class="input-group search-area mb-xxl-0 mb-4">
+					<form asp-action="TimKiemPhong" method="get" class="d-flex">
+						<input style="height:auto" type="text" name="searchTerm" class="form-control" placeholder="Nhập thông tin .." value="@ViewBag.SearchTerm">
+						<button type="submit" class="input-group-text btn btn-primary"><i class="flaticon-381-search-2"></i></button>
+					</form>
+				</div>
+			</div>
+@* 			<a style="display:flex;" asp-action="Them" class="btn btn-primary mb-xxl-0 mb-4 radius-btn"><i class="material-icons me-2">add</i>Thêm mới</a> *@
+		</div>
+		<div class="tab-content">
+			<div class="text-danger">@TempData["Message"]</div>
+			<div class="tab-pane active show" id="All">
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped check-data  display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg " id="guestTable-all">
+						<thead>
+							<tr style="text-align:center;">
+								<th>STT</th>
+								<th>Tên thiết bị</th>
+								<th>Tên loại phòng</th>
+								<th style="text-align:center;">Chức năng</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var item in Model)
+							{
+								<tr>
+									<td>
+										<div>
+											<span class="fs-16">@count</span>
+										</div>
+									</td>
+									<td>
+										<div>
+											<span class="fs-16">@item.TenTB</span>
+										</div>
+									</td>
+									<td>
+										<div>
+											<span class="fs-16">@item.TenLP</span>
+										</div>
+									</td>
+
+									<td class="text-center">
+										<a class="btn btn-sm btn-warning mx-1" asp-controller="ThietBiAdmin" asp-action="SuaTB" asp-route-id="@item.MaTB">
+											<i class="far fa-edit"></i> Edit
+										</a>
+										<a class="btn btn-sm btn-danger mx-1" onclick="return confirm('Bạn có chắc chắn muốn xóa thiết bị này không?')" asp-controller="ThietBiAdmin" asp-action="XoaTB" asp-route-id="@item.MaTB">
+											<i class="far fa-trash-alt"></i> Delete
+										</a>
+									</td>
+								</tr>
+								count++;
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="margin: 0 auto">
+	@Html.PagedListPager(Model, page => Url.Action("ThietBi", new { maks = ViewBag.MaKS, page = page }), new X.PagedList.Web.Common.PagedListRenderOptions()
+{
+	LiElementClasses = new List<String> { "page-item" },
+	PageClasses = new List<String> { "page-link" }
+})
+</div>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="~/LayoutAdmin/public/assets/css/style-admin.css">
+<script>
+	$(document).ready(function () {
+		// Kiểm tra nếu có giá trị đã lưu trong local storage
+		var selectedHotelId = localStorage.getItem('HotelId');
+		if (selectedHotelId) {
+			// Đặt giá trị đã lưu vào dropdown
+			$('#selectedHotel').val(selectedHotelId);
+			// Clear the local storage after setting the dropdown value
+			localStorage.removeItem('HotelId');
+		}
+	});
+</script>
+<script>
+	$(document).ready(function () {
+		// Kiểm tra nếu có giá trị đã lưu trong local storage
+		var selectedHotelId = localStorage.getItem('HotelId');
+		if (selectedHotelId) {
+			// Đặt giá trị đã lưu vào dropdown
+			$('#selectedHotel').val(selectedHotelId);
+		}
+
+		// Sự kiện khi giá trị của dropdown thay đổi
+		$('#selectedHotel').change(function () {
+			var selectedHotelId = $(this).val();
+			if (selectedHotelId) {
+				// Lưu giá trị mới vào local storage
+				localStorage.setItem('HotelId', selectedHotelId);
+				// Tạo URL mới với giá trị maks và chuyển hướng trang đến URL đó
+				var newUrl = '@Url.Action("ThietBi", "ThietBiAdmin")?maks=' + selectedHotelId;
+				window.location.href = newUrl;
+			}
+		});
+	});
+</script>

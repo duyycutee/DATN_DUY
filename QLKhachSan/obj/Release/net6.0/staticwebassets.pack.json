@@ -1,0 +1,2833 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\QLKhachSan.bundle.scp.css",
+      "PackagePath": "staticwebassets\\QLKhachSan.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\form_element.html",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\form_element.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\index.html",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\index.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\page_login.html",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\page_login.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\page_register.html",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\page_register.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\ajax\\customer-review.html",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\ajax\\customer-review.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\ajax\\public\\assets\\images\\avatar\\3.html",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\ajax\\public\\assets\\images\\avatar\\3.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\css\\style-admin.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\css\\style-admin.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\css\\style.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\css\\style.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\avasta\\css\\style.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\avasta\\css\\style.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\avasta\\fonts\\avasta.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\avasta\\fonts\\avasta.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\avasta\\fonts\\avasta.svg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\avasta\\fonts\\avasta.svg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\avasta\\fonts\\avasta.ttf",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\avasta\\fonts\\avasta.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\avasta\\fonts\\avasta.woff",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\avasta\\fonts\\avasta.woff"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\avasta\\fonts\\avasta.woff2",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\avasta\\fonts\\avasta.woff2"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\bootstrap-icons\\font\\bootstrap-icons.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\bootstrap-icons\\font\\bootstrap-icons.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\bootstrap-icons\\font\\fonts\\bootstrap-iconse36a.woff",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\bootstrap-icons\\font\\fonts\\bootstrap-iconse36a.woff"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\bootstrap-icons\\font\\fonts\\bootstrap-iconse36a.woff2",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\bootstrap-icons\\font\\fonts\\bootstrap-iconse36a.woff2"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\flaticon\\Flaticon.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\flaticon\\Flaticon.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\flaticon\\Flaticon.svg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\flaticon\\Flaticon.svg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\flaticon\\Flaticon.ttf",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\flaticon\\Flaticon.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\flaticon\\Flaticon.woff",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\flaticon\\Flaticon.woff"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\flaticon\\Flaticond41d.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\flaticon\\Flaticond41d.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\flaticon\\flaticon.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\flaticon\\flaticon.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\flaticon_1\\Flaticon_1.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\flaticon_1\\Flaticon_1.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\flaticon_1\\Flaticon_1.svg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\flaticon_1\\Flaticon_1.svg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\flaticon_1\\Flaticon_1.ttf",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\flaticon_1\\Flaticon_1.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\flaticon_1\\Flaticon_1.woff",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\flaticon_1\\Flaticon_1.woff"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\flaticon_1\\Flaticon_1.woff2",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\flaticon_1\\Flaticon_1.woff2"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\flaticon_1\\Flaticon_1d41d.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\flaticon_1\\Flaticon_1d41d.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\flaticon_1\\flaticon_1.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\flaticon_1\\flaticon_1.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\css\\all.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\css\\all.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\webfonts\\fa-v4compatibility.ttf",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\webfonts\\fa-v4compatibility.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\webfonts\\fa-v4compatibility.woff2",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\fontawesome\\webfonts\\fa-v4compatibility.woff2"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\icomoon\\fonts\\icomoon.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\icomoon\\fonts\\icomoon.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\icomoon\\fonts\\icomoon.svg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\icomoon\\fonts\\icomoon.svg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\icomoon\\fonts\\icomoon.svg.readme",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\icomoon\\fonts\\icomoon.svg.readme"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\icomoon\\fonts\\icomoon.ttf",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\icomoon\\fonts\\icomoon.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\icomoon\\fonts\\icomoon.woff",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\icomoon\\fonts\\icomoon.woff"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\icomoon\\icomoon.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\icomoon\\icomoon.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\css\\line-awesome.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\css\\line-awesome.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-brands-400.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-brands-400.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-brands-400.svg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-brands-400.svg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-brands-400.ttf",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-brands-400.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-brands-400.woff",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-brands-400.woff"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-brands-400.woff2",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-brands-400.woff2"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-brands-400d41d.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-brands-400d41d.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-regular-400.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-regular-400.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-regular-400.svg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-regular-400.svg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-regular-400.ttf",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-regular-400.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-regular-400.woff",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-regular-400.woff"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-regular-400.woff2",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-regular-400.woff2"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-regular-400d41d.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-regular-400d41d.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-solid-900.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-solid-900.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-solid-900.svg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-solid-900.svg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-solid-900.ttf",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-solid-900.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-solid-900.woff",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-solid-900.woff"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-solid-900.woff2",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-solid-900.woff2"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-solid-900d41d.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\line-awesome\\fonts\\la-solid-900d41d.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\material-design-iconic-font\\css\\materialdesignicons.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\material-design-iconic-font\\css\\materialdesignicons.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\material-design-iconic-font\\fonts\\materialdesignicons-webfont683c.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\material-design-iconic-font\\fonts\\materialdesignicons-webfont683c.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\material-design-iconic-font\\fonts\\materialdesignicons-webfont683c.svg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\material-design-iconic-font\\fonts\\materialdesignicons-webfont683c.svg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\material-design-iconic-font\\fonts\\materialdesignicons-webfont683c.ttf",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\material-design-iconic-font\\fonts\\materialdesignicons-webfont683c.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\material-design-iconic-font\\fonts\\materialdesignicons-webfont683c.woff",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\material-design-iconic-font\\fonts\\materialdesignicons-webfont683c.woff"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\material-design-iconic-font\\fonts\\materialdesignicons-webfont683c.woff2",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\material-design-iconic-font\\fonts\\materialdesignicons-webfont683c.woff2"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\material-design-iconic-font\\fonts\\materialdesignicons-webfontd41d.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\material-design-iconic-font\\fonts\\materialdesignicons-webfontd41d.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\simple-line-icons\\css\\simple-line-icons.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\simple-line-icons\\css\\simple-line-icons.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\simple-line-icons\\fonts\\Simple-Line-Icons4c824c82.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\simple-line-icons\\fonts\\Simple-Line-Icons4c824c82.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\simple-line-icons\\fonts\\Simple-Line-Icons4c824c82.svg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\simple-line-icons\\fonts\\Simple-Line-Icons4c824c82.svg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\simple-line-icons\\fonts\\Simple-Line-Icons4c824c82.ttf",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\simple-line-icons\\fonts\\Simple-Line-Icons4c824c82.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\simple-line-icons\\fonts\\Simple-Line-Icons4c824c82.woff",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\simple-line-icons\\fonts\\Simple-Line-Icons4c824c82.woff"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\simple-line-icons\\fonts\\Simple-Line-Icons4c824c82.woff2",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\simple-line-icons\\fonts\\Simple-Line-Icons4c824c82.woff2"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\simple-line-icons\\fonts\\Simple-Line-Iconsd41dd41d.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\simple-line-icons\\fonts\\Simple-Line-Iconsd41dd41d.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\themify-icons\\css\\themify-icons.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\themify-icons\\css\\themify-icons.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\themify-icons\\fonts\\themify.ttf",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\themify-icons\\fonts\\themify.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\themify-icons\\fonts\\themify.woff",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\themify-icons\\fonts\\themify.woff"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\themify-icons\\fonts\\themify9f249f24.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\themify-icons\\fonts\\themify9f249f24.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\themify-icons\\fonts\\themify9f249f24.svg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\themify-icons\\fonts\\themify9f249f24.svg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\icons\\themify-icons\\fonts\\themifyd41dd41d.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\icons\\themify-icons\\fonts\\themifyd41dd41d.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\1.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\1.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\1.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\1.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\2.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\3.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\4.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\5.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\5.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\5.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\5.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\6.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\6.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\pic1.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\pic1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\pic11.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\pic11.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\pic2.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\pic2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\pic22.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\pic22.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\pic3.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\pic3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\pic33.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\pic33.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\pic4.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\pic4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\pic44.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\pic44.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\avatar\\pic5.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\avatar\\pic5.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\big\\img1.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\big\\img1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\big\\img2.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\big\\img2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\big\\img3.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\big\\img3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\big\\img4.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\big\\img4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\big\\img5.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\big\\img5.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\big\\img6.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\big\\img6.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\big\\img7.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\big\\img7.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\big\\img8.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\big\\img8.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\body\\12.html",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\body\\12.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\card\\1.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\card\\1.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\card\\2.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\card\\2.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\card\\3.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\card\\3.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\favicon.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\favicon.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\hotel\\pic1.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\hotel\\pic1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\hotel\\pic11.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\hotel\\pic11.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\hotel\\pic2.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\hotel\\pic2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\hotel\\pic22.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\hotel\\pic22.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\hotel\\pic3.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\hotel\\pic3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\hotel\\pic33.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\hotel\\pic33.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\hotel\\pic4.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\hotel\\pic4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\like.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\like.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\logo-dark.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\logo-dark.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\logo-text.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\logo-text.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\logo-white-text.html",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\logo-white-text.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\logo-white.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\logo-white.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\logo.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\logo.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\pattern\\pattern5.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\pattern\\pattern5.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\product\\1.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\product\\1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\product\\2.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\product\\2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\product\\3.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\product\\3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\product\\4.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\product\\4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\product\\5.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\product\\5.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\product\\6.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\product\\6.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\product\\7.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\product\\7.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\1.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\10.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\10.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\2.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\3.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\4.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\5.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\5.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\6.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\6.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\7.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\7.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\8.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\8.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\9.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\9.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\admin1.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\admin1.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\cover.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\cover.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\pic1.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\pic1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\profile.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\profile.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic1.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic10.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic10.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic2.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic3.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic4.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic5.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic5.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic6.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic6.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic7.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic7.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic8.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic8.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic9.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\profile\\small\\pic9.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\qr.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\qr.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\svg\\cd-arrow.html",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\svg\\cd-arrow.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\svg\\check.svg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\svg\\check.svg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\tab\\1.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\tab\\1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\tab\\2.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\tab\\2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\tab\\3.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\tab\\3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\images\\tab\\4.jpg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\images\\tab\\4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\custom.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\custom.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\dashboard\\dashboard-1.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\dashboard\\dashboard-1.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\demo.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\demo.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\deznav-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\deznav-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\dz.carousel.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\dz.carousel.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\bs-daterange-picker-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\bs-daterange-picker-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\chartist-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\chartist-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\chartjs-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\chartjs-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\clock-picker-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\clock-picker-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\datatables.init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\datatables.init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\flot-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\flot-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\fullcalendar-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\fullcalendar-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\jquery-asColorPicker.init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\jquery-asColorPicker.init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\jquery.validate-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\jquery.validate-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\jqvmap-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\jqvmap-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\material-date-picker-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\material-date-picker-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\morris-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\morris-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\nestable-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\nestable-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\nouislider-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\nouislider-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\pickadate-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\pickadate-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\piety-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\piety-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\select2-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\select2-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\sparkline-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\sparkline-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\sweetalert.init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\sweetalert.init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\toastr-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\toastr-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\plugins-init\\widgets-script-init.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\plugins-init\\widgets-script-init.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\js\\styleSwitcher.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\js\\styleSwitcher.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\animate\\animate.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\animate\\animate.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\aos\\css\\aos.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\aos\\css\\aos.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\apexchart\\apexchart.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\apexchart\\apexchart.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\bootstrap-daterangepicker\\daterangepicker.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\bootstrap-daterangepicker\\daterangepicker.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\bootstrap-daterangepicker\\daterangepicker.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\bootstrap-daterangepicker\\daterangepicker.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\bootstrap-datetimepicker\\css\\bootstrap-datetimepicker.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\bootstrap-datetimepicker\\css\\bootstrap-datetimepicker.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\bootstrap-datetimepicker\\js\\bootstrap-datetimepicker.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\bootstrap-datetimepicker\\js\\bootstrap-datetimepicker.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\bootstrap-datetimepicker\\js\\moment.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\bootstrap-datetimepicker\\js\\moment.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\bootstrap-material-datetimepicker\\css\\bootstrap-material-datetimepicker.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\bootstrap-material-datetimepicker\\css\\bootstrap-material-datetimepicker.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\bootstrap-material-datetimepicker\\js\\bootstrap-material-datetimepicker.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\bootstrap-material-datetimepicker\\js\\bootstrap-material-datetimepicker.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\bootstrap-touchspin\\js\\jquery.bootstrap-touchspin.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\bootstrap-touchspin\\js\\jquery.bootstrap-touchspin.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\chart.js\\Chart.bundle.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\chart.js\\Chart.bundle.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\chartist-plugin-tooltips\\js\\chartist-plugin-tooltip.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\chartist-plugin-tooltips\\js\\chartist-plugin-tooltip.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\chartist\\css\\chartist.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\chartist\\css\\chartist.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\chartist\\js\\chartist.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\chartist\\js\\chartist.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\ckeditor\\ckeditor.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\ckeditor\\ckeditor.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\clockpicker\\css\\bootstrap-clockpicker.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\clockpicker\\css\\bootstrap-clockpicker.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\clockpicker\\js\\bootstrap-clockpicker.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\clockpicker\\js\\bootstrap-clockpicker.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\datatables\\css\\jquery.dataTables.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\datatables\\css\\jquery.dataTables.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\datatables\\images\\sort_asc.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\datatables\\images\\sort_asc.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\datatables\\images\\sort_asc_disabled.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\datatables\\images\\sort_asc_disabled.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\datatables\\images\\sort_both.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\datatables\\images\\sort_both.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\datatables\\images\\sort_desc.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\datatables\\images\\sort_desc.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\datatables\\images\\sort_desc_disabled.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\datatables\\images\\sort_desc_disabled.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\datatables\\js\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\datatables\\js\\jquery.dataTables.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\dropzone\\dist\\dropzone.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\dropzone\\dist\\dropzone.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\dropzone\\dist\\dropzone.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\dropzone\\dist\\dropzone.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\flot-spline\\jquery.flot.spline.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\flot-spline\\jquery.flot.spline.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\flot\\jquery.flot.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\flot\\jquery.flot.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\flot\\jquery.flot.pie.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\flot\\jquery.flot.pie.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\flot\\jquery.flot.resize.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\flot\\jquery.flot.resize.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\fullcalendar\\css\\main.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\fullcalendar\\css\\main.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\fullcalendar\\js\\main.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\fullcalendar\\js\\main.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\global\\global.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\global\\global.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jquery-asColorPicker\\css\\asColorPicker.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jquery-asColorPicker\\css\\asColorPicker.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jquery-asColorPicker\\images\\alpha.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jquery-asColorPicker\\images\\alpha.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jquery-asColorPicker\\images\\hue.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jquery-asColorPicker\\images\\hue.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jquery-asColorPicker\\images\\saturation.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jquery-asColorPicker\\images\\saturation.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jquery-asColorPicker\\images\\transparent.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jquery-asColorPicker\\images\\transparent.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jquery-asColorPicker\\js\\jquery-asColorPicker.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jquery-asColorPicker\\js\\jquery-asColorPicker.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jquery-asColor\\jquery-asColor.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jquery-asColor\\jquery-asColor.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jquery-asGradient\\jquery-asGradient.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jquery-asGradient\\jquery-asGradient.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jquery-nice-select\\css\\nice-select.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jquery-nice-select\\css\\nice-select.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jquery-nice-select\\js\\jquery.nice-select.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jquery-nice-select\\js\\jquery.nice-select.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jquery-smartwizard\\dist\\css\\smart_wizard.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jquery-smartwizard\\dist\\css\\smart_wizard.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jquery-smartwizard\\dist\\js\\jquery.smartWizard.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jquery-smartwizard\\dist\\js\\jquery.smartWizard.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jquery-sparkline\\jquery.sparkline.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jquery-sparkline\\jquery.sparkline.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jquery-steps\\build\\jquery.steps.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jquery-steps\\build\\jquery.steps.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jquery-validation\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jquery-validation\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jqvmap\\css\\jqvmap.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jqvmap\\css\\jqvmap.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jqvmap\\js\\jquery.vmap.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jqvmap\\js\\jquery.vmap.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jqvmap\\js\\jquery.vmap.usa.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jqvmap\\js\\jquery.vmap.usa.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\jqvmap\\js\\jquery.vmap.world.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\jqvmap\\js\\jquery.vmap.world.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\css\\lightgallery.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\css\\lightgallery.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\fonts\\lgd41d.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\fonts\\lgd41d.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\fonts\\lgd641.eot",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\fonts\\lgd641.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\fonts\\lgd641.svg",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\fonts\\lgd641.svg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\fonts\\lgd641.ttf",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\fonts\\lgd641.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\fonts\\lgd641.woff",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\fonts\\lgd641.woff"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\img\\loading.gif",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\img\\loading.gif"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\img\\video-play.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\img\\video-play.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\img\\vimeo-play.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\img\\vimeo-play.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\img\\youtube-play.png",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\img\\youtube-play.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\js\\lightgallery-all.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\lightgallery\\js\\lightgallery-all.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\metismenu\\css\\metisMenu.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\metismenu\\css\\metisMenu.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\moment\\moment.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\moment\\moment.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\morris\\morris.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\morris\\morris.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\nestable2\\css\\jquery.nestable.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\nestable2\\css\\jquery.nestable.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\nestable2\\js\\jquery.nestable.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\nestable2\\js\\jquery.nestable.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\nouislider\\nouislider.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\nouislider\\nouislider.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\nouislider\\nouislider.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\nouislider\\nouislider.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\owl-carousel\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\owl-carousel\\owl.carousel.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\owl-carousel\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\owl-carousel\\owl.carousel.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\owl-carousel\\owl.video.play.html",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\owl-carousel\\owl.video.play.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\peity\\jquery.peity.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\peity\\jquery.peity.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\perfect-scrollbar\\css\\perfect-scrollbar.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\perfect-scrollbar\\css\\perfect-scrollbar.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\pickadate\\picker.date.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\pickadate\\picker.date.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\pickadate\\picker.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\pickadate\\picker.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\pickadate\\picker.time.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\pickadate\\picker.time.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\pickadate\\themes\\default.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\pickadate\\themes\\default.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\pickadate\\themes\\default.date.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\pickadate\\themes\\default.date.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\raphael\\raphael.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\raphael\\raphael.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\select2\\css\\select2.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\select2\\css\\select2.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\select2\\js\\select2.full.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\select2\\js\\select2.full.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\star-rating\\jquery.star-rating-svg.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\star-rating\\jquery.star-rating-svg.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\star-rating\\star-rating-svg.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\star-rating\\star-rating-svg.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\svganimation\\svg.animation.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\svganimation\\svg.animation.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\svganimation\\vivus.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\svganimation\\vivus.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\sweetalert2\\dist\\sweetalert2.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\sweetalert2\\dist\\sweetalert2.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\sweetalert2\\dist\\sweetalert2.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\sweetalert2\\dist\\sweetalert2.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\toastr\\css\\toastr.min.css",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\toastr\\css\\toastr.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\toastr\\js\\toastr.min.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\toastr\\js\\toastr.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\public\\assets\\vendor\\wnumb\\wNumb.js",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\public\\assets\\vendor\\wnumb\\wNumb.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\LayoutAdmin\\room_list.html",
+      "PackagePath": "staticwebassets\\LayoutAdmin\\room_list.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\about.html",
+      "PackagePath": "staticwebassets\\about.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\blog-list.html",
+      "PackagePath": "staticwebassets\\blog-list.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\blog-post.html",
+      "PackagePath": "staticwebassets\\blog-post.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\booking-confirm.html",
+      "PackagePath": "staticwebassets\\booking-confirm.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\booking-payment.html",
+      "PackagePath": "staticwebassets\\booking-payment.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\booking-traveler.html",
+      "PackagePath": "staticwebassets\\booking-traveler.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\category.html",
+      "PackagePath": "staticwebassets\\category.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\contacts.html",
+      "PackagePath": "staticwebassets\\contacts.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\blueimp-gallery.min.css",
+      "PackagePath": "staticwebassets\\css\\blueimp-gallery.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\bootstrap-rtl.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-rtl.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\flatpickr.min.css",
+      "PackagePath": "staticwebassets\\css\\flatpickr.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\fontawesome-stars-o.css",
+      "PackagePath": "staticwebassets\\css\\fontawesome-stars-o.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\images\\ui-icons_444444_256x240.html",
+      "PackagePath": "staticwebassets\\css\\images\\ui-icons_444444_256x240.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\images\\ui-icons_555555_256x240.html",
+      "PackagePath": "staticwebassets\\css\\images\\ui-icons_555555_256x240.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\images\\ui-icons_777620_256x240.html",
+      "PackagePath": "staticwebassets\\css\\images\\ui-icons_777620_256x240.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\images\\ui-icons_777777_256x240.html",
+      "PackagePath": "staticwebassets\\css\\images\\ui-icons_777777_256x240.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\images\\ui-icons_cc0000_256x240.html",
+      "PackagePath": "staticwebassets\\css\\images\\ui-icons_cc0000_256x240.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\images\\ui-icons_ffffff_256x240.html",
+      "PackagePath": "staticwebassets\\css\\images\\ui-icons_ffffff_256x240.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\jquery-ui.structure.min.css",
+      "PackagePath": "staticwebassets\\css\\jquery-ui.structure.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\jquery-ui.theme.min.css",
+      "PackagePath": "staticwebassets\\css\\jquery-ui.theme.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\jquery.mCustomScrollbar.min.css",
+      "PackagePath": "staticwebassets\\css\\jquery.mCustomScrollbar.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\nouislider.min.css",
+      "PackagePath": "staticwebassets\\css\\nouislider.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\profile.css",
+      "PackagePath": "staticwebassets\\css\\profile.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\select2.min.css",
+      "PackagePath": "staticwebassets\\css\\select2.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\style-doanhnghiep.css",
+      "PackagePath": "staticwebassets\\css\\style-doanhnghiep.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\style-profile-o.css",
+      "PackagePath": "staticwebassets\\css\\style-profile-o.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\css\\swiper.min.css",
+      "PackagePath": "staticwebassets\\css\\swiper.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\flights.html",
+      "PackagePath": "staticwebassets\\flights.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\fonts\\Icon.eot",
+      "PackagePath": "staticwebassets\\fonts\\Icon.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\fonts\\Icon.svg",
+      "PackagePath": "staticwebassets\\fonts\\Icon.svg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\fonts\\Icon.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Icon.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\fonts\\Icon.woff",
+      "PackagePath": "staticwebassets\\fonts\\Icon.woff"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\fonts\\Icon.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Icon.woff2"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\fonts\\Icond41d.eot",
+      "PackagePath": "staticwebassets\\fonts\\Icond41d.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\fonts\\fontawesome-webfont3e6e.eot",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont3e6e.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\fonts\\fontawesome-webfont3e6e.svg",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont3e6e.svg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\fonts\\fontawesome-webfont3e6e.ttf",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont3e6e.ttf"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\fonts\\fontawesome-webfont3e6e.woff",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont3e6e.woff"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\fonts\\fontawesome-webfont3e6e.woff2",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont3e6e.woff2"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\fonts\\fontawesome-webfontd41d.eot",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfontd41d.eot"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\hotel-accommodation.html",
+      "PackagePath": "staticwebassets\\hotel-accommodation.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\hotel-reviews.html",
+      "PackagePath": "staticwebassets\\hotel-reviews.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\hotel-services.html",
+      "PackagePath": "staticwebassets\\hotel-services.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\hotel.html",
+      "PackagePath": "staticwebassets\\hotel.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\anhks.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\anhks.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\anhks2.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\anhks2.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\anhks5.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\anhks5.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\blog\\anhks1.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\blog\\anhks1.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\blog\\anhks4.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\blog\\anhks4.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\blog\\blog.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\blog\\blog.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khachsan\\anhks.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\khachsan\\anhks.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khachsan\\anhks1.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\khachsan\\anhks1.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khachsan\\anhks2.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\khachsan\\anhks2.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khachsan\\anhks4.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\khachsan\\anhks4.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khachsan\\anhks5.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\khachsan\\anhks5.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khachsan\\anhks6.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\khachsan\\anhks6.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khachsan\\ks_hanoi.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khachsan\\ks_hanoi.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khachsan\\ks_hanoi1.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khachsan\\ks_hanoi1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khachsan\\ks_hanoi2.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khachsan\\ks_hanoi2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khachsan\\ks_nhatrang.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khachsan\\ks_nhatrang.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khachsan\\ks_nhatrang1.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khachsan\\ks_nhatrang1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khachsan\\ks_nhatrang2.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khachsan\\ks_nhatrang2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\angiang.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\angiang.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\bacgiang.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\bacgiang.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\backan.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\backan.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\baclieu.png",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\baclieu.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\bacninh.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\bacninh.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\baria.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\baria.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\bentre.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\bentre.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\binhdinh.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\binhdinh.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\binhduong.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\binhduong.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\binhphuoc.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\binhphuoc.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\binhthuan.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\binhthuan.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\camau.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\camau.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\cantho.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\cantho.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\caobang.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\caobang.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\daklak.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\daklak.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\daknong.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\daknong.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\danang_nen.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\danang_nen.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\dienbien.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\dienbien.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\dongnai.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\dongnai.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\dongthap.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\dongthap.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\gialai.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\gialai.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\hagiang.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\hagiang.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\haiduong.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\haiduong.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\haiphong.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\haiphong.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\hanam.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\hanam.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\hanoi_nen.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\hanoi_nen.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\hatinh.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\hatinh.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\haugiang.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\haugiang.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\hcm_nen.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\hcm_nen.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\hoabinh.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\hoabinh.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\hue.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\hue.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\hungyen.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\hungyen.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\kiengiang.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\kiengiang.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\kontum.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\kontum.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\laichau.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\laichau.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\lamdong.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\lamdong.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\langson.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\langson.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\laocai.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\laocai.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\longan.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\longan.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\namdinh.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\namdinh.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\nghean.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\nghean.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\nhatrang_nen.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\nhatrang_nen.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\ninhbinh.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\ninhbinh.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\ninhthuan.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\ninhthuan.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\phutho.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\phutho.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\phuyen.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\phuyen.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\quangbinh.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\quangbinh.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\quangnam.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\quangnam.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\quangngai.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\quangngai.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\quangninh_nen.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\quangninh_nen.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\quangtri.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\quangtri.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\soctrang.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\soctrang.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\sonla.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\sonla.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\tayninh.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\tayninh.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\thaibinh.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\thaibinh.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\thainguyen.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\thainguyen.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\thanhhoa.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\thanhhoa.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\tiengiang.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\tiengiang.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\travinh.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\travinh.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\tuyenquang.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\tuyenquang.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\vinhlong.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\vinhlong.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\vinhphuc.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\vinhphuc.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\khuvuc\\yenbai.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\khuvuc\\yenbai.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\logo.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\logo.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhks.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhks.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhks1.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhks1.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhks2.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhks2.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhks3.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhks3.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhks4.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhks4.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhks5.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhks5.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhks6.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhks6.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhks7.jpeg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhks7.jpeg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong1.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong10.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong10.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong11.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong11.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong12.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong12.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong13.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong13.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong14.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong14.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong15.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong15.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong16.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong16.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong17.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong17.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong18.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong18.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong19.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong19.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong2.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong20.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong20.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong21.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong21.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong22.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong22.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong23.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong23.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong24.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong24.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong25.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong25.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong26.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong26.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong27.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong27.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong28.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong28.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong29.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong29.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong3.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong30.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong30.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong31.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong31.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong32.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong32.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong33.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong33.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong34.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong34.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong35.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong35.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong36.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong36.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong37.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong37.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong38.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong38.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong39.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong39.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong4.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong40.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong40.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong41.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong41.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong42.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong42.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong43.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong43.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong44.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong44.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong45.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong45.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong46.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong46.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong5.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong5.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong6.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong6.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong7.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong7.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong8.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong8.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\anhphong9.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\anhphong9.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\dlx.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\dlx.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\dlx1.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\dlx1.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\dlx2.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\dlx2.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\dlx3.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\dlx3.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\dlx4.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\dlx4.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\dlx5.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\dlx5.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\dlxnen.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\dlxnen.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\dlxnen1.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\dlxnen1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\dlxnen2.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\dlxnen2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\dlxnen3.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\dlxnen3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\dlxnen4.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\dlxnen4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\fml.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\fml.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\fml1.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\fml1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\fml2.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\fml2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\fml3.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\fml3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\fml4.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\fml4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\fml5.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\fml5.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\fmlnen.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\fmlnen.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\fmlnen1.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\fmlnen1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\fmlnen2.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\fmlnen2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\fmlnen3.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\fmlnen3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\fmlnen4.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\fmlnen4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\khachsan_nen.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\khachsan_nen.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\ks_hanoi3.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\ks_hanoi3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\std.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\std.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\std1.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\std1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\std2.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\std2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\std3.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\std3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\std4.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\std4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\stdnen.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\stdnen.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\stdnen1.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\stdnen1.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\stdnen2.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\stdnen2.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\stdnen3.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\stdnen3.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\stdnen4.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\stdnen4.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\sui.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\sui.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\sui1.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\sui1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\sui2.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\sui2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\sui3.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\sui3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\sui4.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\sui4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\sui5.jpg",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\sui5.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\suinen.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\suinen.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\suinen1.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\suinen1.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\suinen2.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\suinen2.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\suinen3.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\suinen3.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\suinen4.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\suinen4.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\sup.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\sup.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\sup1.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\sup1.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\sup2.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\sup2.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\sup3.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\sup3.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\sup4.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\sup4.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\sup5.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\sup5.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\supnen.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\supnen.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\supnen1.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\supnen1.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\supnen2.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\supnen2.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\supnen3.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\supnen3.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\Images\\phong\\supnen4.webp",
+      "PackagePath": "staticwebassets\\img\\Images\\phong\\supnen4.webp"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\air-banner-big.png",
+      "PackagePath": "staticwebassets\\img\\air-banner-big.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\air-banner-small.png",
+      "PackagePath": "staticwebassets\\img\\air-banner-small.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\air-br.jpg",
+      "PackagePath": "staticwebassets\\img\\air-br.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\air-en.jpg",
+      "PackagePath": "staticwebassets\\img\\air-en.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\air-fr.jpg",
+      "PackagePath": "staticwebassets\\img\\air-fr.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\american-express.jpg",
+      "PackagePath": "staticwebassets\\img\\american-express.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\au.png",
+      "PackagePath": "staticwebassets\\img\\au.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\avatar-1.jpg",
+      "PackagePath": "staticwebassets\\img\\avatar-1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\avatar-2.jpg",
+      "PackagePath": "staticwebassets\\img\\avatar-2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\avatar-3.jpg",
+      "PackagePath": "staticwebassets\\img\\avatar-3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\avatar-4.jpg",
+      "PackagePath": "staticwebassets\\img\\avatar-4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\avatar-face.jpg",
+      "PackagePath": "staticwebassets\\img\\avatar-face.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\banner-bg-air.jpg",
+      "PackagePath": "staticwebassets\\img\\banner-bg-air.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\blog\\1.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\blog\\2.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\blog\\3.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\blog\\4.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\blog\\5.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\5.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\blog\\thumb-1.jpg",
+      "PackagePath": "staticwebassets\\img\\blog\\thumb-1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\discover.jpg",
+      "PackagePath": "staticwebassets\\img\\discover.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\en.png",
+      "PackagePath": "staticwebassets\\img\\en.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\error-2.html",
+      "PackagePath": "staticwebassets\\img\\error-2.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\error.html",
+      "PackagePath": "staticwebassets\\img\\error.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\facebook.png",
+      "PackagePath": "staticwebassets\\img\\facebook.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\footer.jpg",
+      "PackagePath": "staticwebassets\\img\\footer.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\google-plus.png",
+      "PackagePath": "staticwebassets\\img\\google-plus.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-1.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-10.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-10.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-11.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-11.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-12.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-12.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-13.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-13.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-14.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-14.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-15.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-15.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-16.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-16.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-17.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-17.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-18.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-18.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-2.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-3.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-4.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-5.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-5.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-7.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-7.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-8.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-8.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\hotels\\item-9.jpg",
+      "PackagePath": "staticwebassets\\img\\hotels\\item-9.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\intro\\item-1.jpg",
+      "PackagePath": "staticwebassets\\img\\intro\\item-1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\intro\\item-2.jpg",
+      "PackagePath": "staticwebassets\\img\\intro\\item-2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\intro\\item-3.jpg",
+      "PackagePath": "staticwebassets\\img\\intro\\item-3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\intro\\item-4.jpg",
+      "PackagePath": "staticwebassets\\img\\intro\\item-4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\intro\\item-5.jpg",
+      "PackagePath": "staticwebassets\\img\\intro\\item-5.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\it.png",
+      "PackagePath": "staticwebassets\\img\\it.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\loading.html",
+      "PackagePath": "staticwebassets\\img\\loading.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\logo6.png",
+      "PackagePath": "staticwebassets\\img\\logo6.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\maestro.jpg",
+      "PackagePath": "staticwebassets\\img\\maestro.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\master-card.jpg",
+      "PackagePath": "staticwebassets\\img\\master-card.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\play-pause-2.html",
+      "PackagePath": "staticwebassets\\img\\play-pause-2.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\play-pause.html",
+      "PackagePath": "staticwebassets\\img\\play-pause.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\ru.png",
+      "PackagePath": "staticwebassets\\img\\ru.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\sprite.html",
+      "PackagePath": "staticwebassets\\img\\sprite.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\touch\\apple-touch-icon.png",
+      "PackagePath": "staticwebassets\\img\\touch\\apple-touch-icon.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\touch\\chrome-touch-icon-192x192.png",
+      "PackagePath": "staticwebassets\\img\\touch\\chrome-touch-icon-192x192.png"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\upload\\1.jpg",
+      "PackagePath": "staticwebassets\\img\\upload\\1.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\upload\\10.jpg",
+      "PackagePath": "staticwebassets\\img\\upload\\10.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\upload\\14.jpg",
+      "PackagePath": "staticwebassets\\img\\upload\\14.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\upload\\16.jpg",
+      "PackagePath": "staticwebassets\\img\\upload\\16.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\upload\\2.jpg",
+      "PackagePath": "staticwebassets\\img\\upload\\2.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\upload\\3.jpg",
+      "PackagePath": "staticwebassets\\img\\upload\\3.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\upload\\4.jpg",
+      "PackagePath": "staticwebassets\\img\\upload\\4.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\upload\\5.jpg",
+      "PackagePath": "staticwebassets\\img\\upload\\5.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\upload\\6.jpg",
+      "PackagePath": "staticwebassets\\img\\upload\\6.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\upload\\7.jpg",
+      "PackagePath": "staticwebassets\\img\\upload\\7.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\upload\\8.jpg",
+      "PackagePath": "staticwebassets\\img\\upload\\8.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\upload\\9.jpg",
+      "PackagePath": "staticwebassets\\img\\upload\\9.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\video-play-2.html",
+      "PackagePath": "staticwebassets\\img\\video-play-2.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\video-play.html",
+      "PackagePath": "staticwebassets\\img\\video-play.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\img\\visa.jpg",
+      "PackagePath": "staticwebassets\\img\\visa.jpg"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\index-account.html",
+      "PackagePath": "staticwebassets\\index-account.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\index-video.html",
+      "PackagePath": "staticwebassets\\index-video.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\demo-switcher.js",
+      "PackagePath": "staticwebassets\\js\\demo-switcher.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\barba.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\barba.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\flatpickr\\flatpickr.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\flatpickr\\flatpickr.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\flatpickr\\rangePlugin.js",
+      "PackagePath": "staticwebassets\\js\\libs\\flatpickr\\rangePlugin.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\imagesloaded.pkgd.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\imagesloaded.pkgd.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\isotope.pkgd.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\isotope.pkgd.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\jarallax-element.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\jarallax-element.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\jarallax-video.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\jarallax-video.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\jarallax.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\jarallax.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\jquery-ui.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\jquery-ui.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\jquery.barrating.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\jquery.barrating.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\jquery.blueimp-gallery.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\jquery.blueimp-gallery.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\jquery.mCustomScrollbar.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\jquery.mCustomScrollbar.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\jquery.mask.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\jquery.mask.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\jquery.waypoints.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\jquery.waypoints.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\masonry.pkgd.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\masonry.pkgd.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\moment.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\moment.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\nouislider.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\nouislider.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\ofi.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\ofi.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\popper.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\popper.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\select2.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\select2.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\select2\\en.js",
+      "PackagePath": "staticwebassets\\js\\libs\\select2\\en.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\sticky-kit.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\sticky-kit.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\swiper.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\swiper.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\validator.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\validator.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\velocity.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\velocity.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\velocity.ui.min.js",
+      "PackagePath": "staticwebassets\\js\\libs\\velocity.ui.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\libs\\wNumb.js",
+      "PackagePath": "staticwebassets\\js\\libs\\wNumb.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\maps.js",
+      "PackagePath": "staticwebassets\\js\\maps.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\script.min.js",
+      "PackagePath": "staticwebassets\\js\\script.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\microsoft-signalr\\signalr.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft-signalr\\signalr.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\lib\\microsoft-signalr\\signalr.min.js",
+      "PackagePath": "staticwebassets\\lib\\microsoft-signalr\\signalr.min.js"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\shortcodes.html",
+      "PackagePath": "staticwebassets\\shortcodes.html"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\skins\\style-default.css",
+      "PackagePath": "staticwebassets\\skins\\style-default.css"
+    },
+    {
+      "Id": "D:\\DATN\\QLKhachSan\\QLKhachSan\\wwwroot\\style.min.css",
+      "PackagePath": "staticwebassets\\style.min.css"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.QLKhachSan.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.build.QLKhachSan.props",
+      "PackagePath": "build\\QLKhachSan.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.QLKhachSan.props",
+      "PackagePath": "buildMultiTargeting\\QLKhachSan.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.buildTransitive.QLKhachSan.props",
+      "PackagePath": "buildTransitive\\QLKhachSan.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,125 @@
+﻿@using QLKhachSan.ViewModels.Admin;
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<LoaiPhongVM>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+	ViewData["Title"] = "LoaiPhong";
+	Layout = "_LayoutProfile";
+}
+<link rel="stylesheet" href="~/css/style-doanhnghiep.css">
+<div class="personal__account-security container">
+	<h2 style="color:dimgray" class="text-center mb-4">Loại Phòng</h2>
+	<div class="row">
+		<div class="col-md-6">
+			<select class="form-control w-75" id="selectedHotel">
+				<option value="" selected>Chọn khách sạn</option>
+				@foreach (var khachsan in ViewBag.ks)
+				{
+					<option value="@khachsan.MaKs">@khachsan.TenKhachSan</option>
+				}
+			</select>
+		</div>
+		<div class="col-md-6">
+			<a style="float:right;" asp-action="ThemLP" asp-controller="DoanhNghiep" class="btn btn-primary mb-xxl-0 mb-4 radius-btn">Thêm mới</a>
+		</div>
+	</div>
+	<div class="table-responsive">
+		<div class="text-danger">@TempData["Message"]</div>
+		<table class="table card-table check-data  display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg " id="guestTable-all">
+			<thead>
+				<tr style="font-size:16px;">
+					<th>Tên loại phòng</th>
+					<th>Số người tối đa</th>
+					<th>Giá</th>
+					<th>Kích thước</th>
+					<th>Chức năng</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr style="font-size:13px;">
+						<td>
+							<div class="guest-bx">
+								@*<img class="me-3" src="@Url.Content("~/img/Images/phong/"+@item.anh)" alt=""> *@
+								<div>
+									<h4 class="mb-0 mt-1"><a class="text-black" href="guest_detail.html">@item.tenlp</a></h4>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div>
+								<span class="fs-16">@item.songuoitoida</span>
+							</div>
+						</td>
+						<td>
+							<div>
+								<span class="fs-16">@item.gia</span>
+							</div>
+						</td>
+						<td>
+							<div>
+								<span class="fs-16">@item.kichthuoc</span>
+							</div>
+						</td>
+						<td>
+							<div class="action-links">
+								<a class="edit" asp-controller="DoanhNghiep" asp-action="SuaLP" asp-route-id="@item.malp">
+									<i class="fas fa-edit"></i>Edit
+								</a>
+								<a class="delete" asp-controller="DoanhNghiep" asp-action="XoaLP" asp-route-id="@item.malp" onclick="return confirm('Bạn có chắc chắn muốn xóa loại phòng này không?')">
+									<i class="fas fa-trash-alt"></i>Delete
+								</a>
+							</div>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+
+	</div>
+</div>
+<div style="margin: 0 auto">
+	@Html.PagedListPager(Model, page => Url.Action("LoaiPhong", new { page = page, maks = ViewBag.maks }), new X.PagedList.Web.Common.PagedListRenderOptions()
+{
+	LiElementClasses = new List<String> { "page-item" },
+	PageClasses = new List<String> { "page-link" }
+})
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function () {
+		// Kiểm tra nếu có giá trị đã lưu trong local storage
+		var selectedHotelId = localStorage.getItem('HotelId');
+		if (selectedHotelId) {
+			// Đặt giá trị đã lưu vào dropdown
+			$('#selectedHotel').val(selectedHotelId);
+			// Clear the local storage after setting the dropdown value
+			localStorage.removeItem('HotelId');
+		}
+	});
+</script>
+
+<script>
+	$(document).ready(function () {
+		// Kiểm tra nếu có giá trị đã lưu trong local storage
+		var selectedHotelId = localStorage.getItem('HotelId');
+		if (selectedHotelId) {
+			// Đặt giá trị đã lưu vào dropdown
+			$('#selectedHotel').val(selectedHotelId);
+		}
+
+		// Sự kiện khi giá trị của dropdown thay đổi
+		$('#selectedHotel').change(function () {
+			var selectedHotelId = $(this).val();
+			if (selectedHotelId) {
+				// Lưu giá trị mới vào local storage
+				localStorage.setItem('HotelId', selectedHotelId);
+				// Tạo URL mới với giá trị maks và chuyển hướng trang đến URL đó
+				var newUrl = '@Url.Action("LoaiPhong", "DoanhNghiep")?maks=' + selectedHotelId;
+				window.location.href = newUrl;
+			}
+		});
+	});
+</script>

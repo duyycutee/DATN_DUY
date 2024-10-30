@@ -1,0 +1,92 @@
+﻿@model QLKhachSan.ViewModels.ThietBiVM
+@{
+    ViewData["Title"] = "ThemTB";
+    Layout = "_LayoutProfile";
+}
+<h2 style="color:dimgray" class="text-center mb-4">Thêm Thiết Bị</h2>
+<div class="personal__account-security container">
+    <div class="basic-form">
+        <form id="formThemTB" method="post" asp-action="ThemTB" enctype="multipart/form-data">
+            <div class="mb-3">
+                <input hidden type="text" class="form-control" name="MaTB" value="@ViewBag.NextMaTB" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-dark">Tên thiết bị</label>
+                <input type="text" class="form-control" name="TenTB" required placeholder="Tên thiết bị ..">
+                <span id="tenTBError" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="MaKS" class="form-label text-dark">Tên KS</label>
+                <select id="MaKS" name="MaKS" class="default-select form-control wide mb-3" asp-items="ViewBag.MaKs">
+                    <option value="">Chọn Tên KS</option>
+                </select>
+                <span id="maKSError" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="MaLP" class="form-label text-dark">Tên LP</label>
+                <select id="MaLP" name="MaLP" class="default-select form-control wide mb-3" asp-items="ViewBag.MaLp">
+                    <option value="">Chọn Tên LP</option>
+                </select>
+                <span id="maLPError" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Thêm</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#MaKS').change(function () {
+            var selectedValue = $(this).val();
+            if (selectedValue) {
+                $.ajax({
+                    url: '@Url.Action("GetLoaiPhongByKhachSan", "DoanhNghiep")',
+                    type: 'GET',
+                    data: { maks: selectedValue },
+                    success: function (data) {
+                        var $maLP = $('#MaLP');
+                        $maLP.empty(); // Clear the existing options
+                        $maLP.append('<option value="">Chọn Tên LP</option>');
+                        $.each(data, function (index, item) {
+                            var tenLp = $('<div>').text(item.tenLp).html(); // Escape HTML
+                            $maLP.append('<option value="' + item.maLp + '">' + tenLp + '</option>');
+                        });
+                    },
+                    error: function () {
+                        alert('Đã xảy ra lỗi khi gửi yêu cầu.');
+                    }
+                });
+            } else {
+                $('#MaLP').empty().append('<option value="">Chọn Tên LP</option>');
+            }
+        });
+
+        $('#formThemTB').submit(function (event) {
+            let isValid = true;
+
+
+            // Kiểm tra Tên KS
+            const maKS = $('[name="MaKS"]').val();
+            if (!maKS) {
+                $('#maKSError').text('Tên KS là bắt buộc.');
+                isValid = false;
+            } else {
+                $('#maKSError').text('');
+            }
+
+            // Kiểm tra Tên LP
+            const maLP = $('[name="MaLP"]').val();
+            if (!maLP) {
+                $('#maLPError').text('Tên LP là bắt buộc.');
+                isValid = false;
+            } else {
+                $('#maLPError').text('');
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    });
+</script>

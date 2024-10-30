@@ -1,0 +1,114 @@
+﻿@using QLKhachSan.ViewModels.Admin;
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<HoaDonVM>
+@{
+    ViewData["Title"] = "HoaDonKS";
+    Layout = "_LayoutProfile";
+    int pageNumber = Model.PageNumber; // Số trang hiện tại
+    int pageSize = ViewBag.pageSize; // Kích thước trang, mỗi trang có 8 bản ghi
+    int count = (pageNumber - 1) * pageSize + 1;
+}
+<link rel="stylesheet" href="~/css/style-doanhnghiep.css">
+<h2 style="color:dimgray" class="text-center mb-4">Hóa đơn</h2>
+<div>
+    <select class="form-control w-25" id="selectedHotel">
+        <option value="" selected>Chọn khách sạn</option>
+        @foreach (var khachsan in ViewBag.ks)
+        {
+            <option value="@khachsan.MaKs">@khachsan.TenKhachSan</option>
+        }
+    </select>
+</div>
+<div class="personal__account-security container">
+    <div class="table-responsive">
+        <div class="text-danger">@TempData["Message"]</div>
+        <table class="table table-striped" style="border-color: black;">
+            <thead>
+                <tr class="header-row" style="color: black;">
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên phòng</th>
+                    <th scope="col">Tên khách hàng</th>
+                    <th scope="col">Số người</th>
+                    <th scope="col">Ngày đến</th>
+                    <th scope="col">Ngày đi</th>
+                    <th scope="col">Ngày thanh toán</th>
+                    <th scope="col">Tình trạng</th>
+                    <th scope="col">In hóa đơn</th>
+                    <th>Chức năng</th>
+                </tr>
+            </thead>
+            <tbody id="invoiceList">
+                @foreach (var item in Model)
+                {
+                    <tr style="color: black;">
+                        <td>@count</td>
+                        <td>@item.tenphong</td>
+                        <td>@item.tenkh</td>
+                        <td>@item.songuoi</td>
+                        <td>@item.ngayden</td>
+                        <td>@item.ngaydi</td>
+                        <td>@item.ngaythanhtoan</td>
+                        <td>@item.tinhtrang</td>
+                        <td>
+                            <a href="@Url.Action("InHoaDon", "DoanhNghiep", new { sohoadon = item.sohoadon })">In Hóa Đơn</a>
+                        </td>
+                        <td>
+                            <div class="action-links">
+                                <a class="edit" asp-controller="DoanhNghiep" asp-action="SuaHD" asp-route-id="@item.sohoadon">
+                                    <i class="fas fa-edit"></i>Edit
+                                </a>
+                                <a class="delete" asp-controller="HoaDon" asp-action="XoaHD" asp-route-id="@item.sohoadon" onclick="return confirm('Bạn có chắc chắn muốn xóa phòng này không?')">
+                                    <i class="fas fa-trash-alt"></i>Delete
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    count++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div style="margin: 0 auto">
+    @Html.PagedListPager(Model, page => Url.Action("HoaDonKS", new { maks = ViewBag.MaKS, page = page }), new X.PagedList.Web.Common.PagedListRenderOptions()
+{
+    LiElementClasses = new List<String> { "page-item" },
+    PageClasses = new List<String> { "page-link" }
+})
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Kiểm tra nếu có giá trị đã lưu trong local storage
+        var selectedHotelId = localStorage.getItem('HotelId');
+        if (selectedHotelId) {
+            // Đặt giá trị đã lưu vào dropdown
+            $('#selectedHotel').val(selectedHotelId);
+            // Clear the local storage after setting the dropdown value
+            localStorage.removeItem('HotelId');
+        }
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        // Kiểm tra nếu có giá trị đã lưu trong local storage
+        var selectedHotelId = localStorage.getItem('HotelId');
+        if (selectedHotelId) {
+            // Đặt giá trị đã lưu vào dropdown
+            $('#selectedHotel').val(selectedHotelId);
+        }
+
+        // Sự kiện khi giá trị của dropdown thay đổi
+        $('#selectedHotel').change(function () {
+            var selectedHotelId = $(this).val();
+            if (selectedHotelId) {
+                // Lưu giá trị mới vào local storage
+                localStorage.setItem('HotelId', selectedHotelId);
+                // Tạo URL mới với giá trị maks và chuyển hướng trang đến URL đó
+                var newUrl = '@Url.Action("HoaDonKS", "DoanhNghiep")?maks=' + selectedHotelId;
+                window.location.href = newUrl;
+            }
+        });
+    });
+</script>

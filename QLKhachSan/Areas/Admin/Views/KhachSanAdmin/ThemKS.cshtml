@@ -1,0 +1,165 @@
+﻿@model QLKhachSan.ViewModels.KhachSanVM
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "ThemKS";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 style="color: dimgray;" class="text-center mb-4">Thêm khách sạn</h2>
+<div class="card-body">
+    <div class="basic-form">
+        <form id="hotelForm" method="post" asp-action="ThemKS" enctype="multipart/form-data">
+            <div class="text-danger">@TempData["Message"]</div>
+            <div class="mb-3">
+                <input hidden type="text" class="form-control" name="MaPhong" value="@ViewBag.nextMaKS" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Tên khách sạn<span class="text-danger">(*)</span></label>
+                <input type="text" class="form-control" name="TenKS" id="TenKS" required placeholder="Tên khách sạn ..">
+                <span class="text-danger" id="TenKSValidation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-dark">Số sao<span class="text-danger">(*)</span></label>
+                <select class="form-select form-control" name="DanhGia" id="DanhGia" aria-label="Default select example">
+                    <option selected>Chọn số sao</option>
+                    <option value="0">0 sao</option>
+                    <option value="1">1 sao</option>
+                    <option value="2">2 sao</option>
+                    <option value="3">3 sao</option>
+                    <option value="4">4 sao</option>
+                    <option value="5">5 sao</option>
+                </select>
+                <span class="text-danger" id="DanhGiaValidation"></span>
+            </div>
+            <div class="mb-3 row">
+                <label class="form-label text-dark">Địa chỉ<span class="text-danger">(*)</span></label>
+                <select class="form-control col-4 mt-3" name="TenTinh" id="city">
+                    <option value="" selected>Chọn tỉnh thành</option>
+                </select>
+                <select class="form-control col-4 mt-3" name="TenHuyen" id="district">
+                    <option value="" selected>Chọn quận huyện</option>
+                </select>
+                <select class="form-control col-4 mt-3" name="TenXa" id="ward">
+                    <option value="" selected>Chọn phường xã</option>
+                </select>
+                <span class="text-danger" id="AddressValidation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Địa chỉ cụ thể<span class="text-danger">(*)</span></label>
+                <input class="form-control" name="DiaChi" id="DiaChi" type="text" required placeholder="Nhập địa chỉ cụ thể ..">
+                <span class="text-danger" id="DiaChiValidation"></span>
+            </div>
+            <div class="mb-3">
+                <label for="formFileSm" class="form-label">Ảnh đại diện<span class="text-danger">(*)</span></label>
+                <input class="form-control form-control-sm" name="Anh" id="formFileSm" type="file">
+                <span class="text-danger" id="AnhValidation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mô tả<span class="text-danger">(*)</span></label>
+                <textarea class="form-control" rows="8" name="MoTa" id="MoTa" required placeholder="Mô tả về khách sạn .."></textarea>
+                <span class="text-danger" id="MoTaValidation"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Thêm</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script>
+    var citis = document.getElementById("city");
+    var districts = document.getElementById("district");
+    var wards = document.getElementById("ward");
+    var Parameter = {
+        url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+        method: "GET",
+        responseType: "application/json",
+    };
+    var promise = axios(Parameter);
+    promise.then(function (result) {
+        renderCity(result.data);
+    });
+
+    function renderCity(data) {
+        for (const x of data) {
+            var opt = document.createElement('option');
+            opt.value = x.Name;
+            opt.text = x.Name;
+            opt.setAttribute('data-id', x.Id);
+            citis.options.add(opt);
+        }
+        citis.onchange = function () {
+            district.length = 1;
+            ward.length = 1;
+            if (this.options[this.selectedIndex].dataset.id != "") {
+                const result = data.filter(n => n.Id === this.options[this.selectedIndex].dataset.id);
+
+                for (const k of result[0].Districts) {
+                    var opt = document.createElement('option');
+                    opt.value = k.Name;
+                    opt.text = k.Name;
+                    opt.setAttribute('data-id', k.Id);
+                    district.options.add(opt);
+                }
+            }
+        };
+        district.onchange = function () {
+            ward.length = 1;
+            const dataCity = data.filter((n) => n.Id === citis.options[citis.selectedIndex].dataset.id);
+            if (this.options[this.selectedIndex].dataset.id != "") {
+                const dataWards = dataCity[0].Districts.filter(n => n.Id === this.options[this.selectedIndex].dataset.id)[0].Wards;
+
+                for (const w of dataWards) {
+                    var opt = document.createElement('option');
+                    opt.value = w.Name;
+                    opt.text = w.Name;
+                    opt.setAttribute('data-id', w.Id);
+                    wards.options.add(opt);
+                }
+            }
+        };
+    }
+
+    // Form validation
+    document.getElementById("hotelForm").addEventListener("submit", function (event) {
+        var isValid = true;
+
+        // Validate TenKS
+
+        // Validate DanhGia
+        var danhGia = document.getElementById("DanhGia").value;
+        if (danhGia === "Chọn số sao") {
+            document.getElementById("DanhGiaValidation").innerText = "Vui lòng chọn số sao.";
+            isValid = false;
+        } else {
+            document.getElementById("DanhGiaValidation").innerText = "";
+        }
+    
+        if (city === "" || district === "" || ward === "") {
+            document.getElementById("AddressValidation").innerText = "Vui lòng chọn đầy đủ Tỉnh/Thành, Quận/Huyện, Phường/Xã.";
+            isValid = false;
+        } else {
+            document.getElementById("AddressValidation").innerText = "";
+        }
+
+
+        var anhInput = document.getElementById("formFileSm");
+        var anhFiles = anhInput.files;
+        if (anhFiles.length === 0) {
+            document.getElementById("AnhValidation").innerText = "Vui lòng chọn ảnh đại diện.";
+            isValid = false;
+        } else {
+            // Validate file type
+            var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+            for (var i = 0; i < anhFiles.length; i++) {
+                if (!allowedExtensions.exec(anhFiles[i].name)) {
+                    document.getElementById("AnhValidation").innerText = "Vui lòng chọn file ảnh có định dạng JPG, JPEG, PNG hoặc GIF.";
+                    isValid = false;
+                    break;
+                }
+            }
+        }
+        // Prevent form submission if validation fails
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+</script>

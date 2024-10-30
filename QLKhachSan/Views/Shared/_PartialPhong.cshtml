@@ -1,0 +1,44 @@
+﻿@* @model X.PagedList.IPagedList<QLKhachSan.ViewModels.ChiTietPhongVM>
+@using X.PagedList.Mvc.Core; *@
+@model IEnumerable<QLKhachSan.ViewModels.ChiTietPhongVM>
+<div class="category-content__items row pad-lg-20">
+    @foreach (var item in Model)
+    {
+        <div class="col-12 col-sm-6 col-xl-4 d-flex">
+            <div class="product bg-white js-grid-item">
+                <a class="product__img-top d-block" asp-controller="Phong" asp-action="ChiTietPhong" asp-route-id="@item.MaPhong">
+                    <img class="img-fluid" src="@Url.Content($"~/img/Images/phong/{item.AnhPhong}")" alt="#" />
+                </a>
+                <div class="product__body">
+                    <h4 class="product__title"><a asp-controller="Phong" asp-action="ChiTietPhong" asp-route-id="@item.MaPhong">@item.TenPhong</a></h4>
+                    <ul class="product__price d-flex justify-content-between align-items-center">
+                        <li class="mr-2"><span>Giá phòng</span></li>
+                        <li>
+                            <span class="cost">@((item.Gia ?? 0).ToString("N0")) VND</span>
+                        </li>
+                    </ul>
+                    <hr />
+                    <div class="product__desc">
+                        <p>Các phòng máy lạnh có ban công nhìn ra biển hoặc khu vườn. Mỗi phòng rộng rãi đều có TV với các kênh truyền hình vệ tinh. Phòng tắm riêng tại... </p><a class="product__link-more" href="hotel.html">Read more</a>
+                    </div>
+                </div>
+                <hr class="d-none d-sm-block" />
+                <div class="product__footer">
+                    <ul class="product__price d-flex justify-content-between align-items-center">
+                        <li class="mr-2"><span>Giá phòng</span></li>
+                        <li>
+                            <span class="cost">@((item.Gia ?? 0).ToString("N0")) VND</span>
+                        </li>
+                    </ul><a class="product__btn-book btn btn-secondary btn--round" asp-controller="Phong" asp-action="ChiTietPhong" asp-route-id="@item.MaPhong">đặt phòng</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@* <div>
+    @Html.PagedListPager(Model, page => Url.Action("ChiTietKS", new { page = page, MaKS = ViewBag.maks }), new X.PagedList.Web.Common.PagedListRenderOptions()
+{
+    LiElementClasses = new List<String> { "page-item" },
+    PageClasses = new List<String> { "page-link" }
+})
+</div> *@

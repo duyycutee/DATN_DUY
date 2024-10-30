@@ -1,0 +1,63 @@
+﻿@model QLKhachSan.ViewModels.BlogVM
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "ThemBlog";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 style="color:dimgray" class="text-center mb-4">Thêm Blog</h2>
+<div class="card-body">
+    <div class="basic-form">
+        <form method="post" id="blogForm" asp-controller="BlogAdmin" asp-action="ThemBlog" enctype="multipart/form-data">
+            <div class="text-danger">@TempData["Message"]</div>
+@*             <div class="mb-3">
+                <input hidden type="text" class="form-control" name="IDBlog" value="@Model.IDBlog" readonly>
+            </div> *@
+            <div class="mb-3">
+                <label class="form-label">Tiêu đề<span class="text-danger">(*)</span></label>
+                <input type="text" class="form-control" name="TieuDe" required placeholder="Tiêu đề ..">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Thông tin<span class="text-danger">(*)</span></label>
+                <textarea class="form-control form-control" name="ThongTin" required rows="4" type="text" placeholder="Thông tin .."></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="formFileSm" class="form-label">Ảnh<span class="text-danger">(*)</span></label>
+                <input class="form-control form-control-sm" name="Anh" id="formFileSm" type="file" accept="image/*" required>
+                <div class="text-danger" id="AnhError"></div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Thêm</button>
+        </form>
+    </div>
+</div>
+<script>
+    // Hàm kiểm tra dữ liệu hợp lệ trước khi gửi biểu mẫu
+    function validateForm() {
+        var isValid = true;
+
+        // Kiểm tra ảnh
+        var fileInput = document.getElementById("formFileSm");
+        var file = fileInput.files[0];
+        var validExtensions = ["jpg", "jpeg", "png", "gif","webp"];
+
+        if (file) {
+            var fileName = file.name;
+            var fileExtension = fileName.split(".").pop().toLowerCase();
+            if (!validExtensions.includes(fileExtension)) {
+                document.getElementById("AnhError").innerText = "Vui lòng chọn một tệp ảnh có định dạng hợp lệ (jpg, jpeg, png, gif).";
+                isValid = false;
+            } else {
+                document.getElementById("AnhError").innerText = "";
+            }
+        } else {
+            document.getElementById("AnhError").innerText = "Vui lòng chọn một tệp ảnh.";
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    // Gán hàm kiểm tra vào sự kiện onSubmit của biểu mẫu
+    document.getElementById("blogForm").onsubmit = function () {
+        return validateForm();
+    };
+</script>

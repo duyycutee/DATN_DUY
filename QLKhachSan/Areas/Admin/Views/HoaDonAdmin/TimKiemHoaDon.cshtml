@@ -1,0 +1,167 @@
+﻿@using QLKhachSan.ViewModels.Admin;
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<HoaDonVM>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+	ViewData["Title"] = "TimKiemHoaDon";
+	Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+	<div class="col-xl-12">
+		<div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
+			<div class="card-tabs mt-3 mt-sm-0 mb-xxl-0 mb-4">
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" data-bs-toggle="tab" role="tab">Hóa đơn </a>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<select class="form-control" id="selectedHotel">
+					<option value="" selected>Chọn khách sạn</option>
+					@foreach (var khachsan in ViewBag.ks)
+					{
+						<option value="@khachsan.MaKs">@khachsan.TenKhachSan</option>
+					}
+				</select>
+			</div>
+			<div class="table-search">
+				<div style="border-bottom-left-radius: 1.375rem;" class="input-group search-area mb-xxl-0 mb-4">
+					<form asp-action="TimKiemHoaDon" method="get" class="d-flex">
+						<input type="hidden" name="maks" value="@ViewBag.MaKS" />
+						<input style="height:auto" type="text" name="searchTerm" class="form-control" placeholder="Nhập thông tin .." value="@ViewBag.SearchTerm">
+						<button type="submit" class="input-group-text btn btn-primary"><i class="flaticon-381-search-2"></i></button>
+					</form>
+				</div>
+			</div>
+			@* 			<a asp-action="ThemLP" class="btn btn-primary mb-xxl-0 mb-4 radius-btn"><i class="far fa-file-word me-2"></i>Create Bill</a> *@
+		</div>
+		<div class="tab-content">
+			<div class="tab-pane active show" id="All">
+				<div class="text-danger">@TempData["Message"]</div>
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped check-data  display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg " id="guestTable-all">
+						<thead>
+							<tr>
+								<th>Số HD</th>
+								<th>Tên phòng</th>
+								<th>Ngày thanh toán</th>
+								<th>Ngày đến</th>
+								<th>Ngày đi</th>
+								<th>Tên KH</th>
+								<th>Số người</th>
+								<th>SDT</th>
+								<th>Tình trạng</th>
+								<th style="text-align:center;">Chức năng</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var item in Model)
+							{
+								<tr>
+									<td>
+										<div>
+											<span class="fs-16">@item.sohoadon</span>
+										</div>
+									</td>
+									<td>
+										<div>
+											<span class="fs-16">@item.tenphong</span>
+										</div>
+									</td>
+									<td>
+										<div>
+											<span class="fs-16">@item.ngaythanhtoan</span>
+										</div>
+									</td>
+									<td>
+										<div>
+											<span class="fs-16">@item.ngayden</span>
+										</div>
+									</td>
+									<td>
+										<div>
+											<span class="fs-16">@item.ngaydi</span>
+										</div>
+									</td>
+									<td>
+										<div>
+											<span class="fs-16">@item.tenkh</span>
+										</div>
+									</td>
+									<td>
+										<div>
+											<span class="fs-16">@item.songuoi</span>
+										</div>
+									</td>
+									<td>
+										<div>
+											<span class="fs-16">@item.sdt</span>
+										</div>
+									</td>
+									<td>
+										<div>
+											<span class="fs-16">@item.tinhtrang</span>
+										</div>
+									</td>
+									<td class="text-center">
+										<a class="btn btn-sm btn-warning mx-1" asp-controller="HoaDonAdmin" asp-action="SuaHD" asp-route-id="@item.sohoadon">
+											<i class="far fa-edit"></i> Edit
+										</a>
+										<a class="btn btn-sm btn-danger mx-1" onclick="return confirm('Bạn có chắc chắn muốn xóa phòng này không?')" asp-controller="HoaDonAdmin" asp-action="XoaHD" asp-route-id="@item.sohoadon">
+											<i class="far fa-trash-alt"></i> Delete
+										</a>
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="margin: 0 auto">
+	@Html.PagedListPager(Model, page => Url.Action("TimKiemHoaDon", new { maks = ViewBag.MaKS, page = page, SearchTerm = ViewBag.SearchTerm }), new X.PagedList.Web.Common.PagedListRenderOptions()
+{
+	LiElementClasses = new List<String> { "page-item" },
+	PageClasses = new List<String> { "page-link" }
+})
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="~/LayoutAdmin/public/assets/css/style-admin.css">
+<script>
+	$(document).ready(function () {
+		// Kiểm tra nếu có giá trị đã lưu trong local storage
+		var selectedHotelId = localStorage.getItem('HotelId');
+		if (selectedHotelId) {
+			// Đặt giá trị đã lưu vào dropdown
+			$('#selectedHotel').val(selectedHotelId);
+			// Clear the local storage after setting the dropdown value
+			localStorage.removeItem('HotelId');
+		}
+	});
+</script>
+<script>
+	$(document).ready(function () {
+		// Kiểm tra nếu có giá trị đã lưu trong local storage
+		var selectedHotelId = localStorage.getItem('HotelId');
+		if (selectedHotelId) {
+			// Đặt giá trị đã lưu vào dropdown
+			$('#selectedHotel').val(selectedHotelId);
+		}
+
+		// Sự kiện khi giá trị của dropdown thay đổi
+		$('#selectedHotel').change(function () {
+			var selectedHotelId = $(this).val();
+			if (selectedHotelId) {
+				// Lưu giá trị mới vào local storage
+				localStorage.setItem('HotelId', selectedHotelId);
+				// Tạo URL mới với giá trị maks và chuyển hướng trang đến URL đó
+				var newUrl = '@Url.Action("TimKiemHoaDon", "HoaDonAdmin")?maks=' + selectedHotelId + '&searchTerm=' + '@ViewBag.SearchTerm';
+				window.location.href = newUrl;
+			}
+		});
+	});
+</script>

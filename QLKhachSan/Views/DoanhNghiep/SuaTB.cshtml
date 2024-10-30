@@ -1,0 +1,48 @@
+﻿@model QLKhachSan.ViewModels.ThietBiVM
+@{
+    ViewData["Title"] = "SuaTB";
+    Layout = "_LayoutProfile";
+}
+<h2 style="color:dimgray" class="text-center mb-4">Cập Nhật Thiết Bị</h2>
+<div class="card-body">
+    <div class="basic-form">
+        <form id="formSuaTB" method="post" asp-action="SuaTB" enctype="multipart/form-data">
+            <div class="mb-3">
+                <input type="text" hidden class="form-control"  asp-for="MaTB" value="@Model.MaTB" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Tên thiết bị</label>
+                <input asp-for="TenTB" type="text" class="form-control" required name="TenTB" placeholder="Tên thiết bị ..">
+                <span id="tenTBError" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="MaLP" class="form-label">Tên LP</label>
+                <select asp-for="MaLP" name="MaLP" class="default-select form-control wide mb-3" asp-items="ViewBag.MaLp"></select>
+                <span id="maLPError" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Lưu</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#formSuaTB').submit(function (event) {
+            let isValid = true;
+
+            // Kiểm tra Tên LP
+            const maLP = $('[name="MaLP"]').val();
+            if (!maLP) {
+                $('#maLPError').text('Tên LP là bắt buộc.');
+                isValid = false;
+            } else {
+                $('#maLPError').text('');
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    });
+</script>

@@ -1,0 +1,127 @@
+﻿@using QLKhachSan.ViewModels
+@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<KhachSanVM>
+@using Microsoft.AspNetCore.Http
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+	ViewData["Title"] = "KhachSan";
+	Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+	<div class="col-xl-12">
+		<div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
+			<div class="card-tabs mt-3 mt-sm-0 mb-xxl-0 mb-4">
+				<a asp-action="DanhSachDuyet" class="btn btn-primary mb-xxl-0 mb-4 radius-btn">
+					<i class="fas fa-hourglass-half"></i> Chờ duyệt (@ViewBag.soks)
+				</a>
+			</div>
+			<div class="table-search">
+				<div class="input-group search-area mb-xxl-0 mb-4">
+					<form asp-action="TimKiemKhachSan" method="get" class="d-flex">
+						<input type="text" name="searchTerm" class="form-control search-input" placeholder="Nhập thông tin .." value="@ViewBag.SearchTerm">
+						<button type="submit" class="input-group-text btn btn-primary search-btn"><i class="flaticon-381-search-2"></i></button>
+					</form>
+				</div>
+			</div>
+			<a asp-action="ThemKS" class="btn btn-primary mb-xxl-0 mb-4 add-new-btn"><i class="material-icons me-2">add</i>Thêm mới</a>
+		</div>
+		<div class="tab-content">
+			<div class="tab-pane active show" id="All">
+				<div class="text-danger">@TempData["Message"]</div>
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped check-data display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg" id="guestTable-all">
+						<thead>
+							<tr style="text-align:center;">
+								<th class="col-3">Tên khách sạn</th>
+								<th class="col-1">Tỉnh thành</th>
+								<th class="col-2">Địa chỉ</th>
+								<th class="col-1">Duyệt</th>
+								<th style="text-align:center;" class="col-1">Chức năng</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var item in Model)
+							{
+								<tr>
+									<td class="col-3">
+										<div class="guest-bx">
+											<img class="me-3 guest-img" src="@Url.Content("~/img/Images/khachsan/"+@item.Anh)" alt="">
+											<div>
+												<span class="text-primary">#@item.MaKS</span>
+												<h4 class="mb-0 mt-1"><a class="text-black" href="guest_detail.html">@item.TenKS</a></h4>
+											</div>
+										</div>
+									</td>
+									<td class="col-1">
+										<div>
+											<span class="fs-16">@item.TenTinh</span>
+										</div>
+									</td>
+									<td class="col-2">
+										<div>
+											<span class="fs-16">@item.DiaChi</span>
+										</div>
+									</td>
+									<td class="col-1">
+										<select name="Duyet" class="form-select" data-maks="@item.MaKS">
+											@if (item.Duyet == 0)
+											{
+												<option value="0" selected>Chưa duyệt</option>
+												<option value="1">Duyệt</option>
+											}
+											else
+											{
+												<option value="0">Chưa duyệt</option>
+												<option value="1" selected>Duyệt</option>
+											}
+										</select>
+									</td>
+									<td class="col-1 text-center">
+										<div class="btn-group" role="group">
+											<a class="btn btn-sm btn-warning mx-1" asp-controller="KhachSanAdmin" asp-action="SuaKS" asp-route-id="@item.MaKS">
+												<i class="far fa-edit"></i> Edit
+											</a>
+											<a class="btn btn-sm btn-danger mx-1" onclick="return confirm('Bạn có chắc chắn muốn xóa phòng này không?')" asp-controller="KhachSanAdmin" asp-action="XoaKS" asp-route-id="@item.MaKS">
+												<i class="far fa-trash-alt"></i> Delete
+											</a>
+										</div>
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="margin: 0 auto">
+	@Html.PagedListPager(Model, page => Url.Action("KhachSan", new { page = page }), new X.PagedList.Web.Common.PagedListRenderOptions()
+{
+	LiElementClasses = new List<String> { "page-item" },
+	PageClasses = new List<String> { "page-link" }
+})
+</div>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="~/LayoutAdmin/public/assets/css/style-admin.css">
+<script>
+	$(document).ready(function () {
+		$(document).on('change', 'select[name="Duyet"]', function () {
+			var newValue = $(this).val();
+			var maKS = $(this).data('maks');
+			var newUrl = '@Url.Action("Duyet", "KhachSanAdmin")';
+			$.ajax({
+				type: "POST",
+				url: newUrl,
+				data: { maKS: maKS, newValue: newValue },
+				success: function (response) {
+					alert("Cập nhật thành công!");
+				},
+				error: function () {
+					console.log("Đã xảy ra lỗi khi cập nhật!");
+				}
+			});
+		});
+	});
+</script>

@@ -1,0 +1,140 @@
+﻿@using QLKhachSan.ViewModels.Admin
+@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<UserVM>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "KhachHang";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="col-xl-12">
+        <div class="d-flex mb-4 justify-content-between align-items-center flex-wrap">
+            <div class="card-tabs mt-3 mt-sm-0 mb-xxl-0 mb-4">
+                <ul class="nav nav-tabs custom-nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#All" role="tab">Người dùng</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="table-search">
+                <div class="input-group search-area mb-xxl-0 mb-4">
+                    <form asp-action="TimKiemKhachHang" method="get" class="d-flex">
+                        <input style="height:auto" type="text" name="searchTerm" class="form-control search-input" placeholder="Nhập thông tin .." value="@ViewBag.SearchTerm">
+                        <button type="submit" class="input-group-text btn btn-primary search-btn"><i class="flaticon-381-search-2"></i></button>
+                    </form>
+                </div>
+            </div>
+            <a style="display:flex;" asp-action="ThemUser" class="btn btn-primary add-new-btn mb-xxl-0 mb-4"><i class="material-icons me-2">add</i>Thêm mới</a>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane active show" id="All">
+                <div class="text-danger">@TempData["Message"]</div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped display mb-4 dataTablesCard booking-table room-list-tbl table-responsive-lg" id="guestTable-all">
+                        <thead>
+                            <tr style="text-align:center;">
+                                <th>ID</th>
+                                <th>Họ tên</th>
+                                <th>Giới tính</th>
+                                <th>Email</th>
+                                <th>Địa chỉ</th>
+@*                                 <th>Ngày sinh</th> *@
+                                <th>SDT</th>
+                                <th>Role</th>
+                                <th>Hiệu lực</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <span class="fs-16">@item.MaKh</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <span class="fs-16">@item.TenKh</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            @if (@item.GioiTinh == 0)
+                                            {
+                                                <span class="fs-16">Nữ</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="fs-16">Nam</span>
+                                            }
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <span class="fs-16">@item.Email</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <span class="fs-16">@item.DiaChi</span>
+                                        </div>
+                                    </td>
+@*                                     <td>
+                                        <div>
+                                            <span class="fs-16">@item.NgaySinh?.ToString("dd/MM/yyyy")</span>
+                                        </div>
+                                    </td> *@
+                                    <td>
+                                        <div>
+                                            <span class="fs-16">@item.Sdt</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        @if (@item.UserId == 0)
+                                        {
+                                            <span>Khách hàng</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Doanh nghiệp</span>
+                                        }
+                                    </td>
+                                    <td class="text-center">
+                                        @if (@item.HieuLuc == 0)
+                                        {
+                                            <i class="material-icons text-success" style="font-size:36px;">brightness_1</i>
+                                        }
+                                        else
+                                        {
+                                            <i class='fas fa-ban text-danger' style="font-size:36px;"></i>
+                                        }
+                                    </td>
+                                    <td class="text-center">
+                                        <a class="btn btn-sm btn-warning mx-1" asp-controller="User" asp-action="SuaKH" asp-route-id="@item.MaKh">
+                                            <i class="far fa-edit"></i> Edit
+                                        </a>
+                                        <a class="btn btn-sm btn-danger mx-1" onclick="return confirm('Bạn có chắc chắn muốn xóa phòng này không?')" asp-controller="User" asp-action="XoaUser" asp-route-id="@item.MaKh">
+                                            <i class="far fa-trash-alt"></i> Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="margin: 0 auto">
+    @Html.PagedListPager(Model, page => Url.Action("KhachHang", new { page = page }), new X.PagedList.Web.Common.PagedListRenderOptions()
+{
+    LiElementClasses = new List<string> { "page-item" },
+    PageClasses = new List<string> { "page-link" }
+})
+</div>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="~/LayoutAdmin/public/assets/css/style-admin.css">
+

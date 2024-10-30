@@ -1,0 +1,277 @@
+﻿@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<!-- Mirrored from netgon.ru/themeforest/yourtravelworld_html/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 26 Jan 2024 14:55:49 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Looking for something amazing?">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="HandheldFriendly" content="True">
+    <title>Hệ thống đặt phòng khách sạn trực tuyến </title>
+    <!-- Edge and IE-->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- Add to homescreen for Chrome on Android-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Looking for something amazing?">
+    <link rel="icon" sizes="192x192" href="~/img/logo6.png">
+    <!-- Add to homescreen for Safari on iOS-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Your Travel World">
+    <link rel="apple-touch-icon" href="~/img/touch/apple-touch-icon.png">
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,500,600,700%7CPoppins:400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="~/css/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link id="cssRtl" rel="stylesheet" href="#">
+    <link rel="stylesheet" href="~/css/flatpickr.min.css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/fontawesome-stars-o.css">
+    <link rel="stylesheet" href="~/css/swiper.min.css">
+    <link rel="stylesheet" href="~/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="~/css/select2.min.css">
+    <link rel="stylesheet" href="~/css/nouislider.min.css">
+    <link rel="stylesheet" href="~/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="~/style.min.css">
+    <link id="cssTheme" rel="stylesheet" href="~/skins/style-default.css">
+    <link rel="stylesheet" href="~/css/profile.css">
+</head>
+<body class="load">
+    <div class="progress-load js-progress-load"></div>
+    <header class="page-header">
+        <div class="panel-fixed">
+            <div class="page-header__top bg-white js-header-top js-top-panel">
+                <div class="container">
+                    <div class="row justify-content-center justify-content-between">
+                        <div class="col-12 col-md col-lg-6 d-flex justify-content-center justify-content-md-start">
+                            <a asp-controller="Home" asp-action="Index" class="navbar-logo d-inline-flex align-items-center">
+                                <img style="width:21%" class="img-fluid mr-3" src="~/img/logo6.png" alt="#" />
+                                <h4 class="m-0">Hệ thống đặt phòng khách sạn</h4>
+                            </a>
+                        </div>
+                        <div class="col col-lg-3 d-none d-md-flex align-items-center justify-content-center">
+                            <a class="page-header__call d-flex align-items-center text-nowrap" href="tel:880000112222333">
+                                <i class="icon icon-call js-tooltip-call mr-3" data-toggle="tooltip" data-placement="bottom" title="Hỗ trợ 0903888888"></i>
+                                <div class="page-header__call-right">
+                                    <div class="title fz-small">Hỗ trợ</div>
+                                    <div class="phone fw-bold">0903888888</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col col-lg-3 d-none d-md-flex">
+                            <ul class="nav nav-panel">
+                                @{
+                                    var email = HttpContextAccessor.HttpContext.Session.GetString("email");
+                                }
+                                @if (email == null)
+                                {
+                                    <li class="nav-item d-flex">
+                                        <a class="nav-link btn btn-light " asp-controller="KhachHang" asp-action="DangNhap"><i class="text-gray icon icon-user mr-2"></i><span>đăng nhập</span></a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    @if (User.Identity != null && User.Identity.IsAuthenticated)
+                                    {
+                                        <a asp-action="ProFile" asp-controller="KhachHang" class="my-auto user-profile">
+                                            <span>@User.Identity.Name</span>
+                                            <i class="fa fa-user" style="font-size:36px"></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <li class="nav-item d-flex">
+                                            <a class="nav-link btn btn-light " asp-controller="KhachHang" asp-action="DangNhap"><i class="text-gray icon icon-user mr-2"></i><span>đăng nhập</span></a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn-toggle btn btn-light d-lg-none btn-toggle-nav" type="button" data-toggle="collapse" data-target="#navPanel"><span class="icon-bar"></span></button>
+        <nav class="main-nav d-flex collapse d-lg-block" id="navPanel">
+            <div class="main-nav__container d-flex">
+                <div class="container">
+                    <div class="d-lg-none">
+                        <div class="main-nav__search">
+                            <form class="navbar-search" action="#" method="GET">
+                                <div class="input-group flex-nowrap">
+                                    <input class="form-control pr-0 js-navbar-search-input" type="search" placeholder="Search on site" />
+                                    <div class="input-group-append">
+                                        <button class="navbar-search__subject btn btn-light" type="button"><i class="fa fa-search text-gray"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <ul class="nav nav-panel">
+                            @if (email == null)
+                            {
+                                <li class="nav-item d-flex">
+                                    <a class="nav-link btn btn-light " asp-controller="KhachHang" asp-action="DangNhap"><i class="text-gray icon icon-user mr-2"></i><span>dang nhap</span></a>
+                                </li>
+                            }
+                            else
+                            {
+                                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                                {
+                                    <a asp-action="ProFile" asp-controller="KhachHang" class="my-auto user-profile">
+                                        <span>@User.Identity.Name</span>
+                                        <i class="fa fa-user" style="font-size:36px"></i>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <li class="nav-item d-flex">
+                                        <a class="nav-link btn btn-light " asp-controller="KhachHang" asp-action="DangNhap"><i class="text-gray icon icon-user mr-2"></i><span>dang nhap</span></a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                    <ul class="main-nav__list nav d-flex" id="navMenu">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link fw-bold text-uppercase" asp-controller="Home" asp-action="Index"><span>Trang chủ</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold text-uppercase" asp-controller="KhachSan" asp-action="KhachSan"><span>Khách sạn</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold text-uppercase" asp-controller="KhachSan" asp-action="KhachSanHot"><span>Khách sạn hot</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold text-uppercase" asp-controller="Home" asp-action="VeChungToi"><span>Về chúng tôi</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold text-uppercase" asp-controller="BlogHome" asp-action="Index"><span>Blog</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold text-uppercase" asp-controller="Home" asp-action="LienHe"><span>Liên hệ</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="page-main">
+        @RenderBody()
+    </main>
+    <footer class="page-footer">
+        <div class="page-footer__cover jarallax" data-speed="0.5"><img class="jarallax-img" src="~/img/footer.jpg" alt="#"></div>
+        <div class="container mb-5 mb-lg-4">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-4 mt-5">
+                    <h3 class="h3 text-uppercase">your travel world</h3>
+                    <ul class="page-footer__address">
+                        <li class="mb-2">
+                            <strong class="float-left mr-1">Địa chỉ:</strong>
+                            3 Đ. Cầu Giấy, Ngọc Khánh, Đống Đa, Hà Nội
+                        </li>
+                        <li class="mb-2">
+                            <strong class="float-left mr-1">Điện thoại:</strong>
+                            Hỗ trợ khách hàng 24/7:
+                            <a href="tel:#">0903888888</a>
+                        </li>
+                        <li class="mb-2">
+                            <strong class="float-left mr-1">Email:</strong>
+                            <a href="mailto:#">Yourtravel@gmail.com</a>
+                        </li>
+                    </ul>
+                    <h4 class="h4 mb-2">Theo dõi chúng tôi:</h4>
+                    <ul class="footer-social d-flex flex-wrap">
+                        <li class="mr-4"><a class="social-link" href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li class="mr-4"><a class="social-link" href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li class="mr-4"><a class="social-link" href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                        <li class="mr-4"><a class="social-link" href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                        <li class="mr-4"><a class="social-link" href="#" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 mt-5">
+                    <h3 class="h3 text-uppercase">hỗ trợ khách hàng</h3>
+                    <ul class="page-footer__support list-styled">
+                        <li class="mb-2"><a href="#" target="_blank">Câu hỏi thường gặp</a></li>
+                        <li class="mb-2"><a href="#" target="_blank">Làm thế nào để đặt phòng?</a></li>
+                        <li class="mb-2"><a href="#" target="_blank">Các phương thức thanh toán</a></li>
+                        <li class="mb-2"><a href="#" target="_blank">Mẹo đặt phòng</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-12 col-lg-4 mt-5">
+                    <h3 class="h3 text-uppercase">nhận các ưu đãi tốt nhất của chúng tôi</h3>
+                    <form class="subscribe-form" action="#" method="POST">
+                        <div class="input-group input-group--lg flex-nowrap mb-4">
+                            <input class="form-control form-control-lg" type="email" placeholder="Enter Your email" required>
+                            <div class="input-group-append">
+                                <button class="btn btn-btn btn-light btn--round" type="submit">
+                                    <i class="fa fa-send"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <p>Chúng tôi cam kết bảo mật thông tin của bạn và cũng cam kết không chuyển giao địa chỉ email của bạn cho bên thứ ba.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="page-footer__copyright text-center">
+            <div class="container">
+                <div class="hr"></div>Bản quyền © YourTravelWorld ltd. Đã được bảo lưu.<br /><a class="text-light text-uppercase" href="https://themeforest.net/user/netgon">
+                    Bản quyền thuộc về Netgon
+                    <script>document.write(new Date().getFullYear());</script>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <div class="modal-map modal" id="modalMap" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header align-items-center py-2">
+                    <h4 class="modal-title"><a class="d-flex align-items-center" href="hotel.html"><i class="icon mr-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.5 22.1"><path d="M0.3,10.3C0.3,10.3,0.3,10.3,0.3,10.3c-0.4,0.5-0.4,1.2,0,1.6l10,10c0,0,0,0,0,0c0.4,0.4,1.1,0.4,1.6,0 c0.4-0.4,0.4-1.1,0-1.6l-8-8h26.6c0.6,0,1.1-0.5,1.1-1.1c0,0,0,0,0,0c0-0.6-0.5-1.1-1.1-1.1H3.8l8-8c0.4-0.4,0.4-1.1,0-1.6 c0,0,0,0,0,0c-0.4-0.4-1.1-0.4-1.6,0L0.3,10.3z" /></svg></i><span class="title">Hotel</span></a></h4>
+                    <button class="btn btn-secondary btn--round px-4" type="button" data-dismiss="modal">
+                        map close
+                    </button>
+                </div>
+                <div class="map-contain" id="map"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3gFKhVywUkygSxQEBdGVrI5-ZRrdjueA"></script>
+    <script src="~/js/maps.js"></script>
+    <script src="~/js/libs/moment.min.js"></script>
+    <script src="~/js/libs/wNumb.js"></script>
+    <script src="~/js/libs/nouislider.min.js"></script>
+    <script src="~/js/libs/jquery.min.js"></script>
+    <script src="~/js/libs/jquery-ui.min.js"></script>
+    <script src="~/js/libs/barba.min.js"></script>
+    <script src="~/js/libs/sticky-kit.min.js"></script>
+    <script src="~/js/libs/velocity.min.js"></script>
+    <script src="~/js/libs/velocity.ui.min.js"></script>
+    <script src="~/js/libs/jquery.waypoints.min.js"></script>
+    <script src="~/js/libs/popper.min.js"></script>
+    <script src="~/js/libs/bootstrap.min.js"></script>
+    <script src="~/js/libs/imagesloaded.pkgd.min.js"></script>
+    <script src="~/js/libs/masonry.pkgd.min.js"></script>
+    <script src="~/js/libs/isotope.pkgd.min.js"></script>
+    <script src="~/js/libs/ofi.min.js"></script>
+    <script src="~/js/libs/jarallax.min.js"></script>
+    <script src="~/js/libs/jarallax-video.min.js"></script>
+    <script src="~/js/libs/jarallax-element.min.js"></script>
+    <script src="~/js/libs/jquery.mCustomScrollbar.min.js"></script>
+    <script src="~/js/libs/swiper.min.js"></script>
+    <script src="~/js/libs/flatpickr/flatpickr.min.js"></script>
+    <script src="~/js/libs/flatpickr/rangePlugin.js"></script>
+    <script src="~/js/libs/select2.min.js"></script>
+    <script src="~/js/libs/select2/en.js"></script>
+    <script src="~/js/libs/jquery.mask.min.js"></script>
+    <script src="~/js/libs/validator.min.js"></script>
+    <script src="~/js/libs/jquery.barrating.min.js"></script>
+    <script src="~/js/libs/jquery.blueimp-gallery.min.js"></script>
+    <script src="~/js/script.min.js"></script>
+    <script src="~/js/demo-switcher.js"></script>
+</body>
+
+<!-- Mirrored from netgon.ru/themeforest/yourtravelworld_html/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 26 Jan 2024 14:55:58 GMT -->
+</html>

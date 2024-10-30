@@ -1,0 +1,236 @@
+﻿
+@{
+    ViewData["Title"] = "DangKy";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+
+<!-- Mirrored from innap.dexignzone.com/codeigniter/demo/page_register by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Jan 2024 14:33:14 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="DexignZone">
+    <meta name="robots" content="">
+    <meta name="keywords" content="accommodation, admin dashboard, admin template, apartment, booking, codeigniter, bootstrap 5, dinning, hostel, hotel booking, hotel template, motel, resort, restaurant, room">
+    <meta name="description" content="Innap is a clean-coded, responsive CodeIgniter template that can be easily customised to fit the needs of various hotel booking and hotel template, booking, dinning, hostel, and other businesses">
+    <meta property="og:title" content="Innap - CodeIgniter Hotel Admin Dashboard Templates">
+    <meta property="og:description" content="Innap is a clean-coded, responsive CodeIgniter template that can be easily customised to fit the needs of various hotel booking and hotel template, booking, dinning, hostel, and other businesses">
+    <meta property="og:image" content="../social-image.html">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Mobile Specific -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- PAGE TITLE HERE -->
+    <title> Hệ thống đặt phòng khách sạn trực tuyến </title>
+
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="~/img/logo6.png">
+    <link href="~/LayoutAdmin/public/assets/vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+    <link href="~/LayoutAdmin/public/assets/css/style.css" rel="stylesheet">
+    <style>
+        /* CSS cho nút "Back to Home" */
+        .back-to-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #17a2b8;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+            .back-to-home:hover {
+                background-color: #17a2b8;
+            }
+    </style>
+</head>
+
+<body class="vh-100">
+    <div class="authincation h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100 align-items-center">
+                <div class="col-md-6">
+                    <div class="authincation-content">
+                        <div class="row no-gutters">
+                            <div class="col-xl-12">
+                                <div class="auth-form">
+                                    <div class="text-center mb-3">
+                                        <a href="index.html"><img class="light-login" src="~/LayoutAdmin/public/assets/images/logo-white.png" alt=""></a>
+                                        <img style="width: 40%;" class="dark-login" src="~/img/logo6.png" alt="">
+                                    </div>
+                                    <h4 class="text-center mb-4">Đăng ký tài khoản của bạn</h4>
+                                    <form asp-controller="KhachHang" asp-action="DangKy" method="post">
+                                        <div class="text-danger">@TempData["Message"]</div>
+                                        <div class="mb-3">
+                                            <label class="mb-1"><strong>Họ tên</strong></label>
+                                            <input type="text" class="form-control" name="TenKh" required placeholder="Họ tên ..">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="mb-1"><strong>Email</strong></label>
+                                            <input type="email" class="form-control" name="Email" required placeholder="Email ..">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="mb-1"><strong>Nhập mã OTP</strong></label>
+                                            <input type="text" name="OTP" class="form-control" required placeholder="Nhập mã OTP ..">
+                                            <input type="hidden" name="email" value="@TempData["Email"]" >
+                                            <button type="button" class="btn btn-info" id="sendOtpButton">Gửi mã OTP</button>
+                                        </div>
+                                        <div class="mb-3 position-relative">
+                                            <label class="mb-1"><strong>Mật khẩu</strong></label>
+                                            <input type="password" id="dz-password" name="Password" required class="form-control" placeholder="Mật khẩu ..">
+                                        </div>
+                                        <div class="mb-3 position-relative">
+                                            <label class="mb-1"><strong>Xác nhận mật khẩu của bạn</strong></label>
+                                            <input type="password" id="dz-password" name="ConfirmPassword" required class="form-control" placeholder="Xác nhận mật khẩu ..">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="mb-1"><strong>Loại tài khoản</strong></label>
+                                            <select name="LoaiTaiKhoan" class="form-control">
+                                                <option value="khachhang">Khách hàng</option>
+                                                <option value="doanhnghiep">Doanh nghiệp</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="mb-1"><strong>Địa chỉ</strong></label>
+                                            <input type="text" required name="DiaChi" class="form-control" placeholder="Địa chỉ ..">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label name="GioiTinh" class="radio-inline" for="nam">
+                                                Nam
+                                                <input name="GioiTinh" type="radio" id="nam" value="0">
+                                            </label>
+                                            <label name="GioiTinh" class="radio-inline" for="nu">
+                                                Nữ
+                                                <input type="radio" name="GioiTinh" id="nu" value="1">
+                                            </label>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="mb-1"><strong>Số điện thoại</strong></label>
+                                            <input type="text" name="Sdt" required class="form-control" placeholder="Số điện thoại ..">
+                                        </div>
+                                        <div class="text-center mt-4">
+                                            <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+                                        </div>
+                                    </form>
+                                    <div class="new-account mt-3">
+                                        <p>Nếu bạn đã có tài khoản ? <a class="text-primary" asp-controller="KhachHang" asp-action="DangNhap">Đăng nhập</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a asp-controller="Home" asp-action="Index" class="back-to-home">Quay lại trang chủ</a>
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="~/LayoutAdmin/public/assets/vendor/global/global.min.js"></script>
+    <script src="~/LayoutAdmin/public/assets/vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="~/LayoutAdmin/public/assets/js/custom.min.js"></script>
+    <script src="~/LayoutAdmin/public/assets/js/deznav-init.js"></script>
+    <script src="~/LayoutAdmin/public/assets/js/demo.js"></script>
+@*     <script src="~/LayoutAdmin/public/assets/js/styleSwitcher.js"></script> *@
+</body>
+
+<!-- Mirrored from innap.dexignzone.com/codeigniter/demo/page_register by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Jan 2024 14:33:14 GMT -->
+</html>
+    <script>
+        $(document).ready(function () {
+            $('#sendOtpButton').click(function () {
+                var email = $('input[name="Email"]').val();
+                $.ajax({
+                    url: '@Url.Action("SendOtp", "KhachHang")',
+                    type: 'POST',
+                    data: { email: email },
+                    success: function (response) {
+                        alert(response.message);
+                    },
+                    error: function () {
+                        alert('Có lỗi xảy ra. Vui lòng thử lại.');
+                    }
+                });
+            });
+        });
+    </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector("form").onsubmit = function () {
+            // Validation cho tên
+            // if (document.querySelector('[name="TenKh"]').value.trim() === "") {
+            //     alert("Vui lòng nhập tên của bạn.");
+            //     return false;
+            // }
+
+
+            // Validation cho OTP
+            // if (document.querySelector('[name="OTP"]').value.trim() === "") {
+            //     alert("Vui lòng nhập mã OTP.");
+            //     return false;
+            // }
+
+            // Validation cho mật khẩu
+            var password = document.querySelector('[name="Password"]').value;
+            // if (password.trim() === "") {
+            //     alert("Vui lòng nhập mật khẩu.");
+            //     return false;
+            // }
+            if (password.trim().length < 6) {
+                alert("Mật khẩu phải chứa ít nhất 6 ký tự.");
+                return false;
+            }
+
+            // Validation cho xác nhận mật khẩu
+            var confirmPassword = document.querySelector('[name="ConfirmPassword"]').value;
+            // if (confirmPassword.trim() === "") {
+            //     alert("Vui lòng xác nhận mật khẩu.");
+            //     return false;
+            // }
+            if (password !== confirmPassword) {
+                alert("Mật khẩu không trùng khớp.");
+                return false;
+            }
+            // var address = document.querySelector('[name="DiaChi"]').value.trim();
+            // if (address === "") {
+            //     alert("Vui lòng nhập địa chỉ của bạn.");
+            //     return false;
+            // }
+            var genderInputs = document.querySelectorAll('[name="GioiTinh"]');
+            var selectedGender = false;
+
+            for (var i = 0; i < genderInputs.length; i++) {
+                if (genderInputs[i].checked) {
+                    selectedGender = true;
+                    break;
+                }
+            }
+
+            if (!selectedGender) {
+                alert("Vui lòng chọn giới tính của bạn.");
+                return false;
+            }
+            // Validation cho số điện thoại
+            var phone = document.querySelector('[name="Sdt"]').value.trim();
+            var phonePattern = /^\d{10}$/;
+            if (!phonePattern.test(phone)) {
+                alert("Vui lòng nhập số điện thoại hợp lệ.");
+                return false;
+            }
+
+            // Nếu tất cả validation đều đúng, cho phép gửi form
+            return true;
+        };
+    });
+</script>

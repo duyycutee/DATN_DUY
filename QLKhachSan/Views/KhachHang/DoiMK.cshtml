@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "_LayoutProfile";
+}
+<h2 style="color: dimgray;" class="text-center mb-4">Đổi mật khẩu</h2>
+<div class="personal__account-security container">
+    <div class="text-danger">@TempData["Message"]</div>
+        <form method="post" asp-action="DoiMK">
+            <div class="col-12">
+                <div class="item">
+                    <span class="label">Mật khẩu hiện tại:</span>
+                    <input type="password" class="form-control" required name="MatKhauCu" />
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="item">
+                    <span class="label">Mật khẩu mới:</span>
+                    <input type="password" class="form-control" required name="MatKhauMoi" />
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="item">
+                    <span class="label">Xác nhận mật khẩu mới:</span>
+                    <input type="password" class="form-control" required name="ConfirmMK" />
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Đổi mật khẩu</button>
+            </div>
+        </form>
+</div>

@@ -1,0 +1,382 @@
+﻿@model IEnumerable<QLKhachSan.ViewModels.SanPhamVM>
+@{
+    ViewData["Title"] = "CheckPhongTrong";
+    Layout = "_LayoutKhachSan";
+}
+<div class="row">
+    <aside class="sidebar col-lg-3 order-1 order-lg-0">
+        <div class="sidebar__content js-sticky-top">
+            <div class="sidebar-filter modal card fade" id="sidebarFilter" tabindex="-1" role="dialog">
+                <button class="btn-toggle btn btn-light" type="button" data-dismiss="modal"><span class="icon-bar"></span></button>
+                <div class="modal-header bg-white">
+                    <h4 class="modal-title">Refine search result</h4>
+                </div>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <ul class="sidebar-filter__list">
+                                <li class="sidebar-filter__item">
+                                    <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#price" data-toggle="collapse" role="button"><span>Price (per night)</span><i class="fa fa-angle-down"></i></a></h5>
+                                    <div class="collapse show" id="price">
+                                        <div class="sidebar-filter__content">
+                                            <label class="custom-control custom-checkbox">
+                                                <input class="custom-control-input price-checkbox" data-gia="300-500" type="checkbox" />
+                                                <span class="custom-control-label pointer">300 - 500 €</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox">
+                                                <input class="custom-control-input price-checkbox" data-gia="501-600" type="checkbox" />
+                                                <span class="custom-control-label pointer">501 - 600 €</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox">
+                                                <input class="custom-control-input price-checkbox" data-gia="601-799" type="checkbox" />
+                                                <span class="custom-control-label pointer">601 - 799 €</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox">
+                                                <input class="custom-control-input price-checkbox" data-gia="800-10000" type="checkbox" />
+                                                <span class="custom-control-label pointer">800 € +</span>
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li class="sidebar-filter__item">
+                                    <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#accommodation" data-toggle="collapse" role="button"><span>Room type</span><i class="fa fa-angle-down"></i></a></h5>
+                                    <div class="collapse show" id="accommodation">
+                                        <div class="sidebar-filter__content">
+                                            @foreach (var i in ViewBag.LoaiPhong)
+                                            {
+                                                <label class="custom-control custom-checkbox">
+                                                    <input class="custom-control-input room-checkbox" id="chk_@i" data-loaiphong="@i" type="checkbox" />
+                                                    <span class="custom-control-label pointer">@i</span>
+                                                </label>
+                                            }
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="sidebar-filter__item">
+                                    <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#HotelAttrs" data-toggle="collapse" role="button"><span>Room facilites</span><i class="fa fa-angle-down"></i></a></h5>
+                                    <div class="collapse show" id="HotelAttrs">
+                                        <div class="sidebar-filter__content">
+                                            @foreach (var tb in ViewBag.thietbi)
+                                            {
+                                                <label class="custom-control custom-checkbox">
+                                                    <input class="custom-control-input tb-checkbox" type="checkbox" data-tb="@tb" /><span class="custom-control-label pointer">@tb</span>
+                                                </label>
+                                            }
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="sidebar-filter__item">
+                                    <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#" data-toggle="collapse" role="button"><span>Star rating</span><i class="fa fa-angle-down"></i></a></h5>
+                                    <div class="collapse show d-block" id="starRating">
+                                        <div class="sidebar-filter__content">
+                                            <div class="sidebar-filter__stars rating d-flex justify-content-between align-items-center">
+                                                <select class="js-rating-filter" data-current-rating="3 of more">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                                <div class="amount ml-3"><span class="val"></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="sidebar-filter__item">
+                                    <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#" data-toggle="collapse" role="button"><span>User rating</span><i class="fa fa-angle-down"></i></a></h5>
+                                    <div class="collapse show d-block" id="userRating">
+                                        <div class="sidebar-filter__content">
+                                            <div class="sidebar-filter__rating">
+                                                <div class="mb-2" id="userRatingChange"></div>
+                                                <div class="d-flex justify-content-between"><span class="amount" id="userRatingMin"></span><span class="amount" id="userRatingMax">10</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                @*                                 <li class="sidebar-filter__item">
+                                <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#roomAttrs" data-toggle="collapse" role="button"><span>Rooms facilites</span><i class="fa fa-angle-down"></i></a></h5>
+                                <div class="collapse show" id="roomAttrs">
+                                <div class="sidebar-filter__content">
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Wi-Fi</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Room safe</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Desck</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Pay TV</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Mini bar</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Air condition</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Bathroom</span>
+                                </label>
+                                </div>
+                                </div>
+                                </li>
+                                <li class="sidebar-filter__item">
+                                <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#mealBoard" data-toggle="collapse" role="button"><span>Meal Board</span><i class="fa fa-angle-down"></i></a></h5>
+                                <div class="collapse show" id="mealBoard">
+                                <div class="sidebar-filter__content">
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">No meal</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Bed &amp; Breackfast</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Half board</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Full board</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">All-inclusive</span>
+                                </label>
+                                </div>
+                                </div>
+                                </li>
+                                <li class="sidebar-filter__item">
+                                <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#accessibility" data-toggle="collapse" role="button"><span>Accessibility option</span><i class="fa fa-angle-down"></i></a></h5>
+                                <div class="collapse show" id="accessibility">
+                                <div class="sidebar-filter__content">
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">No meal</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Bed &amp; Breackfast</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Half board</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Full board</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">All-inclusive</span>
+                                </label>
+                                </div>
+                                </div>
+                                </li>
+                                <li class="sidebar-filter__item">
+                                <h5 class="sidebar-filter__title"><a class="sidebar-filter__toggle d-flex justify-content-between align-items-center" href="#location" data-toggle="collapse" role="button"><span>Location area</span><i class="fa fa-angle-down"></i></a></h5>
+                                <div class="collapse show" id="location">
+                                <div class="sidebar-filter__content">
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">University of Denver</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Denver Zoo</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Denver Art Museum</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Denver Museum of Nature and Science</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Red Rocks Amphitheater</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Pepsi Center</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Coors Field</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Dick's Sporting Goods Park</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Coors Brewery</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">United States Mint</span>
+                                </label>
+                                <div class="collapse">
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Sports Authority Field at Mile High</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Elitch Gardens Theme Park</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Molly Brown House Museum</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Colorado State Capitol Building</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Denver's Downtown Aquarium</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Denver Botanic Gardens</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Denver Public Library</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Union Station</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">University of Colorado-Denver</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" /><span class="custom-control-label pointer">Paramount Theater</span>
+                                </label>
+                                </div><a class="d-block js-show-more mt-2" href="#">Show more</a>
+                                </div>
+                                </div>
+                                </li> *@
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <div class="col-lg-9 category-content">
+        <nav class="sortbar navbar shadow-sm d-flex align-items-stretch">
+            <div class="sortbar__title d-flex align-items-stretch">
+                <button class="navbar-brand d-flex align-items-center pointer js-toggle-sidebar" data-target="#sidebarFilter" data-toggle="modal" type="button"><i class="d-lg-none icon icon-filter"></i><span class="ml-2 d-none d-lg-inline">Sort by:</span></button>
+            </div>
+            <div class="sortbar__sort js-sorting d-flex align-items-stretch"><a class="nav-link" href="#">Popularity</a><a class="nav-link" href="#">Price</a><a class="nav-link" href="#">Stars</a><a class="nav-link" href="#">Rating</a><a class="nav-link d-flex d-md-none align-items-center" href="#"><span class="mr-2">Sort by</span><i class="icon icon-sort-duble"></i></a></div>
+            <div class="sortbar__grid d-flex align-items-stretch ml-md-auto"><a class="nav-link active js-toggle-grid" href="#" data-grid="grid" data-cols="col-12 col-sm-6 col-xl-4 d-flex"><i class="icon icon-grid"></i></a><a class="nav-link js-toggle-grid" href="#" data-grid="list" data-cols="col-12 d-flex"><i class="icon icon-list-mb"></i></a></div>
+        </nav>
+        <div class="category-content__items row pad-lg-20" id="result-container">
+            @foreach (var item in Model)
+            {
+                <div class="col-12 col-sm-6 col-xl-4 d-flex">
+                    <div class="product bg-white js-grid-item">
+                        <div class="product__special bg-primary text-white">
+                            special price
+                        </div>
+                        <a class="product__img-top d-block" asp-controller="Home" asp-action="ChiTietPhong" asp-route-id="@item.MaPhong">
+                            <img class="img-fluid" src="@Url.Content($"~/img/Images/{item.Anh}")" alt="#" />
+                        </a>
+                        <div class="product__body">
+                            <h4 class="product__title"><a asp-controller="Home" asp-action="ChiTietPhong" asp-route-id="@item.MaPhong">@item.TenPhong</a></h4>
+                            <div class="product__rating mb-2">
+                                <div class="rating">
+                                    <select class="js-rating-stat" data-current-rating="5">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5" selected="selected">5</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <ul class="product__stat d-flex flex-wrap justify-content-between align-items-center">
+                                <li class="mr-3"><span>Egypt</span><i class="bullet"></i><a href="#modalMap" data-toggle="modal" data-title="@item.TenPhong">Show on map</a></li>
+                                <li class="d-inline-flex align-items-center"><i class="icon icon-thumbs-up mr-1"></i><span>8/10</span></li>
+                            </ul>
+                            <hr />
+                            <ul class="product__price d-flex justify-content-between align-items-center">
+                                <li class="mr-2"><span>Price per night from</span></li>
+                                <li>
+                                    <span class="cost">@item.Gia €</span>
+                                </li>
+                            </ul>
+                            <hr />
+                            <div class="product__desc">
+                                <p>The air-conditioned rooms have a balcony with views of the sea or the garden. Each spacious room has a TV with satellite channels. The private bathrooms at the... </p><a class="product__link-more" href="hotel.html">Read more</a>
+                            </div>
+                        </div>
+                        <hr class="d-none d-sm-block" />
+                        <div class="product__footer">
+                            <ul class="product__price d-flex justify-content-between align-items-center">
+                                <li class="mr-2"><span>Price per night from</span></li>
+                                <li>
+                                    <span class="cost">@item.Gia €</span>
+                                </li>
+                            </ul><a class="product__btn-book btn btn-secondary btn--round" asp-controller="Home" asp-action="ChiTietPhong" asp-route-id="@item.MaPhong">book now</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <nav class="pagination-nav" aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-double-left"></i></a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item align-self-end d-sm-none">
+                    <a class="dotted" href="#">......</a>
+                </li>
+                <li class="page-item d-none d-sm-block">
+                    <a class="page-link" href="#">4</a>
+                </li>
+                <li class="page-item d-none d-sm-block">
+                    <a class="page-link" href="#">5</a>
+                </li>
+                <li class="page-item d-none d-sm-block">
+                    <a class="page-link" href="#">6</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">7</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">8</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-double-right"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.room-checkbox, .price-checkbox,.tb-checkbox').change(function () {
+            updateRoomSelection();
+        });
+
+        function updateRoomSelection() {
+            var selectedRooms = [];
+            $('.room-checkbox:checked').each(function () {
+                selectedRooms.push($(this).data('loaiphong'));
+            });
+
+            var selectedPrices = [];
+            $('.price-checkbox:checked').each(function () {
+                selectedPrices.push($(this).data('gia'));
+            });
+
+            var selectedThietBi = [];
+            $('.tb-checkbox:checked').each(function () {
+                selectedThietBi.push($(this).data('tb'));
+            });
+
+            // Thực hiện cuộc gọi AJAX để cập nhật view dựa trên loại phòng và giá đã chọn
+            $.ajax({
+                url: '/Home/UpdateSelection', // Thay thế bằng action của controller của bạn
+                type: 'POST',
+                data: {
+                    selectedRooms: selectedRooms,
+                    selectedPrices: selectedPrices,
+                    selectedThietBi: selectedThietBi
+                },
+                success: function (result) {
+                    $('#result-container').html(result);
+                },
+                error: function () {
+                    console.log('Lỗi khi cập nhật lựa chọn.');
+                }
+            });
+        }
+    });
+</script>
+
+

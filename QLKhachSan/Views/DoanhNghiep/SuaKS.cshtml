@@ -1,0 +1,162 @@
+﻿@model QLKhachSan.ViewModels.KhachSanVM
+@{
+    ViewData["Title"] = "SuaKS";
+    Layout = "_LayoutProfile";
+}
+<h2 style="color: dimgray;" class="text-center mb-4">Cập nhật khách sạn</h2>
+<div class="card-body">
+    <div class="basic-form">
+        <form id="updateHotelForm" method="post" asp-action="SuaKS" enctype="multipart/form-data">
+            <div class="text-danger">@TempData["Message"]</div>
+            <div class="mb-3">
+                <input hidden type="text" class="form-control" name="MaKS" value="@Model.MaKS" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Tên khách sạn<span class="text-danger">(*)</span></label>
+                <input asp-for="TenKS" type="text" class="form-control" name="TenKS" id="TenKS" required placeholder="Tên khách sạn ..">
+                <span class="text-danger" id="TenKSValidation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-dark">Địa chỉ<span class="text-danger">(*)</span></label>
+                <select class="form-control mt-3" name="TenTinh" id="city" required>
+                    <option value="" selected disabled>Chọn tỉnh thành</option>
+                </select>
+                <select class="form-control mt-3" name="TenHuyen" id="district" required>
+                    <option value="" selected disabled>Chọn quận huyện</option>
+                </select>
+                <select class="form-control mt-3" name="TenXa" id="ward" required>
+                    <option value="" selected disabled>Chọn phường xã</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-dark">Địa chỉ cụ thể<span class="text-danger">(*)</span></label>
+                <input asp-for="DiaChi" class="form-control" name="DiaChi" id="DiaChi" type="text" required placeholder="Nhập địa chỉ cụ thể ..">
+                <span class="text-danger" id="DiaChiValidation"></span>
+            </div>
+            <div class="mb-3">
+                <label for="formFileSm" class="form-label text-dark">Ảnh đại diện<span class="text-danger">(*)</span></label>
+                <input class="form-control form-control-sm" name="Anh" id="formFileSm" type="file" accept="image/*">
+                <span class="text-danger" id="AnhValidation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mô tả<span class="text-danger">(*)</span></label>
+                <textarea asp-for="Mota" class="form-control" rows="8" name="MoTa" id="MoTa" required placeholder="Mô tả về khách sạn .."></textarea>
+                <span class="text-danger" id="MoTaValidation"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Lưu</button>
+        </form>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script>
+    var citis = document.getElementById("city");
+    var districts = document.getElementById("district");
+    var wards = document.getElementById("ward");
+    var Parameter = {
+        url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+        method: "GET",
+        responseType: "application/json",
+    };
+    var promise = axios(Parameter);
+    promise.then(function (result) {
+        renderCity(result.data);
+    });
+
+    function renderCity(data) {
+        for (const x of data) {
+            var opt = document.createElement('option');
+            opt.value = x.Name;
+            opt.text = x.Name;
+            opt.setAttribute('data-id', x.Id);
+            citis.options.add(opt);
+        }
+        citis.onchange = function () {
+            districts.length = 1;
+            wards.length = 1;
+            if (this.options[this.selectedIndex].dataset.id != "") {
+                const result = data.filter(n => n.Id === this.options[this.selectedIndex].dataset.id);
+
+                for (const k of result[0].Districts) {
+                    var opt = document.createElement('option');
+                    opt.value = k.Name;
+                    opt.text = k.Name;
+                    opt.setAttribute('data-id', k.Id);
+                    districts.options.add(opt);
+                }
+            }
+        };
+        districts.onchange = function () {
+            wards.length = 1;
+            const dataCity = data.filter((n) => n.Id === citis.options[citis.selectedIndex].dataset.id);
+            if (this.options[this.selectedIndex].dataset.id != "") {
+                const dataWards = dataCity[0].Districts.filter(n => n.Id === this.options[this.selectedIndex].dataset.id)[0].Wards;
+
+                for (const w of dataWards) {
+                    var opt = document.createElement('option');
+                    opt.value = w.Name;
+                    opt.text = w.Name;
+                    opt.setAttribute('data-id', w.Id);
+                    wards.options.add(opt);
+                }
+            }
+        };
+    }
+
+    document.getElementById('updateHotelForm').addEventListener('submit', function (event) {
+        let isValid = true;
+        const danhGia = document.querySelector('[name="DanhGia"]');
+        const citis = document.getElementById("city");
+        const districts = document.getElementById("district");
+        const wards = document.getElementById("ward");
+        const imageInput = document.querySelector('[name="Anh"]');
+        const tenKS = document.getElementById("TenKS");
+        const diaChi = document.getElementById("DiaChi");
+        const moTa = document.getElementById("MoTa");
+
+        document.getElementById("TenKSValidation").innerText = "";
+        document.getElementById("DiaChiValidation").innerText = "";
+        document.getElementById("MoTaValidation").innerText = "";
+        document.getElementById("AnhValidation").innerText = "";
+
+        if (tenKS.value.trim() === "") {
+            isValid = false;
+            document.getElementById("TenKSValidation").innerText = "Vui lòng nhập tên khách sạn.";
+        }
+
+        if (citis.value === "") {
+            isValid = false;
+            alert("Vui lòng chọn tỉnh thành.");
+        }
+
+        if (districts.value === "") {
+            isValid = false;
+            alert("Vui lòng chọn quận huyện.");
+        }
+
+        if (wards.value === "") {
+            isValid = false;
+            alert("Vui lòng chọn phường xã.");
+        }
+
+
+        // if (imageInput.files.length > 0) {
+        //     const file = imageInput.files[0];
+        //     const fileType = file.type.split('/')[0];
+        //     const fileSize = file.size / 1024 / 1024; // size in MB
+
+        //     if (fileType !== 'image') {
+        //         isValid = false;
+        //         document.getElementById("AnhValidation").innerText = "Vui lòng chọn tệp tin là hình ảnh.";
+        //     }
+
+        //     if (fileSize > 5) { // Example: 5MB limit
+        //         isValid = false;
+        //         document.getElementById("AnhValidation").innerText = "Kích thước ảnh không được vượt quá 5MB.";
+        //     }
+        // }
+
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+</script>

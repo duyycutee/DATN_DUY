@@ -1,0 +1,37 @@
+﻿
+
+.notification {
+    position: fixed;
+    top: 120px;
+    right: -400px; /* Di chuyển từ phải sang trái */
+    padding: 20px; /* Kích thước của thông báo */
+    background-color: #28a745; /* Màu nền xanh lá cây */
+    color: #fff; /* Màu chữ trắng */
+    font-weight: bold; /* Chữ đậm */
+    border-radius: 10px; /* Làm tròn góc của thông báo */
+    z-index: 9999; /* Đảm bảo thông báo luôn nằm trên cùng */
+    animation: slideIn 0.5s forwards, fadeOut 12s forwards; /* Hiệu ứng di chuyển và tự động ẩn đi */
+}
+
+@keyframes slideIn {
+    from {
+        right: -400px; /* Bắt đầu từ vị trí ngoài màn hình */
+    }
+
+    to {
+        right: 20px; /* Di chuyển đến vị trí cuối cùng */
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+

@@ -1,0 +1,432 @@
+﻿@model QLKhachSan.ViewModels.ChiTietPhongVM
+@{
+    ViewData["Title"] = "ChiTietPhong";
+    Layout = "_LayoutDetail";
+}
+<nav class="breadcrumb-nav d-flex align-items-center" aria-label="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="under" href="index.html">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><span>Chi tiết phòng</span></li>
+        </ol>
+    </div>
+</nav>
+<div class="row">
+    <aside class="sidebar col-lg-3">
+        <div class="sidebar__content js-sticky-top">
+            <div class="sidebar__finder card bg-primary text-white">
+                <h4 class="m-0 mb-lg-4">Thông tin đặt phòng</h4>
+                <form class="collapse show d-lg-block mt-3" asp-controller="Room" asp-action="Booking" method="post" data-toggle="validator" id="bookingForm">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-12 col-sm-6 col-lg-12 form-group">
+                                    <input type="hidden" name="maphong" value="@Model.MaPhong" />
+                                    <input type="hidden" name="tenphong" value="@Model.TenPhong" />
+                                    <label class="label-text">Ngày đến</label>
+                                    <div class="input-group date">
+                                        <input class="form-control js-input-date" id="hotelInDate" type="date" name="ngayden" required />
+                                        <div class="input-group-append">
+                                            <i class="icon icon-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-lg-12 form-group">
+                                    <label class="label-text">Ngày đi</label>
+                                    <div class="input-group date">
+                                        <input class="form-control js-input-date" id="hotelOutDate" type="date" name="ngaydi" required />
+                                        <div class="input-group-append">
+                                            <i class="icon icon-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="label">Số người</label>
+                            <div class="row">
+                                <div class="col-12 col-sm-6 form-group col-lg-12">
+                                    <span class="form-select">
+                                        <select id="songuoitoidaSelect" name="songuoitoida" required="required" class="form-control select2 js-form-select">
+                                            <option value="">Chọn số người</option>
+                                            @for (var i = 1; i <= ViewBag.songuoitoida; i++)
+                                            {
+                                                <option value="@i">@i Người</option>
+                                            }
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row" id="roomList">
+                        <!-- Danh sách phòng -->
+                    </div>
+
+                    <button id="addroom" style="margin-left:30px" type="button" class="btn btn-warning mx-4" onclick="submitAddRoomForm(event)">Thêm phòng</button>
+                    <button id="submitroom" style="display:none" class="btn btn-success mt-3 mx-4" onclick="submitBookingForm()">Đặt phòng</button>
+                </form>
+            </div>
+            <button class="btn-toggle btn btn-primary-light border-0 w-100 py-3 d-lg-none" data-target="#hotelFinder" data-toggle="collapse" aria-expanded="true" type="button"><span class="icon-bar"></span></button>
+        </div>
+    </aside>
+    <div class="col-lg-9" id="barba-wrapper">
+        <div class="barba-container">
+            <nav class="hotel-nav">
+                <ul class="hotel-nav__menu nav nav-tabs" role="tablist">
+                    <li class="nav-item d-flex col-12 col-sm p-0">
+                        <a class="nav-link active" data-toggle="tab" href="#hotel" role="tab" aria-controls="hotel" aria-selected="false"><span>Thông tin khách sạn </span></a>
+                    </li>
+                    <li class="nav-item d-flex col-12 col-sm p-0">
+                        <a class="nav-link" data-toggle="tab" href="#hotelAccommodation" role="tab" aria-controls="hotelAccommodation" aria-selected="true"><span>Điều kiện chỗ ở</span></a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="tab-content">
+                <div class="tab-pane active show" id="hotel" role="tabpanel">
+                    <section>
+                        <h3 name="tenphong" class="fw-md mb-1">@Model.TenPhong</h3>
+                        <ul class="hotel-title mb-3">
+                            <li class="d-flex">
+                                <div class="media-object"><i class="icon icon-label mr-2 text-primary"></i></div>
+                                <div class="local"><span>@Model.DiaChi</span><i class="bullet mx-2"></i></div>
+                            </li>
+                        </ul>
+                        <div class="hotel-gallery">
+                            <div class="hotel-gallery__carousel swiper-container js-hotel-carousel">
+                                <div class="swiper-wrapper">
+                                    @foreach (var i in ViewBag.anhphong)
+                                    {
+                                        <div class="swiper-slide"><img class="img-fluid img-cover" src="@Url.Content($"~/img/Images/phong/{i.TenAnh}")" alt="#" /></div>
+                                    }
+                                </div>
+                                <div class="hotel-gallery__controls"><a class="hotel-gallery__arrow shadow-sm js-prev" role="button"><i class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 44 44"><path d="M22.119 44.237C9.922 44.237 0 34.315 0 22.119S9.922.001 22.119.001s22.119 9.922 22.119 22.118-9.924 22.118-22.119 22.118zm0-42.736C10.75 1.501 1.5 10.75 1.5 22.119c0 11.368 9.25 20.618 20.619 20.618s20.619-9.25 20.619-20.618c0-11.369-9.25-20.618-20.619-20.618z" /><path d="M24.667 29.884a.74.74 0 0 1-.53-.22l-7.328-7.334a.752.752 0 0 1 0-1.061l7.328-7.333a.75.75 0 1 1 1.061 1.061L18.4 21.8l6.798 6.805a.752.752 0 0 1 0 1.061.75.75 0 0 1-.531.218z" /></svg></i></a><a class="hotel-gallery__arrow shadow-sm js-next" role="button"><i class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 44 44"><path d="M22.118 44.236C9.922 44.236 0 34.314 0 22.118S9.922 0 22.118 0s22.118 9.922 22.118 22.118-9.922 22.118-22.118 22.118zm0-42.736C10.75 1.5 1.5 10.749 1.5 22.118c0 11.368 9.25 20.618 20.618 20.618 11.37 0 20.618-9.25 20.618-20.618 0-11.369-9.248-20.618-20.618-20.618z" /><path d="M19.341 29.884a.75.75 0 0 1-.53-1.281l6.796-6.804-6.796-6.803a.75.75 0 1 1 1.061-1.061l7.325 7.333a.75.75 0 0 1 0 1.061l-7.325 7.333a.742.742 0 0 1-.531.222z" /></svg></i></a></div>
+                            </div>
+                            <div class="hotel-gallery__thumbs swiper-container js-hotel-carousel-thumbs">
+                                <div class="swiper-wrapper">
+                                    @foreach (var i in ViewBag.anhphong)
+                                    {
+                                        <div class="swiper-slide"><a class="hotel-gallery__thumb js-gallery-link" href="@Url.Content($"~/img/Images/phong/{i.TenAnh}")" data-description="Joshua Tree Homesteader Cabin"><img class="img-cover" src="@Url.Content($"~/img/Images/phong/{i.TenAnh}")" alt="#" /></a></div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-12 col-md-12 d-flex">
+                                <div class="hotel__intro hotel-card w-100">
+                                    <section class="pb-4">
+                                        <h5 class="d-flex align-items-center text-primary mb-3"><i class="icon icon-badge mr-2"></i>Một trong những khách sạn tốt nhất tại Việt Nam theo nhận xét của khách hàng</h5>
+                                        <p>@Model.MoTaPhong</p>
+                                    </section>
+                                    <section>
+                                        <h5>Dịch vụ của phòng</h5>
+                                        <ul class="hotel-facilities d-flex flex-wrap flex-column flex-md-row">
+                                            @foreach (var i in ViewBag.thietbi)
+                                            {
+                                                <li class="mr-2"><span class="align-middle mr-2">@i</span><i class="bullet d-none d-md-inline-block"></i></li>
+                                            }
+                                        </ul>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="tab-pane" id="hotelAccommodation" role="tabpanel">
+                    <section>
+                        <h3 class="fw-md">Điều kiện chỗ ở</h3>
+                        <hr class="mb-4">
+                        <div class="hotel-checklist hotel-card">
+                            <div class="row">
+                                <div class="col-12 col-sm-4">
+                                    <h5 class="title d-flex"><i class="icon icon-calendar mr-2"></i>Thời gian đến:</h5>
+                                </div>
+                                <div class="col-12 col-sm-8">
+                                    <p>Từ 12:00 giờ</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-4">
+                                    <h5 class="title d-flex"><i class="icon icon-calendar mr-2"></i>Thời gian đi:</h5>
+                                </div>
+                                <div class="col-12 col-sm-8">
+                                    <p>12:00 giờ</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-4">
+                                    <h5 class="title d-flex"><i class="icon icon-info mr-2"></i>Hủy đặt phòng / Thanh toán trước</h5>
+                                </div>
+                                <div class="col-12 col-sm-8">
+                                    <p>Chính sách hủy đặt phòng và thanh toán trước có thể thay đổi tùy theo loại phòng. <a href="#">Vui lòng nhập ngày lưu trú của bạn </a>và đọc điều kiện đặt phòng cho phòng yêu cầu.</p>
+                                    <p> Bạn có thể hủy đặt phòng trước 2 ngày nhận phòng.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-4">
+                                    <h5 class="title d-flex"><i class="icon icon-family mr-2"></i>Chỗ ở cho trẻ em</h5>
+                                </div>
+                                <div class="col-12 col-sm-8">
+                                    <p>Tất cả trẻ em đều được chào đón.</p>
+                                    <p><span class="mark bg-primary-light"><span class="bold">Miễn phí!  </span>Trẻ em dưới 2 tuổi được ở miễn phí .</span></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-4">
+                                    <h5 class="title d-flex"><i class="icon icon-pets mr-2"></i>Thú cưng</h5>
+                                </div>
+                                <div class="col-12 col-sm-8">
+                                    <p>Thú cưng được phép nếu được yêu cầu. Dịch vụ này có thể phải trả phí.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-4">
+                                    <h5 class="title d-flex"><i class="icon icon-credits mr-2"></i>Phương thức thanh toán được chấp nhận</h5>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-8">
+                                <ul class="hotel-checklist__payment">
+                                    <li class="d-inline-block mr-2 mb-2"><img src="~/img/american-express.jpg" alt="american-express"></li>
+                                    <li class="d-inline-block mr-2 mb-2"><img src="~/img/visa.jpg" alt="visa"></li>
+                                    <li class="d-inline-block mr-2 mb-2"><img src="~/img/master-card.jpg" alt="master-card"></li>
+                                    <li class="d-inline-block mr-2 mb-2"><img src="~/img/maestro.jpg" alt="maestro"></li>
+                                    <li class="d-inline-block mr-2 mb-2"><img src="~/img/discover.jpg" alt="discover"></li>
+                                </ul>
+                            </div>
+                        </div>
+                </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="~/lib/microsoft-signalr/signalr.js"></script>
+
+
+
+<script>
+    // Định nghĩa biến specialDates ở phạm vi toàn cục và khởi tạo là một mảng rỗng
+    var specialDates = [
+    @foreach (var ngay in ViewBag.NgayDaDat)
+    {
+        <text>new Date('@ngay.ToString("yyyy-MM-dd")'), </text>
+    }
+    ];
+
+    $(document).ready(function () {
+        console.log("Ngay da dat:", specialDates);
+        var today = new Date();
+        var tomorrow = new Date(today);
+        tomorrow.setDate(today.getDate() + 1);
+
+        $("#hotelInDate").datepicker({
+            dateFormat: "yy-mm-dd",
+            minDate: tomorrow,
+            beforeShowDay: function (date) {
+                // Chuyển định dạng ngày để so sánh
+                var dateString = date.toDateString();
+
+                // Kiểm tra xem ngày hiện tại có trong danh sách các ngày đã đặt (specialDates)
+                if (specialDates.some(function (specialDate) {
+                    return specialDate.toDateString() === dateString;
+                })) {
+                    // Ngày đã đặt, vô hiệu hóa ngày này và hiển thị màu đỏ
+                    return [false, 'booked-date', 'Ngày đã được đặt'];
+                }
+
+                // Nếu không phải là ngày đặc biệt, trả về mặc định
+                return [true, '', ''];
+            },
+            onSelect: function (selectedDate) {
+                var selected = new Date(selectedDate);
+                if (specialDates.some(function (specialDate) {
+                    return specialDate.toDateString() === selected.toDateString();
+                })) {
+                    alert('Ngày này đã có người đặt phòng, vui lòng chọn ngày khác.');
+                    $("#hotelInDate, #hotelOutDate").val("");
+                }
+                // Thiết lập ngày checkout để không thể nhỏ hơn ngày checkin
+                $("#hotelOutDate").datepicker("option", "minDate", selectedDate);
+            }
+        });
+
+        $("#hotelOutDate").datepicker({
+            dateFormat: "yy-mm-dd",
+            minDate: tomorrow,
+            beforeShowDay: function (date) {
+                var dateString = date.toDateString();
+
+                if (specialDates.some(function (specialDate) {
+                    return specialDate.toDateString() === dateString;
+                })) {
+                    // Ngày đã đặt, vô hiệu hóa ngày này và hiển thị màu đỏ
+                    return [false, 'booked-date', 'Ngày đã được đặt'];
+                }
+
+                return [true, '', ''];
+            },
+            onSelect: function (selectedDate) {
+                var selected = new Date(selectedDate);
+                if (specialDates.some(function (specialDate) {
+                    return specialDate.toDateString() === selected.toDateString();
+                })) {
+                    alert('Ngày này đã có người đặt phòng, vui lòng chọn ngày khác.');
+                    $("#hotelInDate, #hotelOutDate").val("");
+                }
+            },
+            beforeShow: function (input, inst) {
+                var checkInDate = $("#hotelInDate").datepicker("getDate");
+                if (checkInDate) {
+                    // Lọc các ngày đã đặt phòng sau ngày check-in
+                    var bookedDatesAfterCheckIn = specialDates.filter(function (specialDate) {
+                        return specialDate > checkInDate;
+                    });
+
+                    // Nếu có ngày đã đặt phòng sau ngày check-in, cập nhật maxDate
+                    if (bookedDatesAfterCheckIn.length > 0) {
+                        $("#hotelOutDate").datepicker("option", "maxDate", new Date(bookedDatesAfterCheckIn[0].getTime() - 86400000));
+                    } else {
+                        // Nếu không có ngày đã đặt phòng sau ngày check-in, cho phép chọn bất kỳ ngày
+                        $("#hotelOutDate").datepicker("option", "maxDate", null);
+                    }
+                } else {
+                    // Nếu chưa có ngày check-in, cho phép chọn bất kỳ ngày
+                    $("#hotelOutDate").datepicker("option", "maxDate", null);
+                }
+            }
+        });
+
+        // Khởi tạo kết nối SignalR
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/stock-hub")
+            .configureLogging(signalR.LogLevel.Information)
+            .build();
+
+        connection.start().then(function () {
+            console.log("SignalR Connected 1!");
+        }).catch(function (err) {
+            return console.error(err.toString());
+        });
+
+        connection.on("ReceiveReview", function (datphong) {
+            console.log(datphong);
+            // Thêm ngày mới đã đặt vào danh sách specialDates
+            specialDates.push(new Date(datphong));
+            // Cập nhật lại giao diện người dùng
+            // Cập nhật lại lịch cho #hotelInDate
+            $("#hotelInDate").datepicker("refresh");
+            // Cập nhật lại lịch cho #hotelOutDate
+            $("#hotelOutDate").datepicker("refresh");
+
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var mySwiper = new Swiper('.js-hotel-carousel', {
+            navigation: {
+                nextEl: '.js-next',
+                prevEl: '.js-prev',
+            },
+            loop: false, // Đảm bảo loop là false
+        });
+    });
+</script>
+<script>
+    function submitForm() {
+        var ngayden = document.getElementById("hotelInDate").value;
+        var ngaydi = document.getElementById("hotelOutDate").value;
+
+        var songuoitoida = document.getElementById("songuoitoidaSelect").value
+        if (!ngayden || !ngaydi) {
+            alert("Vui lòng nhập đầy đủ ngày check in và check out.");
+            return false;
+        }
+        if (!songuoitoida) {
+            alert("Vui lòng chọn số lượng khách.");
+            return false;
+        }
+        if(ngayden == ngaydi{
+            alert("Ngày đến ngày đi không được trùng nhau!");
+            return false;
+        }
+        
+        var bookedDates = [];
+        for (var i = 0; i < specialDates.length; i++) {
+            var bookedDate = new Date(specialDates[i]);
+            if (ngayden.getTime() === bookedDate.getTime() || ngaydi.getTime() === bookedDate.getTime()) {
+                bookedDates.push(bookedDate.toLocaleDateString()); // Thêm ngày đã trùng khớp vào mảng
+            }
+        }
+
+        if (bookedDates.length > 0) {
+            // Nếu có các ngày trùng khớp, hiển thị thông báo
+            alert("Ngày bạn chọn đã được đặt: " + bookedDates.join(", ") + ". Vui lòng chọn ngày khác.");
+            return false;
+        }
+        document.getElementById("bookingForm").action = "/Room/Booking?maphong=@Model.MaPhong&ngayden=" + ngayden + "&ngaydi=" + ngaydi + "&songuoitoida=" + songuoitoida;
+        document.getElementById("bookingForm").submit();
+    }
+</script>
+<script>
+    function submitAddRoomForm(event) {
+        event.preventDefault();  // Ngăn chặn form submit mặc định
+
+        // Lấy form theo ID
+        var form = document.getElementById("bookingForm");
+
+        // Gửi request dưới dạng AJAX để tránh reload trang
+        var formData = new FormData(form);
+
+        // Tạo request để gửi dữ liệu
+        fetch('/Room/AddRoomToBooking', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Phòng đã được thêm vào danh sách đặt phòng!");
+                    document.getElementById('submitroom').style.display = 'inline-block';
+                    // Bạn có thể cập nhật giao diện hoặc reset form nếu cần
+                } else {
+                    alert("Có lỗi xảy ra khi thêm phòng: " + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("Có lỗi xảy ra khi gửi dữ liệu.");
+            });
+    }
+    function submitBookingForm() {
+        // Gửi form chính chứa thông tin đặt phòng (giả sử form có id="bookingForm")
+        var form = document.getElementById("bookingForm");
+
+        // Kiểm tra form validation trước khi gửi
+        if (form.checkValidity()) {
+            form.submit(); // Gửi form nếu thông tin hợp lệ
+        } else {
+            alert("Vui lòng điền đầy đủ thông tin trước khi đặt phòng.");
+        }
+    }
+</script>
+<script>
+    window.onload = function () {
+        // Kiểm tra xem ViewBag.SelectedRooms có giá trị hay không
+        var selectedRooms = '@(ViewBag.SelectedRooms)';
+
+        if (selectedRooms && selectedRooms.length > 0) {
+            // Hiển thị nút "Đặt phòng" nếu SelectedRooms có giá trị
+            document.getElementById('submitroom').style.display = 'inline-block';
+        }
+    };
+</script>

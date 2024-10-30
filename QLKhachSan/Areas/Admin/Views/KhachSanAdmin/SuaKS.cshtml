@@ -1,0 +1,142 @@
+﻿@model QLKhachSan.ViewModels.KhachSanVM
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "SuaKS";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 style="color: dimgray;" class="text-center mb-4">Cập nhật khách sạn</h2>
+<div class="card-body">
+    <div class="basic-form">
+        <form id="updateHotelForm" method="post" asp-action="SuaKS" enctype="multipart/form-data">
+            <div class="text-danger">@TempData["Message"]</div>
+            <div class="mb-3">
+                <input hidden type="text" class="form-control" name="MaKS" value="@Model.MaKS" readonly>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Tên khách sạn<span class="text-danger">(*)</span></label>
+                <input asp-for="TenKS" type="text" class="form-control" required name="TenKS" placeholder="Tên khách sạn ..">
+                <span class="text-danger" id="TenKSValidation"></span>
+            </div>
+            <div class="mb-3 row">
+                <label class="form-label text-dark">Địa chỉ<span class="text-danger">(*)</span></label>
+                <select class="form-control col-4 mt-3" name="TenTinh" id="city">
+                    <option value="" selected>Chọn tỉnh thành</option>
+                </select>
+                <select class="form-control col-4 mt-3" name="TenHuyen" id="district">
+                    <option value="" selected>Chọn quận huyện</option>
+                </select>
+                <select class="form-control col-4 mt-3" name="TenXa" id="ward">
+                    <option value="" selected>Chọn phường xã</option>
+                </select>
+                <span class="text-danger" id="addressValidation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Địa chỉ cụ thể<span class="text-danger">(*)</span></label>
+                <input asp-for="DiaChi" class="form-control form-control" name="DiaChi" id="DiaChi" required type="text" placeholder="Nhập địa chỉ cụ thể ..">
+                <span class="text-danger" id="DiaChiValidation"></span>
+            </div>
+            <div class="mb-3">
+                <label for="formFileSm" class="form-label">Ảnh đại diện</label>
+                <input asp-for="Anh" class="form-control form-control-sm" name="Anh" id="formFileSm" type="file">
+                <span class="text-danger" id="AnhValidation"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mô tả<span class="text-danger">(*)</span></label>
+                <textarea asp-for="Mota" class="form-control" rows="8" name="MoTa" id="comment" required placeholder="Mô tả về khách sạn .."></textarea>
+                <span class="text-danger" id="MotaValidation"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Lưu</button>
+        </form>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script>
+    var citis = document.getElementById("city");
+    var districts = document.getElementById("district");
+    var wards = document.getElementById("ward");
+    var Parameter = {
+        url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+        method: "GET",
+        responseType: "application/json",
+    };
+    var promise = axios(Parameter);
+    promise.then(function (result) {
+        renderCity(result.data);
+    });
+
+    function renderCity(data) {
+        for (const x of data) {
+            var opt = document.createElement('option');
+            opt.value = x.Name;
+            opt.text = x.Name;
+            opt.setAttribute('data-id', x.Id);
+            citis.options.add(opt);
+        }
+        citis.onchange = function () {
+            district.length = 1;
+            ward.length = 1;
+            if (this.options[this.selectedIndex].dataset.id != "") {
+                const result = data.filter(n => n.Id === this.options[this.selectedIndex].dataset.id);
+
+                for (const k of result[0].Districts) {
+                    var opt = document.createElement('option');
+                    opt.value = k.Name;
+                    opt.text = k.Name;
+                    opt.setAttribute('data-id', k.Id);
+                    district.options.add(opt);
+                }
+            }
+        };
+        district.onchange = function () {
+            ward.length = 1;
+            const dataCity = data.filter((n) => n.Id === citis.options[citis.selectedIndex].dataset.id);
+            if (this.options[this.selectedIndex].dataset.id != "") {
+                const dataWards = dataCity[0].Districts.filter(n => n.Id === this.options[this.selectedIndex].dataset.id)[0].Wards;
+
+                for (const w of dataWards) {
+                    var opt = document.createElement('option');
+                    opt.value = w.Name;
+                    opt.text = w.Name;
+                    opt.setAttribute('data-id', w.Id);
+                    wards.options.add(opt);
+                }
+            }
+        };
+    }
+
+    document.getElementById("updateHotelForm").addEventListener("submit", function (event) {
+        var isValid = true;
+
+        // Validate Địa chỉ
+        var tenTinh = document.getElementById("city").value;
+        var tenHuyen = document.getElementById("district").value;
+        var tenXa = document.getElementById("ward").value;
+        if (tenTinh === "" || tenHuyen === "" || tenXa === "") {
+            document.getElementById("addressValidation").innerText = "Vui lòng chọn đầy đủ Tỉnh, Huyện và Xã.";
+            isValid = false;
+        } else {
+            document.getElementById("addressValidation").innerText = "";
+        }
+
+        // var anhInput = document.getElementById("formFileSm");
+        // var anhFiles = anhInput.files;
+        // if (anhFiles.length === 0) {
+        //     document.getElementById("AnhValidation").innerText = "Vui lòng chọn ảnh đại diện.";
+        //     isValid = false;
+        // } else {
+        //     // Validate file type
+        //     var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+        //     for (var i = 0; i < anhFiles.length; i++) {
+        //         if (!allowedExtensions.exec(anhFiles[i].name)) {
+        //             document.getElementById("AnhValidation").innerText = "Vui lòng chọn file ảnh có định dạng JPG, JPEG, PNG hoặc GIF.";
+        //             isValid = false;
+        //             break;
+        //         }
+        //     }
+        // }
+
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+</script>
