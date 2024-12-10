@@ -238,13 +238,14 @@ namespace QLKhachSan.Controllers
                                   join p in db.Phongs on lp.MaLp equals p.MaLp
                                   where p.MaPhong == maphong
                                   select ks.DiaChi).FirstOrDefault();
-
+                    var ngayDenFormatted = bookingModel.ngayden.AddHours(12).ToString("dd/MM/yyyy hh:mm tt", CultureInfo.InvariantCulture);
+                    var ngayDiFormatted = bookingModel.ngaydi.AddHours(12).ToString("dd/MM/yyyy hh:mm tt", CultureInfo.InvariantCulture);
                     strSanPham += $@"
         <tr>
             <td style='border: 1px solid #ddd; padding: 8px;'>{tenks}</td>
             <td style='border: 1px solid #ddd; padding: 8px;'>{bookingModel.tenphong}</td>
-            <td style='border: 1px solid #ddd; padding: 8px;'>{bookingModel.ngayden}</td>
-            <td style='border: 1px solid #ddd; padding: 8px;'>{bookingModel.ngaydi}</td>
+            <td style='border: 1px solid #ddd; padding: 8px;'>{ngayDenFormatted}</td>
+            <td style='border: 1px solid #ddd; padding: 8px;'>{ngayDiFormatted}</td>
             <td style='border: 1px solid #ddd; padding: 8px;'>{bookingModel.songuoitoida}</td>
             <td style='border: 1px solid #ddd; padding: 8px;'>{diachi}</td>";
 
@@ -298,7 +299,7 @@ namespace QLKhachSan.Controllers
             var smtpClient = new SmtpClient("smtp.gmail.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("vudinhduy3012003@gmail.com", ""),
+                Credentials = new NetworkCredential("vudinhduy3012003@gmail.com", "yhifkumtzgqnbblm"),
                 EnableSsl = true,
             };
             var fromAddress = new MailAddress("vudinhduy3012003@gmail.com", "Hotel");
@@ -454,6 +455,7 @@ namespace QLKhachSan.Controllers
             }
             // Truyền danh sách phòng vào View
             HttpContext.Session.Remove("SelectedRooms");
+            HttpContext.Session.Remove("SentMail");
             return View("ConfirmBooking", selectedRooms);
         }
         #endregion

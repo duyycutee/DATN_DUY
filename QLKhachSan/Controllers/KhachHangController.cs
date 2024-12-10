@@ -52,7 +52,7 @@ namespace QLKhachSan.Controllers
             var smtpClient = new SmtpClient("smtp.gmail.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("vudinhduy3012003@gmail.com", ""),
+                Credentials = new NetworkCredential("vudinhduy3012003@gmail.com", "yhifkumtzgqnbblm"),
                 EnableSsl = true,
             };
             var mailMessage = new MailMessage(fromAddress, toAddress)
@@ -295,7 +295,7 @@ namespace QLKhachSan.Controllers
                 var smtpClient = new SmtpClient("smtp.gmail.com")
                 {
                     Port = 587,
-                    Credentials = new NetworkCredential("vudinhduy3012003@gmail.com", ""),
+                    Credentials = new NetworkCredential("vudinhduy3012003@gmail.com", "yhifkumtzgqnbblm"),
                     EnableSsl = true,
 
                 };
